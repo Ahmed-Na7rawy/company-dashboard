@@ -1,0 +1,50 @@
+{
+  "Sodium Tripolyphosphate": {
+    "forecast90D": 7200,
+    "historicalAvg": 6800,
+    "confidence": "High (94%)",
+    "seasonalityFactor": 1.05
+  },
+  "Carrageenan": {
+    "forecast90D": 5400,
+    "historicalAvg": 4500,
+    "confidence": "High (91%)",
+    "seasonalityFactor": 1.20
+  },
+  "Guar Gum": {
+    "forecast90D": 8100,
+    "historicalAvg": 7800,
+    "confidence": "Medium (88%)",
+    "seasonalityFactor": 1.03
+  },
+  "Sodium Nitrite": {
+    "forecast90D": 3900,
+    "historicalAvg": 3800,
+    "confidence": "Medium (85%)",
+    "seasonalityFactor": 1.02
+  },
+  "Ascorbic Acid": {
+    "forecast90D": 5800,
+    "historicalAvg": 5200,
+    "confidence": "High (93%)",
+    "seasonalityFactor": 1.11
+  },
+  "Xanthan Gum": {
+    "forecast90D": 4900,
+    "historicalAvg": 4200,
+    "confidence": "High (90%)",
+    "seasonalityFactor": 1.16
+  },
+  "Soy Protein": {
+    "forecast90D": 7200,
+    "historicalAvg": 6900,
+    "confidence": "Medium (86%)",
+    "seasonalityFactor": 1.04
+  },
+  "Potato Starch": {
+    "forecast90D": 11200,
+    "historicalAvg": 10500,
+    "confidence": "High (95%)",
+    "seasonalityFactor": 1.06
+  }
+}
