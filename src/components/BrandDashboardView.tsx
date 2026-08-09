@@ -300,11 +300,12 @@ function BrandDashboardView({
   // Get active datasets
   const activeMetrics = useMemo(() => {
     if (!brandData) return null;
-    const yk = brandData.nova_koffi.filters[filterKey];
-    const yf = brandData.nova_frappit.filters[filterKey];
-    const ys = brandData.nova_smoozy.filters[filterKey];
-    const sq = brandData.zenith.filters[filterKey];
-    const yc = brandData.nova_combined.filters[filterKey];
+    const defaultData = { metrics: { revenue: 0, qty: 0, return_rate: 0 } };
+    const yk = brandData?.nova_koffi?.filters?.[filterKey] || defaultData;
+    const yf = brandData?.nova_frappit?.filters?.[filterKey] || defaultData;
+    const ys = brandData?.nova_smoozy?.filters?.[filterKey] || defaultData;
+    const sq = brandData?.zenith?.filters?.[filterKey] || defaultData;
+    const yc = brandData?.nova_combined?.filters?.[filterKey] || defaultData;
 
     // Zenith Top Selling SKU extraction
     let sqTopSKU = "-";
@@ -463,12 +464,12 @@ function BrandDashboardView({
 
   const novaQuarterly = useMemo(() => {
     if (!brandData) return [];
-    return getQuarterlyComparisonData(brandData.nova_combined.quarterly_comparison);
+    return getQuarterlyComparisonData(brandData?.nova_combined?.quarterly_comparison);
   }, [brandData, chartDisplayMode]);
 
   const zenithQuarterly = useMemo(() => {
     if (!brandData) return [];
-    return getQuarterlyComparisonData(brandData.zenith.quarterly_comparison);
+    return getQuarterlyComparisonData(brandData?.zenith?.quarterly_comparison);
   }, [brandData, chartDisplayMode]);
 
   const novaQuarterlyTotal = useMemo(() => {

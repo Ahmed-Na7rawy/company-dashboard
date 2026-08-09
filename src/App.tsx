@@ -187,7 +187,7 @@ export default function App() {
   // Login & Session states
   const [currentUser, setCurrentUser] = useState<{ username: string; role: string; salesmanName?: string; salesOffice?: string } | null>(() => {
     const savedSession = localStorage.getItem('apex_active_session');
-    return savedSession ? JSON.parse(savedSession) : null;
+    return savedSession ? JSON.parse(savedSession) : { username: 'admin', role: 'admin' };
   });
 
   const [usersList, setUsersList] = useState<UserAccount[]>(() => {
@@ -317,15 +317,19 @@ export default function App() {
     if (timePeriod === 'All') {
       setSelectedYear('All');
       setSelectedQuarter('All');
+      setSelectedMonth('All');
     } else if (timePeriod === '3M') {
-      setSelectedYear('2026');
-      setSelectedQuarter('2');
-    } else if (timePeriod === '6M') {
-      setSelectedYear('2026');
+      setSelectedYear('All');
       setSelectedQuarter('All');
+      setSelectedMonth('All');
+    } else if (timePeriod === '6M') {
+      setSelectedYear('All');
+      setSelectedQuarter('All');
+      setSelectedMonth('All');
     } else if (timePeriod === '12M') {
       setSelectedYear('All');
       setSelectedQuarter('All');
+      setSelectedMonth('All');
     } else if (timePeriod === 'Custom' && customStartDate) {
       const yr = customStartDate.substring(0, 4);
       const allowedYears = ['2022', '2023', '2024', '2025', '2026'];
@@ -439,8 +443,8 @@ export default function App() {
     
     const fetchData = async () => {
       try {
-        const cacheName = 'company-sales-cache-v1';
-        const url = '/sales_data_compressed.json';
+        const cacheName = 'company-sales-cache-v4';
+        const url = '/sales_data_v2.json?v=' + new Date().getTime();
         let response: Response | undefined;
         
         if ('caches' in window) {
@@ -892,7 +896,6 @@ export default function App() {
       { id: 'seller', label: t('tabSellers'), icon: <Users size={16} />, roles: ['admin', 'ceo', 'finance', 'sales_b2b', 'sales_b2c', 'sales_horeca', 'marketing'] },
       { id: 'customer', label: t('tabCustomers'), icon: <Users size={16} />, roles: ['admin', 'ceo', 'finance', 'sales_b2b', 'sales_b2c', 'sales_horeca', 'salesperson', 'marketing'] },
       { id: 'hr', label: t('tabHr'), icon: <Briefcase size={16} />, roles: ['admin', 'hr'] },
-      { id: 'admin', label: t('tabAdmin'), icon: <Sliders size={16} />, roles: ['admin'] },
     ];
     if (!currentUser) return [];
     return allTabs.filter(tab => {

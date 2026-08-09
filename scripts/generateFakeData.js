@@ -14,7 +14,8 @@ const salesOffices = [
   'LG Office',
   'E-Commerce',
   'Horeca Team',
-  'Apex HQ'
+  'Apex HQ',
+  'Digital Marketing'
 ];
 
 const segments = [
@@ -49,7 +50,7 @@ const billTypes = [
 const uoms = ['Cartons', 'Units', 'Boxes', 'Pallets'];
 
 // Generate 50 realistic products with category groupings
-const productCatalog = Array.from({ length: 50 }, () => {
+const productCatalog = Array.from({ length: 46 }, () => {
   const group = faker.helpers.arrayElement(itemGroups);
   return {
     name: `${faker.commerce.productAdjective()} ${faker.commerce.product()}`,
@@ -58,6 +59,13 @@ const productCatalog = Array.from({ length: 50 }, () => {
     basePrice: parseFloat(faker.commerce.price({ min: 120, max: 3200, dec: 2 })),
   };
 });
+
+productCatalog.push(
+  { name: 'Sweet & Slim Stevia', code: 'VS-001', group: 'Pantry Essentials', basePrice: 150 },
+  { name: 'Sweet & Slim Mints', code: 'VS-002', group: 'Confectionery & Sweets', basePrice: 45 },
+  { name: 'Sweet & Slim Syrup', code: 'VS-003', group: 'Beverages & Juices', basePrice: 120 },
+  { name: 'Sweet & Slim Tabletop', code: 'VS-004', group: 'Pantry Essentials', basePrice: 90 }
+);
 
 // Generate 150 realistic corporate customer accounts
 const customerCatalog = Array.from({ length: 150 }, () => ({
@@ -177,16 +185,8 @@ fs.writeFileSync(publicDataPath, JSON.stringify(fakeDataset, null, 2));
 const srcSalesDataPath = path.join(process.cwd(), 'src', 'data', 'sales_data.json');
 fs.writeFileSync(srcSalesDataPath, JSON.stringify(fakeDataset));
 
-// Save to public/sales_data_compressed.json
-const compressedPath = path.join(process.cwd(), 'public', 'sales_data_compressed.json');
+// Save to public/sales_data_v2.json
+const compressedPath = path.join(process.cwd(), 'public', 'sales_data_v2.json');
 fs.writeFileSync(compressedPath, JSON.stringify(compressedData));
-
-// Save synthetic brand data
-const brandFakeData = generateSyntheticTransactions(2000);
-const brandPath = path.join(process.cwd(), 'public', 'brand_sales_data.json');
-fs.writeFileSync(brandPath, JSON.stringify(brandFakeData));
-
-const srcBrandPath = path.join(process.cwd(), 'src', 'data', 'nova_zenith_sales_data.json');
-fs.writeFileSync(srcBrandPath, JSON.stringify(brandFakeData));
 
 console.log(`✅ All anonymized synthetic datasets generated successfully! (${fakeDataset.length} rows written across all data targets)`);

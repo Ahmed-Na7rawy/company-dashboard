@@ -430,7 +430,7 @@ function CustomerProfilesView({
 
     const data = [
       {
-        type: 'scattergl',
+        type: 'scatter',
         x: healthyX,
         y: healthyY,
         mode: 'markers',
@@ -444,7 +444,7 @@ function CustomerProfilesView({
         }
       },
       {
-        type: 'scattergl',
+        type: 'scatter',
         x: warningX,
         y: warningY,
         mode: 'markers',
@@ -458,7 +458,7 @@ function CustomerProfilesView({
         }
       },
       {
-        type: 'scattergl',
+        type: 'scatter',
         x: criticalX,
         y: criticalY,
         mode: 'markers',

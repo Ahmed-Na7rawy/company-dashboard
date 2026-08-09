@@ -179,7 +179,7 @@ export function useMultiComparison(
       };
     });
     return obj;
-  }, [names.join(','), configs, toggle, setType, setQuarter, setCustom, reset, initialEnabled]);
+  }, [names, configs, toggle, setType, setQuarter, setCustom, reset, initialEnabled]);
 
   return comparisons;
 }

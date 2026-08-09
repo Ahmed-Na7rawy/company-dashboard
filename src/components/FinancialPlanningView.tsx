@@ -159,7 +159,7 @@ function FinancialPlanningView({
     const costToServeInbound = (totalReturnQty / (totalGrossQty || 1)) * 100 * 2.5; // inefficiency score
 
     return {
-      marginPercent: Math.min(60, Math.max(0, trueNetMarginPercent)),
+      marginPercent: Math.min(60, Math.max(0, finalMargin)),
       projectedCashInflow,
       costToServeScore: parseFloat(Math.min(25, costToServeInbound).toFixed(1)),
       workingCapitalIndex: parseFloat((95 - costToServeInbound).toFixed(0)), // Health indicator out of 100
