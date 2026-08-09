@@ -186,7 +186,7 @@ const brandFakeData = generateSyntheticTransactions(2000);
 const brandPath = path.join(process.cwd(), 'public', 'brand_sales_data.json');
 fs.writeFileSync(brandPath, JSON.stringify(brandFakeData));
 
-const srcBrandPath = path.join(process.cwd(), 'src', 'data', 'yalla_squeasy_sales_data.json');
+const srcBrandPath = path.join(process.cwd(), 'src', 'data', 'nova_zenith_sales_data.json');
 fs.writeFileSync(srcBrandPath, JSON.stringify(brandFakeData));
 
 console.log(`✅ All anonymized synthetic datasets generated successfully! (${fakeDataset.length} rows written across all data targets)`);

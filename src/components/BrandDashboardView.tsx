@@ -10,24 +10,24 @@ import {
 } from 'recharts';
 import CompetitorAnalysisView from './CompetitorAnalysisView';
 import { useScaleMode } from '../hooks/useScaleMode';
-import yallaSqueasySalesDataRaw from '../data/yalla_squeasy_sales_data.json';
+import novaZenithSalesDataRaw from '../data/nova_zenith_sales_data.json';
 
-const brandData = yallaSqueasySalesDataRaw as Record<string, any>;
+const brandData = novaZenithSalesDataRaw as Record<string, any>;
 
 // Translations
 const translations = {
   en: {
     brandDashboard: "Brand Intelligence Dashboard",
-    brandSubtitle: "Yalla & Squeezy B2C Analytics & Competitive Intelligence",
+    brandSubtitle: "Nova & Zenith B2C Analytics & Competitive Intelligence",
     globalFilters: "Global Filters",
     year: "Year",
     quarter: "Quarter",
     allYears: "All Years",
     allQuarters: "All Quarters",
-    yallaSales: "Yalla Sales",
-    yallaMarketing: "Yalla Market Intelligence",
-    squeasySales: "Squeasy Sales",
-    squeasyMarketing: "Squeasy Market Intelligence",
+    novaSales: "Nova Sales",
+    novaMarketing: "Nova Market Intelligence",
+    zenithSales: "Zenith Sales",
+    zenithMarketing: "Zenith Market Intelligence",
     revenue: "Net Revenue",
     volumeSold: "Volume Sold",
     returnRate: "Return Rate",
@@ -84,10 +84,10 @@ const translations = {
     leader: "Leader",
     otherProducts: "Other Products",
     selectDivision: "Select Division",
-    combinedYallaGroup: "Combined Yalla Group",
-    yallaKoffee: "Yalla Koffee",
-    yallaFrappitt: "Yalla Frappitt",
-    yallaSmoozy: "Yalla Smoozy",
+    combinedNovaGroup: "Combined Nova Group",
+    novaKoffee: "Nova Koffee",
+    novaFrappitt: "Nova Frappitt",
+    novaSmoozy: "Nova Smoozy",
     select: "Select All",
     deselect: "Deselect All",
     repsTotal: "Total Net Sales",
@@ -95,16 +95,16 @@ const translations = {
   },
   ar: {
     brandDashboard: "لوحة تحكم ذكاء العلامة التجارية",
-    brandSubtitle: "تحليلات B2C لـ Yalla و Squeezy والذكاء التنافسي",
+    brandSubtitle: "تحليلات B2C لـ Nova و Zenith والذكاء التنافسي",
     globalFilters: "الفلاتر العامة",
     year: "السنة",
     quarter: "الربع",
     allYears: "جميع السنوات",
     allQuarters: "جميع الأرباع",
-    yallaSales: "مبيعات يالا",
-    yallaMarketing: "تسويق يالا",
-    squeasySales: "مبيعات سكويزي",
-    squeasyMarketing: "تسويق سكويزي",
+    novaSales: "مبيعات يالا",
+    novaMarketing: "تسويق يالا",
+    zenithSales: "مبيعات سكويزي",
+    zenithMarketing: "تسويق سكويزي",
     revenue: "صافي الإيرادات",
     volumeSold: "الكمية المباعة",
     returnRate: "معدل المرتجعات",
@@ -161,10 +161,10 @@ const translations = {
     leader: "رائد المبيعات",
     otherProducts: "منتجات أخرى",
     selectDivision: "اختر القسم",
-    combinedYallaGroup: "مجموعة يالا المشتركة",
-    yallaKoffee: "يالا كوفي",
-    yallaFrappitt: "يالا فرابيت",
-    yallaSmoozy: "يالا سموزي",
+    combinedNovaGroup: "مجموعة يالا المشتركة",
+    novaKoffee: "يالا كوفي",
+    novaFrappitt: "يالا فرابيت",
+    novaSmoozy: "يالا سموزي",
     select: "تحديد الكل",
     deselect: "إلغاء تحديد الكل",
     repsTotal: "إجمالي المبيعات الصافية",
@@ -209,7 +209,7 @@ function BrandDashboardView({
   const isEn = language === 'en';
   const scaleMode = useScaleMode();
 
-  const [activeTab, setActiveTab] = useState<string>("yalla-sales");
+  const [activeTab, setActiveTab] = useState<string>("nova-sales");
 
   // Dynamic filterKey based on parent global time filters or local selectors
   const filterKey = useMemo(() => {
@@ -217,19 +217,19 @@ function BrandDashboardView({
   }, [selectedYear, selectedQuarter]);
 
   // Dynamic selectors
-  const [yallaRepSelect, setYallaRepSelect] = useState<string>("yalla_combined");
-  const [yallaChurnSelect, setYallaChurnSelect] = useState<string>("yalla_koffi");
+  const [novaRepSelect, setNovaRepSelect] = useState<string>("nova_combined");
+  const [novaChurnSelect, setNovaChurnSelect] = useState<string>("nova_koffi");
 
   // Local Trends line visibility filters
   const [hiddenProducts, setHiddenProducts] = useState<Record<string, boolean>>({});
 
   // Dynamic Churn table sorting
-  const [yallaSortField, setYallaSortField] = useState<string>("probability");
-  const [yallaSortAsc, setYallaSortAsc] = useState<boolean>(false);
-  const [squeasySortField, setSqueasySortField] = useState<string>("probability");
-  const [squeasySortAsc, setSqueasySortAsc] = useState<boolean>(false);
-  const [yallaChurnCount, setYallaChurnCount] = useState<number>(10);
-  const [squeasyChurnCount, setSqueasyChurnCount] = useState<number>(10);
+  const [novaSortField, setNovaSortField] = useState<string>("probability");
+  const [novaSortAsc, setNovaSortAsc] = useState<boolean>(false);
+  const [zenithSortField, setZenithSortField] = useState<string>("probability");
+  const [zenithSortAsc, setZenithSortAsc] = useState<boolean>(false);
+  const [novaChurnCount, setNovaChurnCount] = useState<number>(10);
+  const [zenithChurnCount, setZenithChurnCount] = useState<number>(10);
 
   // Format Helper functions
   const formatVal = (val: number) => {
@@ -300,13 +300,13 @@ function BrandDashboardView({
   // Get active datasets
   const activeMetrics = useMemo(() => {
     if (!brandData) return null;
-    const yk = brandData.yalla_koffi.filters[filterKey];
-    const yf = brandData.yalla_frappit.filters[filterKey];
-    const ys = brandData.yalla_smoozy.filters[filterKey];
-    const sq = brandData.squeasy.filters[filterKey];
-    const yc = brandData.yalla_combined.filters[filterKey];
+    const yk = brandData.nova_koffi.filters[filterKey];
+    const yf = brandData.nova_frappit.filters[filterKey];
+    const ys = brandData.nova_smoozy.filters[filterKey];
+    const sq = brandData.zenith.filters[filterKey];
+    const yc = brandData.nova_combined.filters[filterKey];
 
-    // Squeasy Top Selling SKU extraction
+    // Zenith Top Selling SKU extraction
     let sqTopSKU = "-";
     let sqTopSKURev = 0;
     if (sq?.product_share && sq.product_share.length > 0) {
@@ -321,13 +321,13 @@ function BrandDashboardView({
     };
   }, [brandData, filterKey]);
 
-  // Brand Revenue comparison dataset (excludes Squeezy per original specifications)
+  // Brand Revenue comparison dataset (excludes Zenith per original specifications)
   const brandComparisonData = useMemo(() => {
     if (!activeMetrics) return [];
     const rawData = [
-      { name: language === 'en' ? 'Yalla Koffee' : 'يالا كوفي', value: globalChartMetric === 'volume' ? Math.round(activeMetrics.yk.metrics.qty) : Math.round(activeMetrics.yk.metrics.revenue), fill: '#f97316' },
-      { name: language === 'en' ? 'Yalla Frappitt' : 'يالا فرابيت', value: globalChartMetric === 'volume' ? Math.round(activeMetrics.yf.metrics.qty) : Math.round(activeMetrics.yf.metrics.revenue), fill: '#eab308' },
-      { name: language === 'en' ? 'Yalla Smoozy' : 'يالا سموزي', value: globalChartMetric === 'volume' ? Math.round(activeMetrics.ys.metrics.qty) : Math.round(activeMetrics.ys.metrics.revenue), fill: '#ec4899' },
+      { name: language === 'en' ? 'Nova Koffee' : 'يالا كوفي', value: globalChartMetric === 'volume' ? Math.round(activeMetrics.yk.metrics.qty) : Math.round(activeMetrics.yk.metrics.revenue), fill: '#f97316' },
+      { name: language === 'en' ? 'Nova Frappitt' : 'يالا فرابيت', value: globalChartMetric === 'volume' ? Math.round(activeMetrics.yf.metrics.qty) : Math.round(activeMetrics.yf.metrics.revenue), fill: '#eab308' },
+      { name: language === 'en' ? 'Nova Smoozy' : 'يالا سموزي', value: globalChartMetric === 'volume' ? Math.round(activeMetrics.ys.metrics.qty) : Math.round(activeMetrics.ys.metrics.revenue), fill: '#ec4899' },
     ];
     if (chartDisplayMode === 'percent') {
       const total = rawData.reduce((acc, curr) => acc + curr.value, 0);
@@ -461,108 +461,108 @@ function BrandDashboardView({
     });
   };
 
-  const yallaQuarterly = useMemo(() => {
+  const novaQuarterly = useMemo(() => {
     if (!brandData) return [];
-    return getQuarterlyComparisonData(brandData.yalla_combined.quarterly_comparison);
+    return getQuarterlyComparisonData(brandData.nova_combined.quarterly_comparison);
   }, [brandData, chartDisplayMode]);
 
-  const squeasyQuarterly = useMemo(() => {
+  const zenithQuarterly = useMemo(() => {
     if (!brandData) return [];
-    return getQuarterlyComparisonData(brandData.squeasy.quarterly_comparison);
+    return getQuarterlyComparisonData(brandData.zenith.quarterly_comparison);
   }, [brandData, chartDisplayMode]);
 
-  const yallaQuarterlyTotal = useMemo(() => {
-    if (!brandData?.yalla_combined?.quarterly_comparison) return 0;
+  const novaQuarterlyTotal = useMemo(() => {
+    if (!brandData?.nova_combined?.quarterly_comparison) return 0;
     let sum = 0;
-    Object.values(brandData.yalla_combined.quarterly_comparison).forEach((arr: any) => {
+    Object.values(brandData.nova_combined.quarterly_comparison).forEach((arr: any) => {
       sum += arr.reduce((a: number, b: number) => a + b, 0);
     });
     return sum;
   }, [brandData]);
 
-  const squeasyQuarterlyTotal = useMemo(() => {
-    if (!brandData?.squeasy?.quarterly_comparison) return 0;
+  const zenithQuarterlyTotal = useMemo(() => {
+    if (!brandData?.zenith?.quarterly_comparison) return 0;
     let sum = 0;
-    Object.values(brandData.squeasy.quarterly_comparison).forEach((arr: any) => {
+    Object.values(brandData.zenith.quarterly_comparison).forEach((arr: any) => {
       sum += arr.reduce((a: number, b: number) => a + b, 0);
     });
     return sum;
   }, [brandData]);
 
   // Salespersons performance division switcher
-  const yallaRepsData = useMemo(() => {
+  const novaRepsData = useMemo(() => {
     if (!brandData) return [];
-    const div = brandData[yallaRepSelect]?.filters[filterKey];
+    const div = brandData[novaRepSelect]?.filters[filterKey];
     return div?.salespersons || [];
-  }, [brandData, yallaRepSelect, filterKey]);
+  }, [brandData, novaRepSelect, filterKey]);
 
-  const yallaRepsChartData = useMemo(() => {
-    return [...yallaRepsData].slice(0, 10).map(r => ({
+  const novaRepsChartData = useMemo(() => {
+    return [...novaRepsData].slice(0, 10).map(r => ({
       name: r.name,
       value: Math.round(r.revenue)
     })).reverse();
-  }, [yallaRepsData]);
+  }, [novaRepsData]);
 
-  const squeasyRepsData = useMemo(() => {
+  const zenithRepsData = useMemo(() => {
     return activeMetrics?.sq?.salespersons || [];
   }, [activeMetrics]);
 
-  const squeasyRepsChartData = useMemo(() => {
-    return [...squeasyRepsData].slice(0, 10).map(r => ({
+  const zenithRepsChartData = useMemo(() => {
+    return [...zenithRepsData].slice(0, 10).map(r => ({
       name: r.name,
       value: Math.round(r.revenue)
     })).reverse();
-  }, [squeasyRepsData]);
+  }, [zenithRepsData]);
 
   // Churn tables dynamic sorting
-  const yallaChurnDataSorted = useMemo(() => {
+  const novaChurnDataSorted = useMemo(() => {
     if (!brandData) return [];
-    const divData = brandData[yallaChurnSelect]?.filters[filterKey];
+    const divData = brandData[novaChurnSelect]?.filters[filterKey];
     if (!divData?.churn?.at_risk) return [];
 
     return [...divData.churn.at_risk].sort((a, b) => {
-      let valA = a[yallaSortField];
-      let valB = b[yallaSortField];
+      let valA = a[novaSortField];
+      let valB = b[novaSortField];
       if (typeof valA === 'string') {
         valA = valA.toLowerCase();
         valB = valB.toLowerCase();
       }
-      if (valA < valB) return yallaSortAsc ? -1 : 1;
-      if (valA > valB) return yallaSortAsc ? 1 : -1;
+      if (valA < valB) return novaSortAsc ? -1 : 1;
+      if (valA > valB) return novaSortAsc ? 1 : -1;
       return 0;
     });
-  }, [brandData, yallaChurnSelect, filterKey, yallaSortField, yallaSortAsc]);
+  }, [brandData, novaChurnSelect, filterKey, novaSortField, novaSortAsc]);
 
-  const squeasyChurnDataSorted = useMemo(() => {
+  const zenithChurnDataSorted = useMemo(() => {
     const list = activeMetrics?.sq?.churn?.at_risk || [];
     return [...list].sort((a, b) => {
-      let valA = a[squeasySortField];
-      let valB = b[squeasySortField];
+      let valA = a[zenithSortField];
+      let valB = b[zenithSortField];
       if (typeof valA === 'string') {
         valA = valA.toLowerCase();
         valB = valB.toLowerCase();
       }
-      if (valA < valB) return squeasySortAsc ? -1 : 1;
-      if (valA > valB) return squeasySortAsc ? 1 : -1;
+      if (valA < valB) return zenithSortAsc ? -1 : 1;
+      if (valA > valB) return zenithSortAsc ? 1 : -1;
       return 0;
     });
-  }, [activeMetrics, squeasySortField, squeasySortAsc]);
+  }, [activeMetrics, zenithSortField, zenithSortAsc]);
 
-  const handleYallaSort = (field: string) => {
-    if (yallaSortField === field) {
-      setYallaSortAsc(!yallaSortAsc);
+  const handleNovaSort = (field: string) => {
+    if (novaSortField === field) {
+      setNovaSortAsc(!novaSortAsc);
     } else {
-      setYallaSortField(field);
-      setYallaSortAsc(field === 'customer');
+      setNovaSortField(field);
+      setNovaSortAsc(field === 'customer');
     }
   };
 
-  const handleSqueasySort = (field: string) => {
-    if (squeasySortField === field) {
-      setSqueasySortAsc(!squeasySortAsc);
+  const handleZenithSort = (field: string) => {
+    if (zenithSortField === field) {
+      setZenithSortAsc(!zenithSortAsc);
     } else {
-      setSqueasySortField(field);
-      setSqueasySortAsc(field === 'customer');
+      setZenithSortField(field);
+      setZenithSortAsc(field === 'customer');
     }
   };
 
@@ -612,48 +612,48 @@ function BrandDashboardView({
       {/* Tabs navigation */}
       <div className="flex border-b border-slate-200 dark:border-slate-800 overflow-x-auto gap-1 text-xs no-print">
         <button
-          onClick={() => setActiveTab('yalla-sales')}
+          onClick={() => setActiveTab('nova-sales')}
           className={`px-4 py-2.5 font-extrabold border-b-2 transition-all flex items-center gap-2 ${
-            activeTab === 'yalla-sales' 
+            activeTab === 'nova-sales' 
               ? 'border-orange-500 text-orange-500' 
               : 'border-transparent text-slate-400 hover:text-slate-300'
           }`}
         >
           <Coffee size={14} />
-          {t.yallaSales}
+          {t.novaSales}
         </button>
         <button
-          onClick={() => setActiveTab('yalla-marketing')}
+          onClick={() => setActiveTab('nova-marketing')}
           className={`px-4 py-2.5 font-extrabold border-b-2 transition-all flex items-center gap-2 ${
-            activeTab === 'yalla-marketing' 
+            activeTab === 'nova-marketing' 
               ? 'border-orange-500 text-orange-500' 
               : 'border-transparent text-slate-400 hover:text-slate-300'
           }`}
         >
           <BookOpen size={14} />
-          {t.yallaMarketing}
+          {t.novaMarketing}
         </button>
         <button
-          onClick={() => setActiveTab('squeasy-sales')}
+          onClick={() => setActiveTab('zenith-sales')}
           className={`px-4 py-2.5 font-extrabold border-b-2 transition-all flex items-center gap-2 ${
-            activeTab === 'squeasy-sales' 
+            activeTab === 'zenith-sales' 
               ? 'border-violet-500 text-violet-500' 
               : 'border-transparent text-slate-400 hover:text-slate-300'
           }`}
         >
           <Boxes size={14} />
-          {t.squeasySales}
+          {t.zenithSales}
         </button>
         <button
-          onClick={() => setActiveTab('squeasy-marketing')}
+          onClick={() => setActiveTab('zenith-marketing')}
           className={`px-4 py-2.5 font-extrabold border-b-2 transition-all flex items-center gap-2 ${
-            activeTab === 'squeasy-marketing' 
+            activeTab === 'zenith-marketing' 
               ? 'border-violet-500 text-violet-500' 
               : 'border-transparent text-slate-400 hover:text-slate-300'
           }`}
         >
           <BookOpen size={14} />
-          {t.squeasyMarketing}
+          {t.zenithMarketing}
         </button>
         <button
           onClick={() => setActiveTab('competitor-insights')}
@@ -670,13 +670,13 @@ function BrandDashboardView({
 
       {/* Main content grid switch */}
       
-      {/* TAB 1: YALLA SALES */}
-      {activeTab === 'yalla-sales' && (
+      {/* TAB 1: NOVA SALES */}
+      {activeTab === 'nova-sales' && (
         <div className="space-y-6">
           {/* Metrics Overview Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-orange-500/5 border-orange-500/20' : 'bg-orange-50/20 border-orange-200'} shadow-sm relative overflow-hidden`}>
-              <span className="text-[10px] uppercase font-bold text-orange-500 tracking-wider block mb-1">{t.yallaKoffee}</span>
+              <span className="text-[10px] uppercase font-bold text-orange-500 tracking-wider block mb-1">{t.novaKoffee}</span>
               <h4 className={`text-lg font-black ${darkMode ? 'text-white' : 'text-slate-900'}`}>{formatVal(activeMetrics.yk.metrics.revenue)}</h4>
               <p className="text-[10px] text-slate-400 mt-1">{formatNum(activeMetrics.yk.metrics.qty)} {isEn ? 'Units sold' : 'وحدة مباعة'}</p>
               <div className="absolute right-4 top-4 text-xs font-black text-rose-500 bg-rose-500/10 px-2 py-0.5 rounded">
@@ -685,7 +685,7 @@ function BrandDashboardView({
             </div>
 
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-yellow-500/5 border-yellow-500/20' : 'bg-yellow-50/20 border-yellow-200'} shadow-sm relative overflow-hidden`}>
-              <span className="text-[10px] uppercase font-bold text-yellow-600 tracking-wider block mb-1">{t.yallaFrappitt}</span>
+              <span className="text-[10px] uppercase font-bold text-yellow-600 tracking-wider block mb-1">{t.novaFrappitt}</span>
               <h4 className={`text-lg font-black ${darkMode ? 'text-white' : 'text-slate-900'}`}>{formatVal(activeMetrics.yf.metrics.revenue)}</h4>
               <p className="text-[10px] text-slate-400 mt-1">{formatNum(activeMetrics.yf.metrics.qty)} {isEn ? 'Units sold' : 'وحدة مباعة'}</p>
               <div className="absolute right-4 top-4 text-xs font-black text-rose-500 bg-rose-500/10 px-2 py-0.5 rounded">
@@ -694,7 +694,7 @@ function BrandDashboardView({
             </div>
 
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-pink-500/5 border-pink-500/20' : 'bg-pink-50/20 border-pink-200'} shadow-sm relative overflow-hidden`}>
-              <span className="text-[10px] uppercase font-bold text-pink-500 tracking-wider block mb-1">{t.yallaSmoozy}</span>
+              <span className="text-[10px] uppercase font-bold text-pink-500 tracking-wider block mb-1">{t.novaSmoozy}</span>
               <h4 className={`text-lg font-black ${darkMode ? 'text-white' : 'text-slate-900'}`}>{formatVal(activeMetrics.ys.metrics.revenue)}</h4>
               <p className="text-[10px] text-slate-400 mt-1">{formatNum(activeMetrics.ys.metrics.qty)} {isEn ? 'Units sold' : 'وحدة مباعة'}</p>
               <div className="absolute right-4 top-4 text-xs font-black text-rose-500 bg-rose-500/10 px-2 py-0.5 rounded">
@@ -703,7 +703,7 @@ function BrandDashboardView({
             </div>
 
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-indigo-500/5 border-indigo-500/20' : 'bg-indigo-50/20 border-indigo-200'} shadow-sm relative overflow-hidden`}>
-              <span className="text-[10px] uppercase font-bold text-indigo-500 tracking-wider block mb-1">{t.combinedYallaGroup}</span>
+              <span className="text-[10px] uppercase font-bold text-indigo-500 tracking-wider block mb-1">{t.combinedNovaGroup}</span>
               <h4 className={`text-lg font-black ${darkMode ? 'text-white' : 'text-slate-900'}`}>{formatVal(activeMetrics.yc.metrics.revenue)}</h4>
               <p className="text-[10px] text-slate-400 mt-1">{formatNum(activeMetrics.yc.metrics.qty)} {isEn ? 'Units sold' : 'وحدة مباعة'}</p>
               <div className="absolute right-4 top-4 text-xs font-black text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded">
@@ -755,10 +755,10 @@ function BrandDashboardView({
             {/* Combined Quarterly Sales */}
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-850/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm`}>
               <h3 className="text-xs font-black uppercase tracking-wider mb-1">{t.quarterlySalesComparison}</h3>
-              <p className="text-[9px] text-slate-400 mb-4">{t.allTimeNet}: {formatVal(yallaQuarterlyTotal)}</p>
+              <p className="text-[9px] text-slate-400 mb-4">{t.allTimeNet}: {formatVal(novaQuarterlyTotal)}</p>
               <div className="h-60">
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
-                  <BarChart data={yallaQuarterly}>
+                  <BarChart data={novaQuarterly}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={darkMode ? '#334155' : '#e2e8f0'} />
                     <XAxis dataKey="year" stroke={darkMode ? '#94a3b8' : '#64748b'} fontSize={9} tickLine={false} />
                     <YAxis 
@@ -795,7 +795,7 @@ function BrandDashboardView({
           {/* Product shares grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm`}>
-              <h3 className="text-xs font-black uppercase tracking-wider mb-4">{t.yallaKoffee} — {t.productRevenueShare}</h3>
+              <h3 className="text-xs font-black uppercase tracking-wider mb-4">{t.novaKoffee} — {t.productRevenueShare}</h3>
               <div className="h-48 relative flex items-center justify-center">
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                   <PieChart>
@@ -839,7 +839,7 @@ function BrandDashboardView({
             </div>
 
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm`}>
-              <h3 className="text-xs font-black uppercase tracking-wider mb-4">{t.yallaFrappitt} — {t.productRevenueShare}</h3>
+              <h3 className="text-xs font-black uppercase tracking-wider mb-4">{t.novaFrappitt} — {t.productRevenueShare}</h3>
               <div className="h-48 relative flex items-center justify-center">
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                   <PieChart>
@@ -883,7 +883,7 @@ function BrandDashboardView({
             </div>
 
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm`}>
-              <h3 className="text-xs font-black uppercase tracking-wider mb-4">{t.yallaSmoozy} — {t.productRevenueShare}</h3>
+              <h3 className="text-xs font-black uppercase tracking-wider mb-4">{t.novaSmoozy} — {t.productRevenueShare}</h3>
               <div className="h-48 relative flex items-center justify-center">
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                   <PieChart>
@@ -932,7 +932,7 @@ function BrandDashboardView({
             {/* Koffee Trend */}
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm`}>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
-                <h3 className="text-xs font-black uppercase tracking-wider">{t.yallaKoffee}: {t.monthlyTrends}</h3>
+                <h3 className="text-xs font-black uppercase tracking-wider">{t.novaKoffee}: {t.monthlyTrends}</h3>
                 <div className="flex items-center gap-2 text-[9px] font-bold no-print">
                   <button
                     onClick={() => {
@@ -998,7 +998,7 @@ function BrandDashboardView({
             {/* Frappitt Trend */}
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm`}>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
-                <h3 className="text-xs font-black uppercase tracking-wider">{t.yallaFrappitt}: {t.monthlyTrends}</h3>
+                <h3 className="text-xs font-black uppercase tracking-wider">{t.novaFrappitt}: {t.monthlyTrends}</h3>
                 <div className="flex items-center gap-2 text-[9px] font-bold no-print">
                   <button
                     onClick={() => {
@@ -1064,7 +1064,7 @@ function BrandDashboardView({
             {/* Smoozy Trend */}
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm`}>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
-                <h3 className="text-xs font-black uppercase tracking-wider">{t.yallaSmoozy}: {t.monthlyTrends}</h3>
+                <h3 className="text-xs font-black uppercase tracking-wider">{t.novaSmoozy}: {t.monthlyTrends}</h3>
                 <div className="flex items-center gap-2 text-[9px] font-bold no-print">
                   <button
                     onClick={() => {
@@ -1131,7 +1131,7 @@ function BrandDashboardView({
           {/* Top B2C Customers */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm`}>
-              <h3 className="text-xs font-black uppercase tracking-wider mb-4">{t.topCustomers} — {t.yallaKoffee}</h3>
+              <h3 className="text-xs font-black uppercase tracking-wider mb-4">{t.topCustomers} — {t.novaKoffee}</h3>
               <div className="h-60">
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                   <BarChart data={ykCustomers} layout="vertical" margin={{ left: -10, right: 10 }}>
@@ -1146,7 +1146,7 @@ function BrandDashboardView({
             </div>
 
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm`}>
-              <h3 className="text-xs font-black uppercase tracking-wider mb-4">{t.topCustomers} — {t.yallaFrappitt}</h3>
+              <h3 className="text-xs font-black uppercase tracking-wider mb-4">{t.topCustomers} — {t.novaFrappitt}</h3>
               <div className="h-60">
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                   <BarChart data={yfCustomers} layout="vertical" margin={{ left: -10, right: 10 }}>
@@ -1161,7 +1161,7 @@ function BrandDashboardView({
             </div>
 
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm`}>
-              <h3 className="text-xs font-black uppercase tracking-wider mb-4">{t.topCustomers} — {t.yallaSmoozy}</h3>
+              <h3 className="text-xs font-black uppercase tracking-wider mb-4">{t.topCustomers} — {t.novaSmoozy}</h3>
               <div className="h-60">
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                   <BarChart data={ysCustomers} layout="vertical" margin={{ left: -10, right: 10 }}>
@@ -1182,22 +1182,22 @@ function BrandDashboardView({
               <div>
                 <h3 className="text-xs font-black uppercase tracking-wider flex items-center gap-2">
                   <Users size={15} className="text-orange-500" />
-                  <span>{t.salespersonPerformance} ({t.combinedYallaGroup})</span>
+                  <span>{t.salespersonPerformance} ({t.combinedNovaGroup})</span>
                 </h3>
               </div>
               <div className="flex items-center gap-2 text-xs">
                 <label className="text-slate-400 font-medium">{t.selectDivision}:</label>
                 <select
-                  value={yallaRepSelect}
-                  onChange={(e) => setYallaRepSelect(e.target.value)}
+                  value={novaRepSelect}
+                  onChange={(e) => setNovaRepSelect(e.target.value)}
                   className={`px-3 py-1 rounded-lg border text-[11px] font-bold ${
                     darkMode ? 'bg-slate-950 border-slate-800 text-slate-200' : 'bg-white border-slate-200 text-slate-700'
                   } outline-none focus:border-indigo-500`}
                 >
-                  <option value="yalla_combined">{t.combinedYallaGroup}</option>
-                  <option value="yalla_koffi">{t.yallaKoffee}</option>
-                  <option value="yalla_frappit">{t.yallaFrappitt}</option>
-                  <option value="yalla_smoozy">{t.yallaSmoozy}</option>
+                  <option value="nova_combined">{t.combinedNovaGroup}</option>
+                  <option value="nova_koffi">{t.novaKoffee}</option>
+                  <option value="nova_frappit">{t.novaFrappitt}</option>
+                  <option value="nova_smoozy">{t.novaSmoozy}</option>
                 </select>
               </div>
             </div>
@@ -1205,7 +1205,7 @@ function BrandDashboardView({
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div className="h-64">
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
-                  <BarChart data={yallaRepsChartData} layout="vertical" margin={{ left: -10, right: 10 }}>
+                  <BarChart data={novaRepsChartData} layout="vertical" margin={{ left: -10, right: 10 }}>
                     <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke={darkMode ? '#334155' : '#e2e8f0'} />
                     <XAxis type="number" fontSize={8} stroke={darkMode ? '#94a3b8' : '#64748b'} />
                     <YAxis dataKey="name" type="category" width={100} fontSize={8} stroke={darkMode ? '#94a3b8' : '#64748b'} />
@@ -1226,7 +1226,7 @@ function BrandDashboardView({
                     </tr>
                   </thead>
                   <tbody>
-                    {yallaRepsData.map((rep: any, idx: number) => (
+                    {novaRepsData.map((rep: any, idx: number) => (
                       <tr key={idx} className={`border-b ${darkMode ? 'border-slate-800/60' : 'border-slate-200'} hover:bg-slate-100/50`}>
                         <td className="p-2.5 font-bold">{rep.name}</td>
                         <td className="p-2.5 text-right font-semibold text-orange-500">{formatVal(rep.revenue)}</td>
@@ -1254,31 +1254,31 @@ function BrandDashboardView({
                   <input 
                     type="range" 
                     min="5" 
-                    max={Math.max(10, yallaChurnDataSorted.length)} 
-                    value={yallaChurnCount} 
-                    onChange={(e) => setYallaChurnCount(Number(e.target.value))}
+                    max={Math.max(10, novaChurnDataSorted.length)} 
+                    value={novaChurnCount} 
+                    onChange={(e) => setNovaChurnCount(Number(e.target.value))}
                     className="w-16 lg:w-20 accent-indigo-500 h-1 bg-slate-350 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer"
                   />
-                  <span className="text-indigo-500 font-extrabold text-[10px]">{yallaChurnCount}</span>
+                  <span className="text-indigo-500 font-extrabold text-[10px]">{novaChurnCount}</span>
                 </div>
                 <label className="text-slate-400 font-medium">{t.selectDivision}:</label>
                 <select
-                  value={yallaChurnSelect}
-                  onChange={(e) => setYallaChurnSelect(e.target.value)}
+                  value={novaChurnSelect}
+                  onChange={(e) => setNovaChurnSelect(e.target.value)}
                   className={`px-3 py-1 rounded-lg border text-[11px] font-bold ${
                     darkMode ? 'bg-slate-950 border-slate-800 text-slate-200' : 'bg-white border-slate-200 text-slate-700'
                   } outline-none focus:border-indigo-500`}
                 >
-                  <option value="yalla_koffi">{t.yallaKoffee}</option>
-                  <option value="yalla_frappit">{t.yallaFrappitt}</option>
-                  <option value="yalla_smoozy">{t.yallaSmoozy}</option>
+                  <option value="nova_koffi">{t.novaKoffee}</option>
+                  <option value="nova_frappit">{t.novaFrappitt}</option>
+                  <option value="nova_smoozy">{t.novaSmoozy}</option>
                 </select>
               </div>
             </div>
 
             {/* Churn Stats Cards */}
             {(() => {
-              const churn = brandData[yallaChurnSelect]?.filters[filterKey]?.churn;
+              const churn = brandData[novaChurnSelect]?.filters[filterKey]?.churn;
               if (!churn) return null;
               
               const lowPct = ((churn.summary.low / churn.summary.total_customers) * 100).toFixed(1);
@@ -1350,25 +1350,25 @@ function BrandDashboardView({
                       <table className="w-full text-left border-collapse text-xs">
                         <thead>
                           <tr className={`${darkMode ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-700'} border-b font-bold text-[10px] select-none`}>
-                            <th className="p-3 cursor-pointer" onClick={() => handleYallaSort('customer')}>
+                            <th className="p-3 cursor-pointer" onClick={() => handleNovaSort('customer')}>
                               <div className="flex items-center gap-1">
                                 <span>{t.customer}</span>
                                 <ArrowUpDown size={10} />
                               </div>
                             </th>
-                            <th className="p-3 text-right cursor-pointer" onClick={() => handleYallaSort('revenue')}>
+                            <th className="p-3 text-right cursor-pointer" onClick={() => handleNovaSort('revenue')}>
                               <div className="flex items-center justify-end gap-1">
                                 <span>{t.salesValue}</span>
                                 <ArrowUpDown size={10} />
                               </div>
                             </th>
-                            <th className="p-3 text-right cursor-pointer" onClick={() => handleYallaSort('recency')}>
+                            <th className="p-3 text-right cursor-pointer" onClick={() => handleNovaSort('recency')}>
                               <div className="flex items-center justify-end gap-1">
                                 <span>{t.recency}</span>
                                 <ArrowUpDown size={10} />
                               </div>
                             </th>
-                            <th className="p-3 text-right cursor-pointer" onClick={() => handleYallaSort('probability')}>
+                            <th className="p-3 text-right cursor-pointer" onClick={() => handleNovaSort('probability')}>
                               <div className="flex items-center justify-end gap-1">
                                 <span>{t.churnProb}</span>
                                 <ArrowUpDown size={10} />
@@ -1377,7 +1377,7 @@ function BrandDashboardView({
                           </tr>
                         </thead>
                         <tbody>
-                          {yallaChurnDataSorted.slice(0, yallaChurnCount).map((cust: any, idx: number) => {
+                          {novaChurnDataSorted.slice(0, novaChurnCount).map((cust: any, idx: number) => {
                             const badge = cust.risk === "High" ? "bg-rose-500/10 text-rose-500 border-rose-500/20" : "bg-amber-500/10 text-amber-500 border-amber-500/20";
                             return (
                               <tr key={idx} className={`border-b ${darkMode ? 'border-slate-800/60' : 'border-slate-200'} hover:bg-slate-100/50`}>
@@ -1403,14 +1403,14 @@ function BrandDashboardView({
         </div>
       )}
 
-      {/* TAB 2: YALLA MARKETING */}
-      {activeTab === 'yalla-marketing' && (
+      {/* TAB 2: NOVA MARKETING */}
+      {activeTab === 'nova-marketing' && (
         <div className="space-y-6">
           {/* Highlights grids */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm relative overflow-hidden`}>
               <div className="text-2xl font-black text-orange-500">0%</div>
-              <p className="text-[10px] text-slate-400 mt-1">Yalla Smoozy price inflation from retail to Q-commerce delivery apps.</p>
+              <p className="text-[10px] text-slate-400 mt-1">Nova Smoozy price inflation from retail to Q-commerce delivery apps.</p>
             </div>
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm relative overflow-hidden`}>
               <div className="text-2xl font-black text-rose-500">+54%</div>
@@ -1418,11 +1418,11 @@ function BrandDashboardView({
             </div>
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm relative overflow-hidden`}>
               <div className="text-2xl font-black text-yellow-500">3 / 10</div>
-              <p className="text-[10px] text-slate-400 mt-1">Yalla traditional/POS ad spend score – the key brand visibility gap.</p>
+              <p className="text-[10px] text-slate-400 mt-1">Nova traditional/POS ad spend score – the key brand visibility gap.</p>
             </div>
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm relative overflow-hidden`}>
               <div className="text-2xl font-black text-emerald-500">18 mo</div>
-              <p className="text-[10px] text-slate-400 mt-1">Yalla Smoozy dry-sachet shelf life versus Osterberg's perishability.</p>
+              <p className="text-[10px] text-slate-400 mt-1">Nova Smoozy dry-sachet shelf life versus Osterberg's perishability.</p>
             </div>
           </div>
 
@@ -1435,10 +1435,10 @@ function BrandDashboardView({
               </h3>
               <div className="text-xs leading-relaxed space-y-3 text-slate-300">
                 <p>
-                  Yalla Drinks enters an instant café category that Nescafé still dominates by sheer weight of spend, but the underlying data points to an opening rather than a wall. Across seven brands and three formats — instant coffee sachets, frappé mixes, and fruit smoothies — the market splits cleanly into two behaviours: legacy players that pass Q-commerce fees straight onto the consumer, and a smaller group, Yalla included, that has chosen to absorb them.
+                  Nova Drinks enters an instant café category that Nescafé still dominates by sheer weight of spend, but the underlying data points to an opening rather than a wall. Across seven brands and three formats — instant coffee sachets, frappé mixes, and fruit smoothies — the market splits cleanly into two behaviours: legacy players that pass Q-commerce fees straight onto the consumer, and a smaller group, Nova included, that has chosen to absorb them.
                 </p>
                 <p>
-                  On pricing, <strong>Yalla Frappit</strong> and <strong>Yalla Smoozy</strong> carry the flattest retail-to-Q-commerce curve in the set (4.8% and 0%, respectively), while Nescafé's basket inflates by 54% and Ali Café by 40% the moment a shopper orders through Talabat instead of a supermarket shelf. On format, Yalla Smoozy is the only smoothie SKU in a spill-proof, shelf-stable sachet — a direct answer to Osterberg's 1-litre glass bottle, which requires refrigeration and a measuring step. On spend, Yalla's digital score (7/10) is competitive, but its traditional/POS score (3/10) trails every major competitor except Osterberg, leaving physical point-of-sale visibility as the primary growth lever.
+                  On pricing, <strong>Nova Frappit</strong> and <strong>Nova Smoozy</strong> carry the flattest retail-to-Q-commerce curve in the set (4.8% and 0%, respectively), while Nescafé's basket inflates by 54% and Ali Café by 40% the moment a shopper orders through Talabat instead of a supermarket shelf. On format, Nova Smoozy is the only smoothie SKU in a spill-proof, shelf-stable sachet — a direct answer to Osterberg's 1-litre glass bottle, which requires refrigeration and a measuring step. On spend, Nova's digital score (7/10) is competitive, but its traditional/POS score (3/10) trails every major competitor except Osterberg, leaving physical point-of-sale visibility as the primary growth lever.
                 </p>
               </div>
             </div>
@@ -1451,10 +1451,10 @@ function BrandDashboardView({
               </h3>
               <div className="text-xs leading-relaxed space-y-3 text-slate-300">
                 <p>
-                  Egypt's instant beverage shelf has quietly split into three tiers. At the base sits the commodity 3-in-1 sachet (Nescafé and Ali Café) built for volume and habit, priced to be impulse-cheap in supermarkets but heavily marked up on delivery apps. Above that sits a café-replication tier (Abu Auf, Hintz, Cilantro) chasing the at-home flat white and frappé occasion with premium profiles, jar formats, and Q-commerce prices north of 30 EGP per serving. Yalla Drinks was built to sit inside that second tier on flavour credibility (Pistachio, Spanish Latte, zero-sugar variants) while maintaining the cost structure of the first.
+                  Egypt's instant beverage shelf has quietly split into three tiers. At the base sits the commodity 3-in-1 sachet (Nescafé and Ali Café) built for volume and habit, priced to be impulse-cheap in supermarkets but heavily marked up on delivery apps. Above that sits a café-replication tier (Abu Auf, Hintz, Cilantro) chasing the at-home flat white and frappé occasion with premium profiles, jar formats, and Q-commerce prices north of 30 EGP per serving. Nova Drinks was built to sit inside that second tier on flavour credibility (Pistachio, Spanish Latte, zero-sugar variants) while maintaining the cost structure of the first.
                 </p>
                 <p>
-                  In cold beverages, Osterberg's fruit concentrate owns supermarket shelf space, but carries high logistics drag (cold-chain, short shelf-life). Yalla Smoozy's dry sachet format sidesteps these constraints and is the only smoothie SKU priced identically across retail and e-commerce channels.
+                  In cold beverages, Osterberg's fruit concentrate owns supermarket shelf space, but carries high logistics drag (cold-chain, short shelf-life). Nova Smoozy's dry sachet format sidesteps these constraints and is the only smoothie SKU priced identically across retail and e-commerce channels.
                 </p>
               </div>
             </div>
@@ -1479,18 +1479,18 @@ function BrandDashboardView({
                 </thead>
                 <tbody>
                   {[
-                    { name: "Yalla Koffi", size: "25g", retail: "18.00 EGP", qcom: "20.95 EGP", inflation: "+16.4%", type: "warning", perG: "0.72 EGP", friction: "None - sachet" },
-                    { name: "Yalla Frappit", size: "35g", retail: "20.00 EGP", qcom: "20.95 EGP", inflation: "+4.8%", type: "safe", perG: "0.57 EGP", friction: "None - sachet" },
-                    { name: "Yalla Smoozy", size: "40g", retail: "15.00 EGP", qcom: "15.00 EGP", inflation: "0%", type: "safe", perG: "0.38 EGP", friction: "None - sachet" },
+                    { name: "Nova Koffi", size: "25g", retail: "18.00 EGP", qcom: "20.95 EGP", inflation: "+16.4%", type: "warning", perG: "0.72 EGP", friction: "None - sachet" },
+                    { name: "Nova Frappit", size: "35g", retail: "20.00 EGP", qcom: "20.95 EGP", inflation: "+4.8%", type: "safe", perG: "0.57 EGP", friction: "None - sachet" },
+                    { name: "Nova Smoozy", size: "40g", retail: "15.00 EGP", qcom: "15.00 EGP", inflation: "0%", type: "safe", perG: "0.38 EGP", friction: "None - sachet" },
                     { name: "Nescafe 3-in-1", size: "20g", retail: "12.00 EGP", qcom: "18.50 EGP", inflation: "+54.2%", type: "danger", perG: "0.60 EGP", friction: "None - sachet" },
                     { name: "Ali Cafe", size: "20g", retail: "10.00 EGP", qcom: "14.00 EGP", inflation: "+40.0%", type: "danger", perG: "0.50 EGP", friction: "None - sachet" },
                     { name: "Abu Auf Iced Coffee Mix", size: "30g", retail: "25.00 EGP", qcom: "32.00 EGP", inflation: "+28.0%", type: "danger", perG: "0.83 EGP", friction: "None - sachet" },
                     { name: "Hintz Iced Coffee", size: "25g", retail: "35.00 EGP", qcom: "45.00 EGP", inflation: "+28.6%", type: "danger", perG: "1.40 EGP", friction: "Scooping from jar" },
                   ].map((row, idx) => {
                     const badge = row.type === 'safe' ? 'text-emerald-500' : row.type === 'warning' ? 'text-amber-500' : 'text-rose-500';
-                    const isYalla = row.name.startsWith("Yalla");
+                    const isNova = row.name.startsWith("Nova");
                     return (
-                      <tr key={idx} className={`border-b ${darkMode ? 'border-slate-800/60' : 'border-slate-200'} ${isYalla ? 'bg-orange-500/5 font-semibold' : ''}`}>
+                      <tr key={idx} className={`border-b ${darkMode ? 'border-slate-800/60' : 'border-slate-200'} ${isNova ? 'bg-orange-500/5 font-semibold' : ''}`}>
                         <td className="p-3">{row.name}</td>
                         <td className="p-3">{row.size}</td>
                         <td className="p-3 text-right">{row.retail}</td>
@@ -1521,7 +1521,7 @@ function BrandDashboardView({
                       data={[
                         { name: 'Nescafé', value: 48, color: '#64748b' },
                         { name: 'Bonjorno', value: 22, color: '#94a3b8' },
-                        { name: 'Yalla Drinks (Our)', value: 18, color: '#f97316' },
+                        { name: 'Nova Drinks (Our)', value: 18, color: '#f97316' },
                         { name: 'Abu Auf', value: 12, color: '#cbd5e1' }
                       ]}
                       cx="50%"
@@ -1561,7 +1561,7 @@ function BrandDashboardView({
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                   <BarChart
                     data={[
-                      { name: 'Yalla (Our)', Positive: 78, Neutral: 14, Negative: 8 },
+                      { name: 'Nova (Our)', Positive: 78, Neutral: 14, Negative: 8 },
                       { name: 'Nescafé', Positive: 55, Neutral: 35, Negative: 10 },
                       { name: 'Bonjorno', Positive: 48, Neutral: 42, Negative: 10 },
                       { name: 'Abu Auf', Positive: 68, Neutral: 22, Negative: 10 }
@@ -1591,7 +1591,7 @@ function BrandDashboardView({
                   <thead>
                     <tr className={`${darkMode ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-700'} border-b font-bold text-[10px]`}>
                       <th className="p-2.5">{t.attribute}</th>
-                      <th className="p-2.5">Yalla Frappit</th>
+                      <th className="p-2.5">Nova Frappit</th>
                       <th className="p-2.5">Nescafe</th>
                       <th className="p-2.5">Abu Auf</th>
                       <th className="p-2.5">Hintz</th>
@@ -1599,15 +1599,15 @@ function BrandDashboardView({
                   </thead>
                   <tbody>
                     {[
-                      { attr: t.retailPrice, yalla: "20.00 EGP", nesc: "12.00 EGP", abua: "25.00 EGP", hintz: "35.00 EGP" },
-                      { attr: "Format", yalla: "Sachet 35g", nesc: "Sachet 20g", abua: "Sachet 30g", hintz: "Jar-scoop 25g" },
-                      { attr: t.flavourRange, yalla: "Pistachio / Spanish Latte", nesc: "Ice Roast / 3-in-1", abua: "Iced Coffee Mix", hintz: "Iced Coffee" },
-                      { attr: t.adSpend, yalla: "7 / 3", nesc: "10 / 10", abua: "9 / 8", hintz: "4 / 1" },
-                      { attr: t.positioning, yalla: "Cafe-quality convenience", nesc: "Mass habit", abua: "Premium cafe-replica", hintz: "Premium, high-friction" },
+                      { attr: t.retailPrice, nova: "20.00 EGP", nesc: "12.00 EGP", abua: "25.00 EGP", hintz: "35.00 EGP" },
+                      { attr: "Format", nova: "Sachet 35g", nesc: "Sachet 20g", abua: "Sachet 30g", hintz: "Jar-scoop 25g" },
+                      { attr: t.flavourRange, nova: "Pistachio / Spanish Latte", nesc: "Ice Roast / 3-in-1", abua: "Iced Coffee Mix", hintz: "Iced Coffee" },
+                      { attr: t.adSpend, nova: "7 / 3", nesc: "10 / 10", abua: "9 / 8", hintz: "4 / 1" },
+                      { attr: t.positioning, nova: "Cafe-quality convenience", nesc: "Mass habit", abua: "Premium cafe-replica", hintz: "Premium, high-friction" },
                     ].map((row, idx) => (
                       <tr key={idx} className={`border-b ${darkMode ? 'border-slate-800/60' : 'border-slate-200'}`}>
                         <td className="p-2.5 font-bold text-slate-400">{row.attr}</td>
-                        <td className="p-2.5 font-semibold text-orange-500">{row.yalla}</td>
+                        <td className="p-2.5 font-semibold text-orange-500">{row.nova}</td>
                         <td className="p-2.5">{row.nesc}</td>
                         <td className="p-2.5">{row.abua}</td>
                         <td className="p-2.5">{row.hintz}</td>
@@ -1626,22 +1626,22 @@ function BrandDashboardView({
                   <thead>
                     <tr className={`${darkMode ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-700'} border-b font-bold text-[10px]`}>
                       <th className="p-2.5">{t.attribute}</th>
-                      <th className="p-2.5">Yalla Smoozy</th>
+                      <th className="p-2.5">Nova Smoozy</th>
                       <th className="p-2.5">Osterberg Fruit Crush</th>
                     </tr>
                   </thead>
                   <tbody>
                     {[
-                      { attr: t.servingPrice, yalla: "15.00 EGP (40g sachet)", oster: "14.16 EGP (40ml serving)" },
-                      { attr: "Format", yalla: "Dry powder sachet", oster: "Liquid concentrate, bottle" },
-                      { attr: t.shelfLife, yalla: "18 months, ambient", oster: "Short post-opening, cold chain" },
-                      { attr: "Retail to Q-com Inflation", yalla: "0% (Flat)", oster: "n/a" },
-                      { attr: t.logisticsFriction, yalla: "None - dry powder", oster: "High - heavy, perishable" },
-                      { attr: t.adSpend, yalla: "7 / 3", oster: "2 / 1" },
+                      { attr: t.servingPrice, nova: "15.00 EGP (40g sachet)", oster: "14.16 EGP (40ml serving)" },
+                      { attr: "Format", nova: "Dry powder sachet", oster: "Liquid concentrate, bottle" },
+                      { attr: t.shelfLife, nova: "18 months, ambient", oster: "Short post-opening, cold chain" },
+                      { attr: "Retail to Q-com Inflation", nova: "0% (Flat)", oster: "n/a" },
+                      { attr: t.logisticsFriction, nova: "None - dry powder", oster: "High - heavy, perishable" },
+                      { attr: t.adSpend, nova: "7 / 3", oster: "2 / 1" },
                     ].map((row, idx) => (
                       <tr key={idx} className={`border-b ${darkMode ? 'border-slate-800/60' : 'border-slate-200'}`}>
                         <td className="p-2.5 font-bold text-slate-400">{row.attr}</td>
-                        <td className="p-2.5 font-semibold text-pink-500">{row.yalla}</td>
+                        <td className="p-2.5 font-semibold text-pink-500">{row.nova}</td>
                         <td className="p-2.5">{row.oster}</td>
                       </tr>
                     ))}
@@ -1662,7 +1662,7 @@ function BrandDashboardView({
                 { title: t.priceStability, num: 1, text: "Promote 'Same Price, Delivered' campaigns to exploit Nescafé's +54% and Ali Café's +40% markups on delivery apps. Turn this into a quantifiable consumer trust argument." },
                 { title: t.closePOS, num: 2, text: "Allocate budget to physical point-of-sale displays and in-store samplings at major retailers (Carrefour, Spinneys) to address the low 3/10 traditional marketing score." },
                 { title: t.leadFlavour, num: 3, text: "Highlight the Pistachio, Spanish Latte, and Zero Sugar range. Use this taste-forward messaging to attract consumers expressing fatigue with plain instant coffee." },
-                { title: t.ownConvenience, num: 4, text: "Position Yalla Smoozy as 'no fridge, no mess, no waste' to directly target the spoilage and heavy-handling pain points of liquid smoothie concentrates." },
+                { title: t.ownConvenience, num: 4, text: "Position Nova Smoozy as 'no fridge, no mess, no waste' to directly target the spoilage and heavy-handling pain points of liquid smoothie concentrates." },
               ].map((item, idx) => (
                 <div key={idx} className={`p-4 rounded-xl border ${darkMode ? 'bg-slate-900 border-slate-850' : 'bg-slate-50 border-slate-200'}`}>
                   <div className="flex items-center gap-2 mb-2">
@@ -1679,8 +1679,8 @@ function BrandDashboardView({
         </div>
       )}
 
-      {/* TAB 3: SQUEASY SALES */}
-      {activeTab === 'squeasy-sales' && (
+      {/* TAB 3: ZENITH SALES */}
+      {activeTab === 'zenith-sales' && (
         <div className="space-y-6">
           {/* Metrics Overview Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -1714,9 +1714,9 @@ function BrandDashboardView({
 
           {/* Core Charts Area */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Squeezy share donut */}
+            {/* Zenith share donut */}
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm`}>
-              <h3 className="text-xs font-black uppercase tracking-wider mb-4">Squeasy — {t.productRevenueShare}</h3>
+              <h3 className="text-xs font-black uppercase tracking-wider mb-4">Zenith — {t.productRevenueShare}</h3>
               <div className="h-56 relative flex items-center justify-center">
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                   <PieChart>
@@ -1762,7 +1762,7 @@ function BrandDashboardView({
             {/* Monthly Trend lines */}
             <div className={`lg:col-span-2 p-5 rounded-2xl border ${darkMode ? 'bg-slate-850/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm`}>
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
-                <h3 className="text-xs font-black uppercase tracking-wider">Squeasy: {t.monthlyTrends}</h3>
+                <h3 className="text-xs font-black uppercase tracking-wider">Zenith: {t.monthlyTrends}</h3>
                 <div className="flex items-center gap-2 text-[9px] font-bold no-print">
                   <button
                     onClick={() => {
@@ -1831,10 +1831,10 @@ function BrandDashboardView({
             {/* Quarterly comparison chart */}
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-850/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm`}>
               <h3 className="text-xs font-black uppercase tracking-wider mb-1">{t.quarterlySalesComparison}</h3>
-              <p className="text-[9px] text-slate-400 mb-4">{t.allTimeNet}: {formatVal(squeasyQuarterlyTotal)}</p>
+              <p className="text-[9px] text-slate-400 mb-4">{t.allTimeNet}: {formatVal(zenithQuarterlyTotal)}</p>
               <div className="h-60">
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
-                  <BarChart data={squeasyQuarterly}>
+                  <BarChart data={zenithQuarterly}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={darkMode ? '#334155' : '#e2e8f0'} />
                     <XAxis dataKey="year" stroke={darkMode ? '#94a3b8' : '#64748b'} fontSize={9} tickLine={false} />
                     <YAxis 
@@ -1889,14 +1889,14 @@ function BrandDashboardView({
             <div className="border-b border-slate-750 pb-4 mb-4">
               <h3 className="text-xs font-black uppercase tracking-wider flex items-center gap-2">
                 <Users size={15} className="text-violet-500" />
-                <span>{t.salespersonPerformance} (Squeasy)</span>
+                <span>{t.salespersonPerformance} (Zenith)</span>
               </h3>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div className="h-64">
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
-                  <BarChart data={squeasyRepsChartData} layout="vertical" margin={{ left: -10, right: 10 }}>
+                  <BarChart data={zenithRepsChartData} layout="vertical" margin={{ left: -10, right: 10 }}>
                     <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke={darkMode ? '#334155' : '#e2e8f0'} />
                     <XAxis type="number" fontSize={8} stroke={darkMode ? '#94a3b8' : '#64748b'} />
                     <YAxis dataKey="name" type="category" width={100} fontSize={8} stroke={darkMode ? '#94a3b8' : '#64748b'} />
@@ -1917,7 +1917,7 @@ function BrandDashboardView({
                     </tr>
                   </thead>
                   <tbody>
-                    {squeasyRepsData.map((rep: any, idx: number) => (
+                    {zenithRepsData.map((rep: any, idx: number) => (
                       <tr key={idx} className={`border-b ${darkMode ? 'border-slate-800/60' : 'border-slate-200'} hover:bg-slate-100/50`}>
                         <td className="p-2.5 font-bold">{rep.name}</td>
                         <td className="p-2.5 text-right font-semibold text-violet-500">{formatVal(rep.revenue)}</td>
@@ -1935,19 +1935,19 @@ function BrandDashboardView({
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-750 pb-4 mb-5">
               <h3 className="text-xs font-black uppercase tracking-wider flex items-center gap-2">
                 <AlertTriangle size={15} className="text-rose-500 animate-pulse" />
-                <span>{t.predictiveChurn} (Squeasy)</span>
+                <span>{t.predictiveChurn} (Zenith)</span>
               </h3>
               <div className="flex items-center gap-1.5 p-1 px-2 bg-slate-100 dark:bg-slate-900/50 rounded-lg border border-slate-200 dark:border-slate-800 text-xs font-bold">
                 <span className="text-slate-400 text-[10px]">{language === 'en' ? 'Show Rows:' : 'عرض الصفوف:'}</span>
                 <input 
                   type="range" 
                   min="5" 
-                  max={Math.max(10, squeasyChurnDataSorted.length)} 
-                  value={squeasyChurnCount} 
-                  onChange={(e) => setSqueasyChurnCount(Number(e.target.value))}
+                  max={Math.max(10, zenithChurnDataSorted.length)} 
+                  value={zenithChurnCount} 
+                  onChange={(e) => setZenithChurnCount(Number(e.target.value))}
                   className="w-16 lg:w-20 accent-indigo-500 h-1 bg-slate-350 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer"
                 />
-                <span className="text-indigo-500 font-extrabold text-[10px]">{squeasyChurnCount}</span>
+                <span className="text-indigo-500 font-extrabold text-[10px]">{zenithChurnCount}</span>
               </div>
             </div>
 
@@ -2025,25 +2025,25 @@ function BrandDashboardView({
                       <table className="w-full text-left border-collapse text-xs">
                         <thead>
                           <tr className={`${darkMode ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-700'} border-b font-bold text-[10px] select-none`}>
-                            <th className="p-3 cursor-pointer" onClick={() => handleSqueasySort('customer')}>
+                            <th className="p-3 cursor-pointer" onClick={() => handleZenithSort('customer')}>
                               <div className="flex items-center gap-1">
                                 <span>{t.customer}</span>
                                 <ArrowUpDown size={10} />
                               </div>
                             </th>
-                            <th className="p-3 text-right cursor-pointer" onClick={() => handleSqueasySort('revenue')}>
+                            <th className="p-3 text-right cursor-pointer" onClick={() => handleZenithSort('revenue')}>
                               <div className="flex items-center justify-end gap-1">
                                 <span>{t.salesValue}</span>
                                 <ArrowUpDown size={10} />
                               </div>
                             </th>
-                            <th className="p-3 text-right cursor-pointer" onClick={() => handleSqueasySort('recency')}>
+                            <th className="p-3 text-right cursor-pointer" onClick={() => handleZenithSort('recency')}>
                               <div className="flex items-center justify-end gap-1">
                                 <span>{t.recency}</span>
                                 <ArrowUpDown size={10} />
                               </div>
                             </th>
-                            <th className="p-3 text-right cursor-pointer" onClick={() => handleSqueasySort('probability')}>
+                            <th className="p-3 text-right cursor-pointer" onClick={() => handleZenithSort('probability')}>
                               <div className="flex items-center justify-end gap-1">
                                 <span>{t.churnProb}</span>
                                 <ArrowUpDown size={10} />
@@ -2052,7 +2052,7 @@ function BrandDashboardView({
                           </tr>
                         </thead>
                         <tbody>
-                          {squeasyChurnDataSorted.slice(0, squeasyChurnCount).map((cust: any, idx: number) => {
+                          {zenithChurnDataSorted.slice(0, zenithChurnCount).map((cust: any, idx: number) => {
                             const badge = cust.risk === "High" ? "bg-rose-500/10 text-rose-500 border-rose-500/20" : "bg-amber-500/10 text-amber-500 border-amber-500/20";
                             return (
                               <tr key={idx} className={`border-b ${darkMode ? 'border-slate-800/60' : 'border-slate-200'} hover:bg-slate-100/50`}>
@@ -2078,14 +2078,14 @@ function BrandDashboardView({
         </div>
       )}
 
-      {/* TAB 4: SQUEASY MARKETING */}
-      {activeTab === 'squeasy-marketing' && (
+      {/* TAB 4: ZENITH MARKETING */}
+      {activeTab === 'zenith-marketing' && (
         <div className="space-y-6">
           {/* Highlights grids */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-850/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm relative overflow-hidden`}>
               <div className="text-2xl font-black text-violet-500">0%</div>
-              <p className="text-[10px] text-slate-400 mt-1">Squeasy Harissa price markup on Q-Commerce platforms vs retail store shelf.</p>
+              <p className="text-[10px] text-slate-400 mt-1">Zenith Harissa price markup on Q-Commerce platforms vs retail store shelf.</p>
             </div>
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-850/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm relative overflow-hidden`}>
               <div className="text-2xl font-black text-rose-500">+58%</div>
@@ -2097,7 +2097,7 @@ function BrandDashboardView({
             </div>
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-850/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm relative overflow-hidden`}>
               <div className="text-2xl font-black text-violet-600">4 / 10</div>
-              <p className="text-[10px] text-slate-400 mt-1">Squeasy point-of-sale/shelf score compared to Heinz's major budget.</p>
+              <p className="text-[10px] text-slate-400 mt-1">Zenith point-of-sale/shelf score compared to Heinz's major budget.</p>
             </div>
           </div>
 
@@ -2110,13 +2110,13 @@ function BrandDashboardView({
               </h3>
               <div className="text-xs leading-relaxed space-y-3 text-slate-300">
                 <p>
-                  Squeasy wins decisively on package format (a zero-friction, squeeze pouch) and price stability across channels, but lags behind on POS reach and traditional advertising budget compared to Heinz and regional jar brands.
+                  Zenith wins decisively on package format (a zero-friction, squeeze pouch) and price stability across channels, but lags behind on POS reach and traditional advertising budget compared to Heinz and regional jar brands.
                 </p>
                 <p className="font-semibold text-slate-400">Consumer Trends & Pain Points Solved:</p>
                 <ul className="list-disc pl-4 space-y-2 text-slate-400">
-                  <li><strong>Opening Friction:</strong> Stuck lids are a common issue for glass jars (Don Lopez, Heinz, Tashkila). Squeasy pouches eliminate this entirely.</li>
+                  <li><strong>Opening Friction:</strong> Stuck lids are a common issue for glass jars (Don Lopez, Heinz, Tashkila). Zenith pouches eliminate this entirely.</li>
                   <li><strong>Hygiene:</strong> Squeeze format prevents cross-contamination and refrigerator odors caused by open jars.</li>
-                  <li><strong>Trial/Impulse Tier:</strong> While competitors offer no small SKUs, Squeasy's 12g sachet (2.75–2.99 EGP) is a major volume builder for trials.</li>
+                  <li><strong>Trial/Impulse Tier:</strong> While competitors offer no small SKUs, Zenith's 12g sachet (2.75–2.99 EGP) is a major volume builder for trials.</li>
                 </ul>
               </div>
             </div>
@@ -2136,7 +2136,7 @@ function BrandDashboardView({
                       data={[
                         { name: 'Heinz', value: 52, color: '#64748b' },
                         { name: 'Durra', value: 24, color: '#94a3b8' },
-                        { name: 'Squeasy (Our)', value: 18, color: '#8b5cf6' },
+                        { name: 'Zenith (Our)', value: 18, color: '#8b5cf6' },
                         { name: 'Harvest', value: 6, color: '#cbd5e1' }
                       ]}
                       cx="50%"
@@ -2176,7 +2176,7 @@ function BrandDashboardView({
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                   <BarChart
                     data={[
-                      { name: 'Squeasy (Our)', Positive: 82, Neutral: 12, Negative: 6 },
+                      { name: 'Zenith (Our)', Positive: 82, Neutral: 12, Negative: 6 },
                       { name: 'Heinz', Positive: 60, Neutral: 30, Negative: 10 },
                       { name: 'Durra', Positive: 50, Neutral: 40, Negative: 10 },
                       { name: 'Harvest', Positive: 58, Neutral: 32, Negative: 10 }
@@ -2210,7 +2210,7 @@ function BrandDashboardView({
                   <thead>
                     <tr className={`${darkMode ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-700'} border-b font-bold text-[10px]`}>
                       <th className="p-2.5">{t.attribute}</th>
-                      <th className="p-2.5">Squeasy</th>
+                      <th className="p-2.5">Zenith</th>
                       <th className="p-2.5">Don Lopez</th>
                       <th className="p-2.5">Tashkila</th>
                       <th className="p-2.5">Dobella</th>
@@ -2218,15 +2218,15 @@ function BrandDashboardView({
                   </thead>
                   <tbody>
                     {[
-                      { attr: t.retailPrice, squeasy: "250g: 45.00 EGP", don: "200g: 46.75 EGP", tash: "360g: 33.95 EGP", dob: "200g: 30.00 EGP" },
-                      { attr: t.pricePerGram, squeasy: "0.18 EGP", don: "0.23 EGP", tash: "0.09 EGP", dob: "0.15 EGP" },
-                      { attr: "Format", squeasy: "Squeeze Pouch", don: "Glass Jar", tash: "Glass Jar", dob: "Glass Jar" },
-                      { attr: "Friction", squeasy: "None", don: "High (Lid jam)", tash: "High (Lid jam)", dob: "High (Lid jam)" },
-                      { attr: t.positioning, squeasy: "Convenience Premium", don: "Mainstream Mid", tash: "Bulk Economy", dob: "Mainstream Mid" },
+                      { attr: t.retailPrice, zenith: "250g: 45.00 EGP", don: "200g: 46.75 EGP", tash: "360g: 33.95 EGP", dob: "200g: 30.00 EGP" },
+                      { attr: t.pricePerGram, zenith: "0.18 EGP", don: "0.23 EGP", tash: "0.09 EGP", dob: "0.15 EGP" },
+                      { attr: "Format", zenith: "Squeeze Pouch", don: "Glass Jar", tash: "Glass Jar", dob: "Glass Jar" },
+                      { attr: "Friction", zenith: "None", don: "High (Lid jam)", tash: "High (Lid jam)", dob: "High (Lid jam)" },
+                      { attr: t.positioning, zenith: "Convenience Premium", don: "Mainstream Mid", tash: "Bulk Economy", dob: "Mainstream Mid" },
                     ].map((row, idx) => (
                       <tr key={idx} className={`border-b ${darkMode ? 'border-slate-800/60' : 'border-slate-200'}`}>
                         <td className="p-2.5 font-bold text-slate-400">{row.attr}</td>
-                        <td className="p-2.5 font-semibold text-violet-500">{row.squeasy}</td>
+                        <td className="p-2.5 font-semibold text-violet-500">{row.zenith}</td>
                         <td className="p-2.5">{row.don}</td>
                         <td className="p-2.5">{row.tash}</td>
                         <td className="p-2.5">{row.dob}</td>
@@ -2250,7 +2250,7 @@ function BrandDashboardView({
                   <thead>
                     <tr className={`${darkMode ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-700'} border-b font-bold text-[10px]`}>
                       <th className="p-2.5">{t.attribute}</th>
-                      <th className="p-2.5">Squeasy</th>
+                      <th className="p-2.5">Zenith</th>
                       <th className="p-2.5">Heinz</th>
                       <th className="p-2.5">Shana</th>
                       <th className="p-2.5">Wadi Food</th>
@@ -2258,15 +2258,15 @@ function BrandDashboardView({
                   </thead>
                   <tbody>
                     {[
-                      { attr: t.retailPrice, squeasy: "250g: 28.00 EGP", heinz: "170g: 34.75 EGP", shana: "170g: 48.06 EGP", wadi: "190g: 27.00 EGP" },
-                      { attr: t.pricePerGram, squeasy: "0.11 EGP", heinz: "0.20 EGP", shana: "0.28 EGP", wadi: "0.14 EGP" },
-                      { attr: "Format", squeasy: "Squeeze Pouch", heinz: "Glass Jar", shana: "Glass Jar", wadi: "Glass Jar" },
-                      { attr: "Flavor Sentiment", squeasy: "Positive, Balanced", heinz: "Too Mild", shana: "Premium Spicy", wadi: "Mainstream Spicy" },
-                      { attr: t.positioning, squeasy: "Convenience Value Leader", heinz: "Mainstream Volatile", shana: "Premium Niche", wadi: "Value Mainstream" },
+                      { attr: t.retailPrice, zenith: "250g: 28.00 EGP", heinz: "170g: 34.75 EGP", shana: "170g: 48.06 EGP", wadi: "190g: 27.00 EGP" },
+                      { attr: t.pricePerGram, zenith: "0.11 EGP", heinz: "0.20 EGP", shana: "0.28 EGP", wadi: "0.14 EGP" },
+                      { attr: "Format", zenith: "Squeeze Pouch", heinz: "Glass Jar", shana: "Glass Jar", wadi: "Glass Jar" },
+                      { attr: "Flavor Sentiment", zenith: "Positive, Balanced", heinz: "Too Mild", shana: "Premium Spicy", wadi: "Mainstream Spicy" },
+                      { attr: t.positioning, zenith: "Convenience Value Leader", heinz: "Mainstream Volatile", shana: "Premium Niche", wadi: "Value Mainstream" },
                     ].map((row, idx) => (
                       <tr key={idx} className={`border-b ${darkMode ? 'border-slate-800/60' : 'border-slate-200'}`}>
                         <td className="p-2.5 font-bold text-slate-400">{row.attr}</td>
-                        <td className="p-2.5 font-semibold text-violet-500">{row.squeasy}</td>
+                        <td className="p-2.5 font-semibold text-violet-500">{row.zenith}</td>
                         <td className="p-2.5">{row.heinz}</td>
                         <td className="p-2.5">{row.shana}</td>
                         <td className="p-2.5">{row.wadi}</td>
@@ -2293,7 +2293,7 @@ function BrandDashboardView({
                     </thead>
                     <tbody>
                       <tr className="border-b dark:border-slate-800 bg-violet-500/5 font-semibold">
-                        <td className="p-2">Squeasy Harissa 250g</td>
+                        <td className="p-2">Zenith Harissa 250g</td>
                         <td className="p-2 text-right">28.00 EGP</td>
                         <td className="p-2 text-right">28.00 EGP</td>
                         <td className="p-2 text-right text-emerald-500">0%</td>
@@ -2329,7 +2329,7 @@ function BrandDashboardView({
                     </thead>
                     <tbody>
                       <tr className="border-b dark:border-slate-800 bg-violet-500/5 font-semibold">
-                        <td className="p-2">Squeasy</td>
+                        <td className="p-2">Zenith</td>
                         <td className="p-2 text-slate-400">Low</td>
                         <td className="p-2">7 / 10</td>
                         <td className="p-2 text-amber-500">4 / 10</td>
@@ -2370,10 +2370,10 @@ function BrandDashboardView({
                 </thead>
                 <tbody>
                   {[
-                    { directive: "Market flat pricing as core guarantee", target: "0% vs +58.3% inflation", rationale: "Squeasy is the only brand in the dataset with 0% inflation. Leverage this in dark-store advertising campaigns." },
+                    { directive: "Market flat pricing as core guarantee", target: "0% vs +58.3% inflation", rationale: "Zenith is the only brand in the dataset with 0% inflation. Leverage this in dark-store advertising campaigns." },
                     { directive: "Raise POS and shelf investment", target: "4/10 → 8/10 visibility", rationale: "Heinz dominates POS and traditional ads. Close the in-store visibility gap at supermarket checkout and deli areas." },
-                    { directive: "Expand sachet distribution", target: "12g volume growth", rationale: "Priced at 2.75–2.99 EGP, Squeasy's 12g sachet has zero direct competition in the trial and impulse purchase category." },
-                    { directive: "Head-to-head vs Heinz (harissa)", target: "28.00 vs 55.00 EGP", rationale: "Squeasy is significantly cheaper per gram and carries positive flavor sentiment, while Heinz is criticized as too mild." },
+                    { directive: "Expand sachet distribution", target: "12g volume growth", rationale: "Priced at 2.75–2.99 EGP, Zenith's 12g sachet has zero direct competition in the trial and impulse purchase category." },
+                    { directive: "Head-to-head vs Heinz (harissa)", target: "28.00 vs 55.00 EGP", rationale: "Zenith is significantly cheaper per gram and carries positive flavor sentiment, while Heinz is criticized as too mild." },
                     { directive: "Monthly Q-commerce price monitoring", target: "Track inflation margins", rationale: "Continuously monitor pricing of volatile competitors (Heinz/Don Lopez) to adjust visual banners in real-time." },
                   ].map((row, idx) => (
                     <tr key={idx} className={`border-b ${darkMode ? 'border-slate-800/60' : 'border-slate-200'} hover:bg-slate-100/50`}>
@@ -2395,7 +2395,7 @@ function BrandDashboardView({
           language={language}
           darkMode={darkMode}
           currentUser={currentUser}
-          brandScope="yalla_squeasy"
+          brandScope="nova_zenith"
         />
       )}
     </div>

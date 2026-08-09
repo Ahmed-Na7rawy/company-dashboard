@@ -126,9 +126,9 @@ interface LocationData {
 // Translations
 const translations = {
   en: {
-    dashboardTitle: "Sweet & Slim Brand Dashboard",
-    dashboardSubtitle: "Sweet & Slim Sugar Substitutes B2C Sales & Client Analytics Panel",
-    combinedSweetSlim: "Sweet & Slim Combined",
+    dashboardTitle: "Vitality Snacks Brand Dashboard",
+    dashboardSubtitle: "Vitality Snacks Sugar Substitutes B2C Sales & Client Analytics Panel",
+    combinedVitalitySnacks: "Vitality Snacks Combined",
     tabletopSweetener: "Tabletop Sweetener",
     steviaSweetener: "Stevia Sweetener",
     syrupDrinks: "Syrups & Drinks",
@@ -169,7 +169,7 @@ const translations = {
   ar: {
     dashboardTitle: "لوحة تحكم سويت آند سليم",
     dashboardSubtitle: "تحليلات مبيعات سويت آند سليم لبدائل السكر ومؤشرات العملاء B2C",
-    combinedSweetSlim: "سويت آند سليم المشترك",
+    combinedVitalitySnacks: "سويت آند سليم المشترك",
     tabletopSweetener: "بدائل السكر للمائدة",
     steviaSweetener: "بدائل السكر ستيفيا",
     syrupDrinks: "الشراب والشراب المركز",
@@ -214,7 +214,7 @@ const multiColors = [
   '#10b981', '#f59e0b', '#3b82f6', '#6366f1'
 ];
 
-interface SweetSlimDashboardViewProps {
+interface VitalitySnacksDashboardViewProps {
   processedData: any[];
   language: 'en' | 'ar';
   darkMode: boolean;
@@ -231,7 +231,7 @@ interface SweetSlimDashboardViewProps {
   globalCompareMode?: boolean;
 }
 
-function SweetSlimDashboardView({
+function VitalitySnacksDashboardView({
   processedData,
   language,
   darkMode,
@@ -246,7 +246,7 @@ function SweetSlimDashboardView({
   chartDisplayMode,
   globalChartMetric = 'revenue',
   globalCompareMode = false
-}: SweetSlimDashboardViewProps) {
+}: VitalitySnacksDashboardViewProps) {
   const t = translations[language];
   const isEn = language === 'en';
 
@@ -339,7 +339,7 @@ function SweetSlimDashboardView({
     return `${formatted} ${suffix}`;
   };
 
-  // Determine if a product belongs to Sweet & Slim and categorize it
+  // Determine if a product belongs to Vitality Snacks and categorize it
   const getProductCategory = (itemName: string): string | null => {
     const name = itemName.toLowerCase();
     if (!name.includes('sweet') || !name.includes('slim')) return null;
@@ -352,8 +352,8 @@ function SweetSlimDashboardView({
     return 'tabletop';
   };
 
-  // Filter raw transactions to only Sweet & Slim matching items
-  const sweetSlimTransactions = useMemo(() => {
+  // Filter raw transactions to only Vitality Snacks matching items
+  const vitalitySnacksTransactions = useMemo(() => {
     return processedData.filter(row => {
       const cat = getProductCategory(row.ItemName || '');
       if (!cat) return false;
@@ -368,7 +368,7 @@ function SweetSlimDashboardView({
     let volume = 0;
     let returnSales = 0;
 
-    sweetSlimTransactions.forEach(row => {
+    vitalitySnacksTransactions.forEach(row => {
       const rev = Math.abs(row.Revenue || 0);
       const qty = Math.abs(row.Quantity || 0);
       if (row.IsReturn) {
@@ -389,7 +389,7 @@ function SweetSlimDashboardView({
       returns: returnSales,
       returnRate: returnRate * 100
     };
-  }, [sweetSlimTransactions]);
+  }, [vitalitySnacksTransactions]);
 
   // Compute Division sales comparison data (Tabletop vs Stevia vs Syrups vs Mints)
   const divisionComparisonData = useMemo(() => {
@@ -431,7 +431,7 @@ function SweetSlimDashboardView({
   // SKU revenue share distribution data
   const skuShareData = useMemo(() => {
     const skuMap: Record<string, { revenue: number; qty: number }> = {};
-    sweetSlimTransactions.forEach(row => {
+    vitalitySnacksTransactions.forEach(row => {
       const name = (row.ItemName || '').split(" - ")[0].split(" + ")[0].split(" (")[0];
       if (!skuMap[name]) skuMap[name] = { revenue: 0, qty: 0 };
       const rev = Math.abs(row.Revenue || 0);
@@ -475,7 +475,7 @@ function SweetSlimDashboardView({
     }
 
     return items;
-  }, [sweetSlimTransactions, isEn, globalChartMetric, chartDisplayMode]);
+  }, [vitalitySnacksTransactions, isEn, globalChartMetric, chartDisplayMode]);
 
   // Monthly Sales trend lines dataset
   const trendData = useMemo(() => {
@@ -487,7 +487,7 @@ function SweetSlimDashboardView({
       monthlySkuSales[m] = {};
     });
 
-    sweetSlimTransactions.forEach(row => {
+    vitalitySnacksTransactions.forEach(row => {
       const dateObj = row.DateObj || new Date(row.Date);
       const monthName = months[dateObj.getMonth()];
       const sku = (row.ItemName || '').split(" - ")[0].split(" + ")[0].split(" (")[0];
@@ -535,12 +535,12 @@ function SweetSlimDashboardView({
       products: skus,
       chartData
     };
-  }, [sweetSlimTransactions, isEn, globalChartMetric, chartDisplayMode]);
+  }, [vitalitySnacksTransactions, isEn, globalChartMetric, chartDisplayMode]);
 
   // Top 10 sweetener customers
   const topCustomersData = useMemo(() => {
     const custMap: Record<string, number> = {};
-    sweetSlimTransactions.forEach(row => {
+    vitalitySnacksTransactions.forEach(row => {
       const name = row.CustomerName || 'Other';
       if (!custMap[name]) custMap[name] = 0;
       const metricVal = Math.abs(globalChartMetric === 'volume' ? (row.Quantity || 0) : (row.Revenue || 0));
@@ -568,12 +568,12 @@ function SweetSlimDashboardView({
     }
 
     return rawList;
-  }, [sweetSlimTransactions, globalChartMetric, chartDisplayMode]);
+  }, [vitalitySnacksTransactions, globalChartMetric, chartDisplayMode]);
 
   // Top sales representatives selling sweeteners
   const topRepsData = useMemo(() => {
     const repMap: Record<string, number> = {};
-    sweetSlimTransactions.forEach(row => {
+    vitalitySnacksTransactions.forEach(row => {
       const name = row.SalesmanName || 'Unassigned';
       if (!repMap[name]) repMap[name] = 0;
       const metricVal = Math.abs(globalChartMetric === 'volume' ? (row.Quantity || 0) : (row.Revenue || 0));
@@ -601,14 +601,14 @@ function SweetSlimDashboardView({
     }
 
     return rawList;
-  }, [sweetSlimTransactions, globalChartMetric, chartDisplayMode]);
+  }, [vitalitySnacksTransactions, globalChartMetric, chartDisplayMode]);
 
   // Churn predictive analysis
   const churnAnalysis = useMemo(() => {
     const clientHistory: Record<string, { lastDate: Date; totalSales: number; count: number }> = {};
     const referenceDate = new Date('2026-06-30'); // Database max date
 
-    sweetSlimTransactions.forEach(row => {
+    vitalitySnacksTransactions.forEach(row => {
       const name = row.CustomerName;
       if (!name) return;
 
@@ -676,7 +676,7 @@ function SweetSlimDashboardView({
       segmentCounts,
       totalRiskRev: Math.round(totalRiskRev)
     };
-  }, [sweetSlimTransactions]);
+  }, [vitalitySnacksTransactions]);
 
   // Sortable Churn Table rows
   const sortedChurnRows = useMemo(() => {
@@ -769,7 +769,7 @@ function SweetSlimDashboardView({
       {/* Tabs Navigation */}
       <div className="flex border-b border-slate-200 dark:border-slate-800 overflow-x-auto gap-1 text-xs no-print">
         {[
-          { id: 'combined', label: t.combinedSweetSlim, count: sweetSlimTransactions.length },
+          { id: 'combined', label: t.combinedVitalitySnacks, count: vitalitySnacksTransactions.length },
           { id: 'tabletop', label: t.tabletopSweetener, count: 0 },
           { id: 'stevia', label: t.steviaSweetener, count: 0 },
           { id: 'syrup_drinks', label: t.syrupDrinks, count: 0 },
@@ -801,7 +801,7 @@ function SweetSlimDashboardView({
           language={language}
           darkMode={darkMode}
           currentUser={currentUser}
-          brandScope="sweet_slim"
+          brandScope="vitality_snacks"
         />
       )}
 
@@ -811,7 +811,7 @@ function SweetSlimDashboardView({
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-850/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm relative overflow-hidden`}>
               <div className="text-2xl font-black text-indigo-500">0%</div>
-              <p className="text-[10px] text-slate-400 mt-1">{isEn ? 'Sweet & Slim inflation across Hypermarkets & Q-commerce apps (100% price stable).' : 'تضخم أسعار سويت آند سليم عبر الهايبر ماركت والتطبيقات (استقرار الأسعار بنسبة ١٠٠٪).'}</p>
+              <p className="text-[10px] text-slate-400 mt-1">{isEn ? 'Vitality Snacks inflation across Hypermarkets & Q-commerce apps (100% price stable).' : 'تضخم أسعار سويت آند سليم عبر الهايبر ماركت والتطبيقات (استقرار الأسعار بنسبة ١٠٠٪).'}</p>
             </div>
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-850/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm relative overflow-hidden`}>
               <div className="text-2xl font-black text-rose-500">+45%</div>
@@ -819,11 +819,11 @@ function SweetSlimDashboardView({
             </div>
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-850/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm relative overflow-hidden`}>
               <div className="text-2xl font-black text-yellow-500">4 / 10</div>
-              <p className="text-[10px] text-slate-400 mt-1">{isEn ? 'Sweet & Slim shelf visibility score in chains – the key brand placement gap.' : 'درجة ظهور سويت آند سليم على رفوف السلاسل الصيدلانية – الفجوة الرئيسية للتواجد.'}</p>
+              <p className="text-[10px] text-slate-400 mt-1">{isEn ? 'Vitality Snacks shelf visibility score in chains – the key brand placement gap.' : 'درجة ظهور سويت آند سليم على رفوف السلاسل الصيدلانية – الفجوة الرئيسية للتواجد.'}</p>
             </div>
             <div className={`p-5 rounded-2xl border ${darkMode ? 'bg-slate-850/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm relative overflow-hidden`}>
               <div className="text-2xl font-black text-emerald-500">36 mo</div>
-              <p className="text-[10px] text-slate-400 mt-1">{isEn ? 'Sweet & Slim dry sweetener sachet shelf life stability index.' : 'مؤشر استقرار العمر الافتراضي لأكياس المحليات الجافة من سويت آند سليم (٣٦ شهراً).'}</p>
+              <p className="text-[10px] text-slate-400 mt-1">{isEn ? 'Vitality Snacks dry sweetener sachet shelf life stability index.' : 'مؤشر استقرار العمر الافتراضي لأكياس المحليات الجافة من سويت آند سليم (٣٦ شهراً).'}</p>
             </div>
           </div>
 
@@ -837,14 +837,14 @@ function SweetSlimDashboardView({
               <div className="text-xs leading-relaxed space-y-3 text-slate-450 dark:text-slate-350">
                 <p>
                   {isEn 
-                    ? 'Sweet & Slim holds a powerful position in the local Egyptian sugar-substitute market due to the active boycott wave of multinationals like Canderel and Splenda. However, to maximize market share, the brand must bridge the clinical detailing gap.' 
+                    ? 'Vitality Snacks holds a powerful position in the local Egyptian sugar-substitute market due to the active boycott wave of multinationals like Canderel and Splenda. However, to maximize market share, the brand must bridge the clinical detailing gap.' 
                     : 'تحتل سويت آند سليم موقعاً قوياً في السوق المصري لبدائل السكر نتيجة لموجة المقاطعة النشطة للعلامات التجارية العالمية مثل كانديريل وسبليندا. ومع ذلك، لتعظيم الحصة السوقية، يجب سد فجوة الزيارات الطبية.'}
                 </p>
                 <p className="font-semibold text-slate-400">{isEn ? 'Consumer Segments & Pain Points Solved:' : 'فئات المستهلكين والمشكلات التي تم حلها:'}</p>
                 <ul className="list-disc pl-4 space-y-2 text-slate-500 dark:text-slate-400">
-                  <li><strong>{isEn ? 'Metallic Aftertaste:' : 'الطعم المعدني المتبقي:'}</strong> {isEn ? 'Cheap sweeteners (e.g. Diet Sweet) leave a lingering chemical taste. Sweet & Slim’s premium sucralose/stevia blend tastes exactly like natural sugar.' : 'المحليات الرخيصة تترك طعماً كيميائياً متبقياً. تركيبة سويت آند سليم من السكرالوز/الستيفيا تعطي طعماً طبيعياً.'}</li>
+                  <li><strong>{isEn ? 'Metallic Aftertaste:' : 'الطعم المعدني المتبقي:'}</strong> {isEn ? 'Cheap sweeteners (e.g. Diet Sweet) leave a lingering chemical taste. Vitality Snacks’s premium sucralose/stevia blend tastes exactly like natural sugar.' : 'المحليات الرخيصة تترك طعماً كيميائياً متبقياً. تركيبة سويت آند سليم من السكرالوز/الستيفيا تعطي طعماً طبيعياً.'}</li>
                   <li><strong>{isEn ? '100% Aspartame-Free Safety:' : 'أمان خالي ١٠٠٪ من الأسبرتام:'}</strong> {isEn ? 'Consumers are increasingly wary of chemical side-effects. Highlighting our safe formulation is crucial for diabetic trust.' : 'المستهلكون حذرون بشكل متزايد من الآثار الكيميائية. إبراز تركيبتنا الآمنة أمر بالغ الأهمية لثقة مرضى السكري.'}</li>
-                  <li><strong>{isEn ? 'Economical Daily Usage:' : 'الاستخدام اليومي الاقتصادي:'}</strong> {isEn ? 'Sweet & Slim Classic costs EGP 0.84 per sachet, compared to Canderel’s EGP 1.36. This premium affordability drives high-frequency household purchases.' : 'تبلغ تكلفة سويت آند سليم كلاسيك ٠.٨٤ ج.م للكيس مقارنة بـ ١.٣٦ ج.م لكانديريل. هذا السعر الذكي يعزز الشراء المتكرر.'}</li>
+                  <li><strong>{isEn ? 'Economical Daily Usage:' : 'الاستخدام اليومي الاقتصادي:'}</strong> {isEn ? 'Vitality Snacks Classic costs EGP 0.84 per sachet, compared to Canderel’s EGP 1.36. This premium affordability drives high-frequency household purchases.' : 'تبلغ تكلفة سويت آند سليم كلاسيك ٠.٨٤ ج.م للكيس مقارنة بـ ١.٣٦ ج.م لكانديريل. هذا السعر الذكي يعزز الشراء المتكرر.'}</li>
                 </ul>
               </div>
             </div>
@@ -864,7 +864,7 @@ function SweetSlimDashboardView({
                       data={[
                         { name: 'Canderel', value: 42, color: '#64748b' },
                         { name: 'Splenda', value: 28, color: '#94a3b8' },
-                        { name: 'Sweet & Slim (Our)', value: 20, color: '#6366f1' },
+                        { name: 'Vitality Snacks (Our)', value: 20, color: '#6366f1' },
                         { name: 'Diet Sweet', value: 10, color: '#cbd5e1' }
                       ]}
                       cx="50%"
@@ -904,7 +904,7 @@ function SweetSlimDashboardView({
                 <ResponsiveContainer width="100%" height="100%" minWidth={0}>
                   <BarChart
                     data={[
-                      { name: 'Sweet & Slim (Our)', Positive: 85, Neutral: 10, Negative: 5 },
+                      { name: 'Vitality Snacks (Our)', Positive: 85, Neutral: 10, Negative: 5 },
                       { name: 'Canderel', Positive: 58, Neutral: 32, Negative: 10 },
                       { name: 'Splenda', Positive: 70, Neutral: 22, Negative: 8 },
                       { name: 'Diet Sweet', Positive: 42, Neutral: 38, Negative: 20 }
@@ -938,7 +938,7 @@ function SweetSlimDashboardView({
                   <thead>
                     <tr className={`${darkMode ? 'bg-slate-800 text-slate-300' : 'bg-slate-100 text-slate-700'} border-b font-bold text-[10px]`}>
                       <th className="p-2.5">{isEn ? 'Attribute' : 'الصفة'}</th>
-                      <th className="p-2.5">Sweet & Slim</th>
+                      <th className="p-2.5">Vitality Snacks</th>
                       <th className="p-2.5">Canderel</th>
                       <th className="p-2.5">Diet Sweet</th>
                       <th className="p-2.5">Splenda</th>
@@ -982,10 +982,10 @@ function SweetSlimDashboardView({
                 </thead>
                 <tbody>
                   {[
-                    { directive: isEn ? "Deploy Medical Rep Detailing" : "تفعيل فريق الزيارات الطبية", target: isEn ? "Doctor referrals" : "توصيات الأطباء للبدائل", rationale: isEn ? "Canderel dominates endocrinology networks. Sweet & Slim must supply medical detailing kits (aspartame-free brochures) directly to local clinics." : "تسيطر كانديريل على شبكات أطباء الغدد الصماء. يجب توفير عينات وكتيبات خالية من الأسبرتام للعيادات المحلية." },
+                    { directive: isEn ? "Deploy Medical Rep Detailing" : "تفعيل فريق الزيارات الطبية", target: isEn ? "Doctor referrals" : "توصيات الأطباء للبدائل", rationale: isEn ? "Canderel dominates endocrinology networks. Vitality Snacks must supply medical detailing kits (aspartame-free brochures) directly to local clinics." : "تسيطر كانديريل على شبكات أطباء الغدد الصماء. يجب توفير عينات وكتيبات خالية من الأسبرتام للعيادات المحلية." },
                     { directive: isEn ? "Highlight 'No Metallic Taste' Badge" : "إبراز ملصق 'بدون طعم معدني'", target: isEn ? "+35% trial rate" : "+٣٥٪ تجربة للمنتج", rationale: isEn ? "Sucralose blends are preferred over cheap saccharin due to clean taste. Highlighting taste quality drives consumer trial among diabetics." : "تفضل تركيبات السكرالوز على السكرين الرخيص. إبراز جودة المذاق يعزز رغبة مرضى السكري في التجربة." },
                     { directive: isEn ? "Launch Zero-Spill Liquid Drops" : "إطلاق عبوات القطرات السائلة", target: isEn ? "Gym-goer segment" : "فئة الرياضيين والشباب", rationale: isEn ? "Extremely high convenience for on-the-go gym-goers. No competitive local alternative offers zero-spill liquid dropper packs in Egypt." : "راحة بالغة للرياضيين أثناء التنقل. لا يوجد بديل محلي ينافس في تقديم عبوات القطرات السائلة سهلة الاستخدام في مصر." },
-                    { directive: isEn ? "Co-brand Sugar-Free Syrups" : "شراكة شراب التحلية الخالي من السكر", target: isEn ? "HORECA volume" : "حجم مبيعات هوريكا", rationale: isEn ? "Bundle Sweet & Slim flavored baking sweeteners and syrups with local coffee chains to create boycotted international syrup replacements." : "تقديم شراب محلي خالي من السكر بنكهات الفانيليا والكراميل للمقاهي المحلية كبديل للعلامات المستوردة." }
+                    { directive: isEn ? "Co-brand Sugar-Free Syrups" : "شراكة شراب التحلية الخالي من السكر", target: isEn ? "HORECA volume" : "حجم مبيعات هوريكا", rationale: isEn ? "Bundle Vitality Snacks flavored baking sweeteners and syrups with local coffee chains to create boycotted international syrup replacements." : "تقديم شراب محلي خالي من السكر بنكهات الفانيليا والكراميل للمقاهي المحلية كبديل للعلامات المستوردة." }
                   ].map((row, idx) => (
                     <tr key={idx} className={`border-b ${darkMode ? 'border-slate-800/60' : 'border-slate-200'} hover:bg-slate-100/50`}>
                       <td className="p-3 font-bold">{row.directive}</td>
@@ -1491,4 +1491,4 @@ function SweetSlimDashboardView({
   );
 }
 
-export default React.memo(SweetSlimDashboardView);
+export default React.memo(VitalitySnacksDashboardView);

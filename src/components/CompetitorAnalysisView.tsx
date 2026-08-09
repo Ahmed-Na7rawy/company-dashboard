@@ -13,7 +13,7 @@ interface CompetitorAnalysisViewProps {
   language: 'en' | 'ar';
   darkMode: boolean;
   currentUser?: any;
-  brandScope?: 'yalla_squeasy' | 'sweet_slim';
+  brandScope?: 'nova_zenith' | 'vitality_snacks';
 }
 
 function CompetitorAnalysisView({ 
@@ -27,44 +27,44 @@ function CompetitorAnalysisView({
 
   const allBrands = useMemo(() => {
     return [
-      { id: 'yalla', label: isEn ? 'Yalla Brand' : 'علامة يالا', key: 'yalla', icon: '☕' },
-      { id: 'squeasy', label: isEn ? 'Squeasy Brand' : 'علامة سكويزي', key: 'squeasy', icon: '🍯' },
-      { id: 'sweet_slim_classic', label: isEn ? 'Sweet & Slim Classic' : 'سويت آند سليم كلاسيك', key: 'sweet_slim_classic', icon: '🍬' },
-      { id: 'sweet_slim_stevia', label: isEn ? 'Sweet & Slim Stevia' : 'سويت آند سليم ستيفيا', key: 'sweet_slim_stevia', icon: '🌱' }
+      { id: 'nova', label: isEn ? 'Nova Brand' : 'علامة يالا', key: 'nova', icon: '☕' },
+      { id: 'zenith', label: isEn ? 'Zenith Brand' : 'علامة سكويزي', key: 'zenith', icon: '🍯' },
+      { id: 'vitality_snacks_classic', label: isEn ? 'Vitality Snacks Classic' : 'سويت آند سليم كلاسيك', key: 'vitality_snacks_classic', icon: '🍬' },
+      { id: 'vitality_snacks_stevia', label: isEn ? 'Vitality Snacks Stevia' : 'سويت آند سليم ستيفيا', key: 'vitality_snacks_stevia', icon: '🌱' }
     ];
   }, [isEn]);
 
   const allowedBrands = useMemo(() => {
-    if (brandScope === 'sweet_slim') {
-      return allBrands.filter(b => b.id === 'sweet_slim_classic' || b.id === 'sweet_slim_stevia');
+    if (brandScope === 'vitality_snacks') {
+      return allBrands.filter(b => b.id === 'vitality_snacks_classic' || b.id === 'vitality_snacks_stevia');
     }
-    if (brandScope === 'yalla_squeasy') {
-      return allBrands.filter(b => b.id === 'yalla' || b.id === 'squeasy');
+    if (brandScope === 'nova_zenith') {
+      return allBrands.filter(b => b.id === 'nova' || b.id === 'zenith');
     }
     if (!currentUser) return allBrands.slice(0, 2);
     const managed = currentUser.managedBrands || [];
     return allBrands.filter(b => {
-      if (b.id === 'yalla' || b.id === 'squeasy') {
-        return managed.includes('yalla');
+      if (b.id === 'nova' || b.id === 'zenith') {
+        return managed.includes('nova');
       }
-      if (b.id === 'sweet_slim_classic' || b.id === 'sweet_slim_stevia') {
-        return managed.includes('sweet_slim');
+      if (b.id === 'vitality_snacks_classic' || b.id === 'vitality_snacks_stevia') {
+        return managed.includes('vitality_snacks');
       }
       return true;
     });
   }, [currentUser, allBrands, brandScope]);
 
-  const [selectedBrand, setSelectedBrand] = useState<string>('yalla');
+  const [selectedBrand, setSelectedBrand] = useState<string>('nova');
 
   useEffect(() => {
-    if (brandScope === 'sweet_slim') {
-      setSelectedBrand('sweet_slim_classic');
-    } else if (brandScope === 'yalla_squeasy') {
-      setSelectedBrand('yalla');
+    if (brandScope === 'vitality_snacks') {
+      setSelectedBrand('vitality_snacks_classic');
+    } else if (brandScope === 'nova_zenith') {
+      setSelectedBrand('nova');
     } else {
       const managed = currentUser?.managedBrands || [];
-      if (managed.includes('sweet_slim') && !managed.includes('yalla')) {
-        setSelectedBrand('sweet_slim_classic');
+      if (managed.includes('vitality_snacks') && !managed.includes('nova')) {
+        setSelectedBrand('vitality_snacks_classic');
       }
     }
   }, [brandScope, currentUser]);
@@ -84,18 +84,18 @@ function CompetitorAnalysisView({
       const product = (row.ItemName || '').toLowerCase();
       
       let isMatch = false;
-      if (selectedBrand === 'yalla') {
-        isMatch = group.includes('yalla') || product.includes('yalla');
-      } else if (selectedBrand === 'squeasy') {
-        isMatch = group.includes('squeasy') || product.includes('squeasy');
-      } else if (selectedBrand === 'sweet_slim_classic') {
-        const isSweetSlim = (group.includes('sweet') && group.includes('slim')) || 
+      if (selectedBrand === 'nova') {
+        isMatch = group.includes('nova') || product.includes('nova');
+      } else if (selectedBrand === 'zenith') {
+        isMatch = group.includes('zenith') || product.includes('zenith');
+      } else if (selectedBrand === 'vitality_snacks_classic') {
+        const isVitalitySnacks = (group.includes('sweet') && group.includes('slim')) || 
                             (product.includes('sweet') && product.includes('slim'));
-        isMatch = isSweetSlim && !product.includes('stevia') && !product.includes('mint');
-      } else if (selectedBrand === 'sweet_slim_stevia') {
-        const isSweetSlim = (group.includes('sweet') && group.includes('slim')) || 
+        isMatch = isVitalitySnacks && !product.includes('stevia') && !product.includes('mint');
+      } else if (selectedBrand === 'vitality_snacks_stevia') {
+        const isVitalitySnacks = (group.includes('sweet') && group.includes('slim')) || 
                             (product.includes('sweet') && product.includes('slim'));
-        isMatch = isSweetSlim && product.includes('stevia');
+        isMatch = isVitalitySnacks && product.includes('stevia');
       }
 
       if (isMatch) {
@@ -138,9 +138,9 @@ function CompetitorAnalysisView({
 
   // 2. Competitor Benchmarking Matrix Data
   const benchmarkData = useMemo(() => {
-    if (selectedBrand === 'yalla') {
+    if (selectedBrand === 'nova') {
       return [
-        { name: 'Yalla Koffi & Frappe (Our)', share: 18.5, price: 65, skus: 21, coverage: 78, rating: 8.8, isUs: true },
+        { name: 'Nova Koffi & Frappe (Our)', share: 18.5, price: 65, skus: 21, coverage: 78, rating: 8.8, isUs: true },
         { name: 'Nescafé 3-in-1', share: 35.0, price: 55, skus: 12, coverage: 95, rating: 8.2, isUs: false },
         { name: 'Starbucks Instant', share: 6.2, price: 110, skus: 6, coverage: 40, rating: 9.0, isUs: false },
         { name: 'Bonjorno Coffee', share: 18.1, price: 48, skus: 8, coverage: 88, rating: 7.6, isUs: false },
@@ -149,18 +149,18 @@ function CompetitorAnalysisView({
         { name: 'Kofi Break', share: 4.8, price: 32, skus: 4, coverage: 70, rating: 7.0, isUs: false },
         { name: 'Ali Café', share: 3.7, price: 52, skus: 3, coverage: 60, rating: 8.0, isUs: false }
       ];
-    } else if (selectedBrand === 'squeasy') {
+    } else if (selectedBrand === 'zenith') {
       return [
-        { name: 'Squeasy Pastes (Our)', share: 24.2, price: 85, skus: 8, coverage: 62, rating: 8.6, isUs: true },
+        { name: 'Zenith Pastes (Our)', share: 24.2, price: 85, skus: 8, coverage: 62, rating: 8.6, isUs: true },
         { name: 'Heinz Chili/Garlic Squeeze', share: 41.5, price: 95, skus: 14, coverage: 92, rating: 8.4, isUs: false },
         { name: 'Durra Culinary Pastes', share: 12.1, price: 75, skus: 6, coverage: 82, rating: 7.9, isUs: false },
         { name: 'Harvest Savory Pastes', share: 10.2, price: 60, skus: 5, coverage: 70, rating: 7.5, isUs: false },
         { name: 'Gardino Pastes', share: 6.5, price: 55, skus: 4, coverage: 75, rating: 7.8, isUs: false },
         { name: 'Don Lopez Chili', share: 5.5, price: 72, skus: 3, coverage: 50, rating: 7.7, isUs: false }
       ];
-    } else if (selectedBrand === 'sweet_slim_classic') {
+    } else if (selectedBrand === 'vitality_snacks_classic') {
       return [
-        { name: isEn ? 'Sweet & Slim Classic (Our)' : 'سويت آند سليم كلاسيك (منتجنا)', share: 21.4, price: 42, skus: 15, coverage: 72, rating: 8.5, isUs: true },
+        { name: isEn ? 'Vitality Snacks Classic (Our)' : 'سويت آند سليم كلاسيك (منتجنا)', share: 21.4, price: 42, skus: 15, coverage: 72, rating: 8.5, isUs: true },
         { name: 'Canderel Classic', share: 32.6, price: 68, skus: 8, coverage: 90, rating: 8.3, isUs: false },
         { name: 'Sweetal (Sucralose)', share: 18.5, price: 58, skus: 6, coverage: 85, rating: 8.6, isUs: false },
         { name: 'Sugar Match', share: 11.2, price: 45, skus: 5, coverage: 80, rating: 7.9, isUs: false },
@@ -170,7 +170,7 @@ function CompetitorAnalysisView({
       ];
     } else {
       return [
-        { name: isEn ? 'Sweet & Slim Stevia (Our)' : 'سويت آند سليم ستيفيا (منتجنا)', share: 16.8, price: 75, skus: 10, coverage: 58, rating: 8.7, isUs: true },
+        { name: isEn ? 'Vitality Snacks Stevia (Our)' : 'سويت آند سليم ستيفيا (منتجنا)', share: 16.8, price: 75, skus: 10, coverage: 58, rating: 8.7, isUs: true },
         { name: 'Canderel Green (Stevia)', share: 28.2, price: 110, skus: 6, coverage: 82, rating: 8.5, isUs: false },
         { name: 'Splenda Stevia', share: 22.5, price: 135, skus: 4, coverage: 45, rating: 9.0, isUs: false },
         { name: 'Imtenan Stevia', share: 14.5, price: 95, skus: 3, coverage: 75, rating: 8.4, isUs: false },
@@ -187,14 +187,14 @@ function CompetitorAnalysisView({
 
     // 3. Marketing Channel & Ad Spend Comparison Data
   const marketingSpendData = useMemo(() => {
-    if (selectedBrand === 'yalla') {
+    if (selectedBrand === 'nova') {
       return [
         { channel: isEn ? 'Social Media' : 'وسائل التواصل', ourBrand: 120000, competitorA: 350000, competitorB: 180000 },
         { channel: isEn ? 'TV & Billboards' : 'التلفزيون واللافتات', ourBrand: 250000, competitorA: 900000, competitorB: 100000 },
         { channel: isEn ? 'In-Store Sampling' : 'تذوق داخل المتجر', ourBrand: 95000, competitorA: 150000, competitorB: 50000 },
         { channel: isEn ? 'Digital Search / SEO' : 'البحث الرقمي', ourBrand: 45000, competitorA: 120000, competitorB: 140000 }
       ];
-    } else if (selectedBrand === 'squeasy') {
+    } else if (selectedBrand === 'zenith') {
       return [
         { channel: isEn ? 'Social Media' : 'وسائل التواصل', ourBrand: 65000, competitorA: 280000, competitorB: 95000 },
         { channel: isEn ? 'TV & Billboards' : 'التلفزيون واللافتات', ourBrand: 80000, competitorA: 750000, competitorB: 200000 },
@@ -212,7 +212,7 @@ function CompetitorAnalysisView({
   }, [selectedBrand, isEn]);
 
   const swotData = useMemo(() => {
-    if (selectedBrand === 'yalla') {
+    if (selectedBrand === 'nova') {
       return {
         strengths: isEn 
           ? ['Premium Egyptian local brand alignment.', 'Rich flavour profiles (Mocha, Caramel, Pistachio).', 'High quality sachet design & box packaging.'] 
@@ -227,7 +227,7 @@ function CompetitorAnalysisView({
           ? ['Nescafe aggressive pricing discounts and loyalty schemes.', 'Fluctuation in cocoa and coffee bean import tariffs.', 'Imitation brands copying flavour packaging layouts.']
           : ['خصومات الأسعار الهجومية وبرامج الولاء من نيسكافيه.', 'تقلبات أسعار الصرف والتعريفات الجمركية على حبوب البن.', 'العلامات التجارية المقلدة التي تنسخ تصاميم نكهات يالا.']
       };
-    } else if (selectedBrand === 'squeasy') {
+    } else if (selectedBrand === 'zenith') {
       return {
         strengths: isEn
           ? ['Highly convenient and clean squeezable tube/bottle design.', 'Fresh minced texture (Chili & Garlic) vs competitor dry powders.', 'High appeal as a local Egyptian alternative.']
@@ -242,7 +242,7 @@ function CompetitorAnalysisView({
           ? ['Heinz aggressive pricing promotions and deep discount bundles.', 'Price volatility of fresh garlic and chili raw crops.', 'Private label supermarket brands copying squeeze paste models.']
           : ['خصومات الأسعار وعروض الحزم الترويجية الهجومية من هاينز.', 'تقلبات أسعار المحاصيل الزراعية الطازجة للثوم والفلفل.', 'العلامات التجارية الخاصة بالسوبرماركت التي تنسخ فكرة معجون الضغط.']
       };
-    } else if (selectedBrand === 'sweet_slim_classic') {
+    } else if (selectedBrand === 'vitality_snacks_classic') {
       return {
         strengths: isEn
           ? ['Zero metallic aftertaste due to high-quality sucralose formulation.', 'Extremely trusted local Egyptian brand with strong pharmacy referral.', 'Convenient multi-sachet boxes (50, 100, 400 counts).']
@@ -266,7 +266,7 @@ function CompetitorAnalysisView({
           ? ['High cost of raw Rebaudioside-A stevia leaves limits price reductions.', 'Limited shelf space in small traditional retail grocers.', 'Consumer perception that stevia tastes different than sugar.']
           : ['ارتفاع تكلفة أوراق الستيفيا الخام يحد من مرونة خفض الأسعار.', 'مساحة رف محدونة في محلات البقالة التقليدية الصغيرة.', 'انطباع بعض المستهلكين بأن طعم الستيفيا يختلف قليلاً عن السكر الأبيض.'],
         opportunities: isEn
-          ? ['Partner with weight-loss centers and clinical dieticians.', 'Launch Sweet & Slim Sugar-Free Coffee Syrups (Vanilla, Caramel).', 'Launch high-volume baking stevia bags for diet pastries.']
+          ? ['Partner with weight-loss centers and clinical dieticians.', 'Launch Vitality Snacks Sugar-Free Coffee Syrups (Vanilla, Caramel).', 'Launch high-volume baking stevia bags for diet pastries.']
           : ['الشراكة مع مراكز التخسيس وأخصائيي التغذية العلاجية.', 'إطلاق شراب (سيرب) خالي من السكر بنكهات الفانيليا والكراميل للمقاهي.', 'توفير عبوات ستيفيا كبيرة الحجم مخصصة للخبز والحلويات الدايت.'],
         threats: isEn
           ? ['Splenda Stevia medical detailing and doctor sponsorship campaigns.', 'Suga Stevia aggressive price cuts in hypermarkets.', 'Flooding of cheap, uncertified bulk stevia powder online.']
@@ -277,22 +277,22 @@ function CompetitorAnalysisView({
 
   // 5. Competitor Feed / Market Reviews
   const reviews = useMemo(() => {
-    if (selectedBrand === 'yalla') {
+    if (selectedBrand === 'nova') {
       return [
-        { competitor: 'Nescafé 3-in-1', feedback: isEn ? 'Tastes diluted compared to Yalla, but Nescafe is available in literally every kiosk.' : 'طعمه مخفف مقارنة بيالا، لكن نيسكافيه متوفر حرفياً في كل كشك بقالة.', source: 'B2C Retail Survey', sentiment: 'neutral', action: isEn ? 'Increase traditional trade kiosk POS visibility.' : 'زيادة التواجد والإعلانات عند نقاط البيع للأكشاك التقليدية.' },
-        { competitor: 'Starbucks Instant', feedback: isEn ? 'Premium taste but overpriced for daily consumption. Yalla is the perfect alternative.' : 'طعم متميز ولكن سعره مبالغ فيه للاستهلاك اليومي. يالا هي البديل المثالي.', source: 'Social Media Review', sentiment: 'positive', action: isEn ? 'Target premium users with "Café Quality at 50% Cost" campaign.' : 'استهداف المستهلكين بحملة "جودة المقهى بنصف التكلفة".' },
-        { competitor: 'Bonjorno Coffee', feedback: isEn ? 'Cheap and sweet, but has chemical aftertaste. Yalla is much smoother.' : 'رخيص وحلو، لكن له طعم صناعي بعد تذوقه. يالا أكثر سلاسة وجودة.', source: 'Focus Group Audit', sentiment: 'positive', action: isEn ? 'Highlight "Zero Artificial Flavours" on Yalla packaging.' : 'إبراز عبارة "نكهات طبيعية بالكامل" على عبوات يالا.' }
+        { competitor: 'Nescafé 3-in-1', feedback: isEn ? 'Tastes diluted compared to Nova, but Nescafe is available in literally every kiosk.' : 'طعمه مخفف مقارنة بيالا، لكن نيسكافيه متوفر حرفياً في كل كشك بقالة.', source: 'B2C Retail Survey', sentiment: 'neutral', action: isEn ? 'Increase traditional trade kiosk POS visibility.' : 'زيادة التواجد والإعلانات عند نقاط البيع للأكشاك التقليدية.' },
+        { competitor: 'Starbucks Instant', feedback: isEn ? 'Premium taste but overpriced for daily consumption. Nova is the perfect alternative.' : 'طعم متميز ولكن سعره مبالغ فيه للاستهلاك اليومي. يالا هي البديل المثالي.', source: 'Social Media Review', sentiment: 'positive', action: isEn ? 'Target premium users with "Café Quality at 50% Cost" campaign.' : 'استهداف المستهلكين بحملة "جودة المقهى بنصف التكلفة".' },
+        { competitor: 'Bonjorno Coffee', feedback: isEn ? 'Cheap and sweet, but has chemical aftertaste. Nova is much smoother.' : 'رخيص وحلو، لكن له طعم صناعي بعد تذوقه. يالا أكثر سلاسة وجودة.', source: 'Focus Group Audit', sentiment: 'positive', action: isEn ? 'Highlight "Zero Artificial Flavours" on Nova packaging.' : 'إبراز عبارة "نكهات طبيعية بالكامل" على عبوات يالا.' }
       ];
-    } else if (selectedBrand === 'squeasy') {
+    } else if (selectedBrand === 'zenith') {
       return [
-        { competitor: 'Heinz Chili Squeeze', feedback: isEn ? 'Heinz has good heat, but Squeasy Garlic and Chili pastes taste much fresher like real minced garlic.' : 'هاينز يعطي حرارة جيدة، لكن معجون الثوم والفلفل من سكويزي طعمه طازج جداً كأنه ثوم مفروم حقيقي.', source: 'In-Store Intercept', sentiment: 'positive', action: isEn ? 'Run campaign focusing on "Real Fresh Garlic & Chili taste - No Powdered substitutes".' : 'إطلاق حملة تركز على "طعم الثوم والفلفل الطازج الحقيقي - بدون بدائل مجففة".' },
-        { competitor: 'Durra Culinary Pastes', feedback: isEn ? 'Durra jars are messy and need a spoon. Squeasy bottles are much cleaner for cooking.' : 'برطمانات درة تسبب الفوضى وتحتاج إلى ملعقة للاستخدام. عبوة سكويزي أنظف بكثير عند الطهي.', source: 'Culinary Audit', sentiment: 'positive', action: isEn ? 'Highlight "Clean Culinary Squeeze" convenience in social media cooking reels.' : 'إبراز ميزة "ضغط نظيف للطهي السهل" في مقاطع الطبخ على منصات التواصل الاجتماعي.' }
+        { competitor: 'Heinz Chili Squeeze', feedback: isEn ? 'Heinz has good heat, but Zenith Garlic and Chili pastes taste much fresher like real minced garlic.' : 'هاينز يعطي حرارة جيدة، لكن معجون الثوم والفلفل من سكويزي طعمه طازج جداً كأنه ثوم مفروم حقيقي.', source: 'In-Store Intercept', sentiment: 'positive', action: isEn ? 'Run campaign focusing on "Real Fresh Garlic & Chili taste - No Powdered substitutes".' : 'إطلاق حملة تركز على "طعم الثوم والفلفل الطازج الحقيقي - بدون بدائل مجففة".' },
+        { competitor: 'Durra Culinary Pastes', feedback: isEn ? 'Durra jars are messy and need a spoon. Zenith bottles are much cleaner for cooking.' : 'برطمانات درة تسبب الفوضى وتحتاج إلى ملعقة للاستخدام. عبوة سكويزي أنظف بكثير عند الطهي.', source: 'Culinary Audit', sentiment: 'positive', action: isEn ? 'Highlight "Clean Culinary Squeeze" convenience in social media cooking reels.' : 'إبراز ميزة "ضغط نظيف للطهي السهل" في مقاطع الطبخ على منصات التواصل الاجتماعي.' }
       ];
     } else {
       return [
-        { competitor: 'Canderel Classic', feedback: isEn ? 'Canderel tastes sweet but leaves a persistent metallic aftertaste. Sweet & Slim Classic is much more natural.' : 'كانديريل حلو المذاق لكنه يترك طعماً معدنياً باقياً في الفم. سويت آند سليم كلاسيك طعمه طبيعي أكثر.', source: 'Pharmacy Intercept Survey', sentiment: 'positive', action: isEn ? 'Highlight Sweet & Slim "No Metallic Aftertaste" in pharmacy ads.' : 'التركيز على ميزة "بدون طعم معدني متبقي" في إعلانات الصيدليات.' },
-        { competitor: 'Splenda Stevia', feedback: isEn ? 'Splenda Stevia has excellent taste, but is extremely expensive for daily tea drinkers. Sweet & Slim Stevia is the best economical choice.' : 'سبليندا ستيفيا طعمها ممتاز، ولكنها باهظة الثمن جداً لمن يشربون الشاي يومياً. سويت آند سليم ستيفيا خيار اقتصادي رائع.', source: 'Customer Sentiment Log', sentiment: 'positive', action: isEn ? 'Market Sweet & Slim Stevia as "Daily Natural Sweetness at a Smart Price".' : 'تسويق سويت آند سليم ستيفيا كحملة "حلاوة طبيعية يومية بسعر ذكي".' },
-        { competitor: 'Diet Sweet', feedback: isEn ? 'Diet Sweet is very cheap but has saccharin, which makes doctors advise against it. Sweet & Slim Stevia is far healthier.' : 'دايت سويت رخيص جداً ولكنه يحتوي على السكرين، مما يجعل الأطباء ينصحون بعدمه. سويت آند سليم ستيفيا أكثر صحية وأماناً.', source: 'Medical Forum Audit', sentiment: 'positive', action: isEn ? 'Highlight "Zero Aspartame / Zero Saccharin" on stevia pack fronts.' : 'تأكيد عبارة "خالي من الأسبرتام والسكرين" بشكل بارز على عبوات ستيفيا.' }
+        { competitor: 'Canderel Classic', feedback: isEn ? 'Canderel tastes sweet but leaves a persistent metallic aftertaste. Vitality Snacks Classic is much more natural.' : 'كانديريل حلو المذاق لكنه يترك طعماً معدنياً باقياً في الفم. سويت آند سليم كلاسيك طعمه طبيعي أكثر.', source: 'Pharmacy Intercept Survey', sentiment: 'positive', action: isEn ? 'Highlight Vitality Snacks "No Metallic Aftertaste" in pharmacy ads.' : 'التركيز على ميزة "بدون طعم معدني متبقي" في إعلانات الصيدليات.' },
+        { competitor: 'Splenda Stevia', feedback: isEn ? 'Splenda Stevia has excellent taste, but is extremely expensive for daily tea drinkers. Vitality Snacks Stevia is the best economical choice.' : 'سبليندا ستيفيا طعمها ممتاز، ولكنها باهظة الثمن جداً لمن يشربون الشاي يومياً. سويت آند سليم ستيفيا خيار اقتصادي رائع.', source: 'Customer Sentiment Log', sentiment: 'positive', action: isEn ? 'Market Vitality Snacks Stevia as "Daily Natural Sweetness at a Smart Price".' : 'تسويق سويت آند سليم ستيفيا كحملة "حلاوة طبيعية يومية بسعر ذكي".' },
+        { competitor: 'Diet Sweet', feedback: isEn ? 'Diet Sweet is very cheap but has saccharin, which makes doctors advise against it. Vitality Snacks Stevia is far healthier.' : 'دايت سويت رخيص جداً ولكنه يحتوي على السكرين، مما يجعل الأطباء ينصحون بعدمه. سويت آند سليم ستيفيا أكثر صحية وأماناً.', source: 'Medical Forum Audit', sentiment: 'positive', action: isEn ? 'Highlight "Zero Aspartame / Zero Saccharin" on stevia pack fronts.' : 'تأكيد عبارة "خالي من الأسبرتام والسكرين" بشكل بارز على عبوات ستيفيا.' }
       ];
     }
   }, [selectedBrand, isEn]);
@@ -498,19 +498,19 @@ function CompetitorAnalysisView({
                 <Legend wrapperStyle={{ fontSize: 10 }} />
                 <Bar 
                   dataKey="ourBrand" 
-                  name={selectedBrand === 'yalla' ? (isEn ? 'Yalla (Our)' : 'يالا (منتجنا)') : (isEn ? 'Squeasy (Our)' : 'سكويزي (منتجنا)')} 
+                  name={selectedBrand === 'nova' ? (isEn ? 'Nova (Our)' : 'يالا (منتجنا)') : (isEn ? 'Zenith (Our)' : 'سكويزي (منتجنا)')} 
                   fill="#128d46" 
                   radius={[3, 3, 0, 0]} 
                 />
                 <Bar 
                   dataKey="competitorA" 
-                  name={selectedBrand === 'yalla' ? 'Nescafé' : 'Heinz'} 
+                  name={selectedBrand === 'nova' ? 'Nescafé' : 'Heinz'} 
                   fill="#cbd5e1" 
                   radius={[3, 3, 0, 0]} 
                 />
                 <Bar 
                   dataKey="competitorB" 
-                  name={selectedBrand === 'yalla' ? 'Starbucks' : 'Vitrac'} 
+                  name={selectedBrand === 'nova' ? 'Starbucks' : 'Vitrac'} 
                   fill="#e97025" 
                   radius={[3, 3, 0, 0]} 
                 />

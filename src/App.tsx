@@ -99,7 +99,7 @@ import MarketingView from './components/MarketingView';
 import HrView from './components/HrView';
 import CompetitorAnalysisView from './components/CompetitorAnalysisView';
 import BrandDashboardView from './components/BrandDashboardView';
-import SweetSlimDashboardView from './components/SweetSlimDashboardView';
+import VitalitySnacksDashboardView from './components/VitalitySnacksDashboardView';
 // Data is now loaded dynamically via fetch at runtime
 
 interface Transaction {
@@ -209,7 +209,7 @@ export default function App() {
       { username: 'supply_chain', password: 'sc123', role: 'sc' },
       { username: 'marketing', password: 'mkt123', role: 'marketing' },
       { username: 'hr_director', password: 'hr123', role: 'hr' },
-      { username: 'brand_manager', password: 'brand123', role: 'brand_manager', managedBrands: ['yalla', 'squeasy', 'sweet_slim'] },
+      { username: 'brand_manager', password: 'brand123', role: 'brand_manager', managedBrands: ['nova', 'zenith', 'vitality_snacks'] },
       { username: 'sales_rep', password: 'rep123', role: 'salesperson', salesmanName: 'John Smith', salesOffice: 'B2B' },
     ];
   });
@@ -403,7 +403,7 @@ export default function App() {
       else if (currentUser.role === 'marketing') setActiveTab('marketing');
       else if (currentUser.role === 'hr') setActiveTab('hr');
       else if (currentUser.role === 'brand_manager') {
-        if (currentUser.username === 'yassmen') setActiveTab('sweet_slim_dashboard');
+        if (currentUser.username === 'yassmen') setActiveTab('vitality_snacks_dashboard');
         else setActiveTab('brand_dashboard');
       }
       else if (currentUser.role === 'salesperson') {
@@ -736,7 +736,7 @@ export default function App() {
   }, [processedData, B2C_OFFICES]);
 
   const raniaB2cData = useMemo(() => {
-    const allowedGroups = ['Frappit', 'Frappit Sugar Free', 'Horeca Frappe', 'Smoozy', 'Squeasy', 'Yalla Koffi'];
+    const allowedGroups = ['Frappit', 'Frappit Sugar Free', 'Horeca Frappe', 'Smoozy', 'Zenith', 'Nova Koffi'];
     return b2cData.filter(row => allowedGroups.includes(row.ItemGroup || ''));
   }, [b2cData]);
 
@@ -754,7 +754,7 @@ export default function App() {
   }, [roleProcessedData, B2C_OFFICES]);
 
   const raniaB2cDataNoDate = useMemo(() => {
-    const allowedGroups = ['Frappit', 'Frappit Sugar Free', 'Horeca Frappe', 'Smoozy', 'Squeasy', 'Yalla Koffi'];
+    const allowedGroups = ['Frappit', 'Frappit Sugar Free', 'Horeca Frappe', 'Smoozy', 'Zenith', 'Nova Koffi'];
     return b2cDataNoDate.filter(row => allowedGroups.includes(row.ItemGroup || ''));
   }, [b2cDataNoDate]);
 
@@ -774,8 +774,8 @@ export default function App() {
         previewMock: "Preview Mode (Mock)",
         activeProd: "Production Data Active",
         tabCeo: "CEO Strategic Command",
-        tabBrandDashboard: "Yalla & Squeezy Dashboard",
-        tabSweetSlimDashboard: "Sweet & Slim Dashboard",
+        tabBrandDashboard: "Nova & Zenith Dashboard",
+        tabVitalitySnacksDashboard: "Vitality Snacks Dashboard",
         tabCompetitorAnalysis: "Competitor Insights",
         tabSales: "B2B Sales Dashboard",
         tabSalesB2c: "B2C Sales Dashboard",
@@ -807,7 +807,7 @@ export default function App() {
         activeProd: "البيانات الحية نشطة",
         tabCeo: "منظور المدير التنفيذي",
         tabBrandDashboard: "لوحة تحكم يالا وسكويزي",
-        tabSweetSlimDashboard: "لوحة تحكم سويت آند سليم",
+        tabVitalitySnacksDashboard: "لوحة تحكم سويت آند سليم",
         tabCompetitorAnalysis: "تحليلات المنافسين للعلامات",
         tabSales: "منصة مبيعات B2B",
         tabSalesB2c: "منصة مبيعات B2C",
@@ -881,7 +881,7 @@ export default function App() {
     const allTabs = [
       { id: 'ceo', label: t('tabCeo'), icon: <LayoutDashboard size={16} />, roles: ['admin', 'ceo', 'finance'] },
       { id: 'brand_dashboard', label: t('tabBrandDashboard'), icon: <Boxes size={16} />, roles: ['admin', 'ceo', 'brand_manager', 'sales_b2c', 'finance'] },
-      { id: 'sweet_slim_dashboard', label: t('tabSweetSlimDashboard'), icon: <Boxes size={16} />, roles: ['admin', 'ceo', 'brand_manager', 'finance'] },
+      { id: 'vitality_snacks_dashboard', label: t('tabVitalitySnacksDashboard'), icon: <Boxes size={16} />, roles: ['admin', 'ceo', 'brand_manager', 'finance'] },
       { id: 'sales', label: currentUser?.role === 'salesperson' ? t('tabSalesperson') : t('tabSales'), icon: <TrendingUp size={16} />, roles: ['admin', 'ceo', 'finance', 'sales_b2b', 'salesperson'] },
       { id: 'sales_b2c', label: t('tabSalesB2c'), icon: <TrendingUp size={16} />, roles: ['admin', 'ceo', 'finance', 'sales_b2c', 'brand_manager'] },
       { id: 'sales_horeca', label: t('tabSalesHoreca'), icon: <TrendingUp size={16} />, roles: ['admin', 'ceo', 'finance', 'sales_horeca'] },
@@ -899,12 +899,12 @@ export default function App() {
       if (!tab.roles.includes(currentUser.role)) return false;
       const managed = (currentUser as any).managedBrands;
       if (tab.id === 'brand_dashboard') {
-        if (currentUser.role === 'brand_manager' && (!managed || !managed.includes('yalla'))) {
+        if (currentUser.role === 'brand_manager' && (!managed || !managed.includes('nova'))) {
           return false;
         }
       }
-      if (tab.id === 'sweet_slim_dashboard') {
-        if (currentUser.role === 'brand_manager' && (!managed || !managed.includes('sweet_slim'))) {
+      if (tab.id === 'vitality_snacks_dashboard') {
+        if (currentUser.role === 'brand_manager' && (!managed || !managed.includes('vitality_snacks'))) {
           return false;
         }
       }
@@ -1647,9 +1647,9 @@ export default function App() {
             </div>
           )}
 
-          {visitedTabs['sweet_slim_dashboard'] && (
-            <div style={{ display: activeTab === 'sweet_slim_dashboard' ? 'block' : 'none' }}>
-              <SweetSlimDashboardView 
+          {visitedTabs['vitality_snacks_dashboard'] && (
+            <div style={{ display: activeTab === 'vitality_snacks_dashboard' ? 'block' : 'none' }}>
+              <VitalitySnacksDashboardView 
                 processedData={processedData}
                 language={language}
                 darkMode={darkMode}
