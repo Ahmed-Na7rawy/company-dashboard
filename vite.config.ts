@@ -31,6 +31,7 @@ export default defineConfig({
     }),
   ],
   esbuild: {
+    // @ts-ignore
     drop: ['console', 'debugger'],
   },
   build: {
