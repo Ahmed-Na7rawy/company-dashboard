@@ -730,3 +730,105 @@ html:not(.dark) .text-slate-300 { color: #334155; }
 html:not(.dark) .text-slate-200 { color: #1e293b; }
 html:not(.dark) .border-slate-200 { border-color: #e2e8f0; }
 html:not(.dark) .border-slate-300 { border-color: #cbd5e1; }
+
+/* ─── Chatbot Assistant ─────────────────────────────────────────────────── */
+
+/* Panel slide-up + fade-in animation */
+@keyframes chatbot-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes chatbot-fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+}
+
+/* Pulse ring on the bubble */
+@keyframes chatbot-pulse {
+  0%   { transform: scale(1);    opacity: 0.55; }
+  70%  { transform: scale(1.6);  opacity: 0;    }
+  100% { transform: scale(1.6);  opacity: 0;    }
+}
+
+/* Typing indicator dots */
+@keyframes chatbot-blink {
+  0%, 80%, 100% { transform: scale(0.7); opacity: 0.4; }
+  40%            { transform: scale(1.1); opacity: 1;   }
+}
+
+/* Open state */
+.chatbot-panel-open {
+  animation: chatbot-slideUp 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  opacity: 1;
+}
+
+/* Closed state */
+.chatbot-panel-closed {
+  opacity: 0;
+  transform: translateY(16px) scale(0.96);
+}
+
+/* Bubble */
+.chatbot-bubble {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.chatbot-bubble:hover > div {
+  transform: scale(1.08);
+  box-shadow: 0 8px 32px rgba(18, 141, 70, 0.45);
+  transition: all 0.2s ease;
+}
+
+.chatbot-pulse {
+  animation: chatbot-pulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+/* Typing dots */
+.chatbot-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #128d46;
+  animation: chatbot-blink 1.2s infinite;
+}
+
+/* Messages scrollbar */
+.chatbot-messages {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(18, 141, 70, 0.25) transparent;
+}
+
+.chatbot-messages::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chatbot-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb {
+  background-color: rgba(18, 141, 70, 0.25);
+  border-radius: 4px;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(18, 141, 70, 0.45);
+}

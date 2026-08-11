@@ -100,6 +100,7 @@ import HrView from './components/HrView';
 import CompetitorAnalysisView from './components/CompetitorAnalysisView';
 import BrandDashboardView from './components/BrandDashboardView';
 import VitalitySnacksDashboardView from './components/VitalitySnacksDashboardView';
+import ChatbotAssistant from './components/ChatbotAssistant';
 // Data is now loaded dynamically via fetch at runtime
 
 interface Transaction {
@@ -1552,7 +1553,7 @@ export default function App() {
             </div>
           )}
 
-          <ErrorBoundary language={language}>
+          <ErrorBoundary key={activeTab} language={language}>
 
           {visitedTabs['ceo'] && (
             <div style={{ display: activeTab === 'ceo' ? 'block' : 'none' }}>
@@ -1789,6 +1790,14 @@ export default function App() {
           </ErrorBoundary>
         </div>
       </div>
+
+      {/* Global Chatbot Assistant — floats above all views */}
+      <ChatbotAssistant
+        processedData={processedData}
+        currentUser={currentUser}
+        language={language}
+        darkMode={darkMode}
+      />
     </div>
   );
 }
