@@ -1,5 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
-import { MessageCircle, X, Send, Bot, ChevronDown, Sparkles, RotateCcw } from 'lucide-react';
+import { MessageCircle, X, Send, Bot, ChevronDown, Sparkles, RotateCcw, Copy, Download, FileText, BarChart2, AlertTriangle, Zap } from 'lucide-react';
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
+import { saveAs } from 'file-saver';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -41,6 +44,217 @@ interface ChatbotAssistantProps {
   currentUser: { username: string; role: string; salesmanName?: string; salesOffice?: string } | null;
   language: 'en' | 'ar';
   darkMode: boolean;
+}
+
+// ─── Export Utilities ──────────────────────────────────────────────────────────
+
+async function exportChatToPDF(messages: ChatMessage[], language: 'en' | 'ar', darkMode: boolean) {
+  const container = document.createElement('div');
+  container.style.padding = '20px';
+  container.style.fontFamily = 'system-ui, sans-serif';
+  container.style.maxWidth = '800px';
+  container.style.background = darkMode ? '#0f172a' : '#ffffff';
+  container.style.color = darkMode ? '#f1f5f9' : '#1e293b';
+
+  // Title
+  const title = document.createElement('h1');
+  title.textContent = language === 'en' ? 'Apex Dashboard Assistant - Chat Export' : 'مساعد أبيكس - تصدير المحادثة';
+  title.style.marginBottom = '20px';
+  title.style.color = '#128d46';
+  title.style.borderBottom = '2px solid #128d46';
+  title.style.paddingBottom = '10px';
+  container.appendChild(title);
+
+  // Date
+  const locale = language === 'ar' ? 'ar-EG' : 'en-US';
+  const dateStr = document.createElement('p');
+  dateStr.textContent = language === 'en' 
+    ? `Exported: ${new Date().toLocaleString(locale)}`
+    : `تم التصدير: ${new Date().toLocaleString(locale)}`;
+  dateStr.style.color = darkMode ? '#94a3b8' : '#64748b';
+  dateStr.style.fontSize = '14px';
+  dateStr.style.marginBottom = '20px';
+  container.appendChild(dateStr);
+
+  // Messages
+  for (const msg of messages) {
+    const msgDiv = document.createElement('div');
+    msgDiv.style.marginBottom = '20px';
+    msgDiv.style.padding = '12px 16px';
+    msgDiv.style.borderRadius = '12px';
+    msgDiv.style.maxWidth = '85%';
+
+    if (msg.role === 'user') {
+      msgDiv.style.background = '#128d46';
+      msgDiv.style.color = '#ffffff';
+      msgDiv.style.marginLeft = 'auto';
+      msgDiv.style.borderBottomRightRadius = '4px';
+    } else {
+      msgDiv.style.background = darkMode ? '#1e293b' : '#f8fafc';
+      msgDiv.style.color = darkMode ? '#f1f5f9' : '#334155';
+      msgDiv.style.border = darkMode ? '1px solid #334155' : '1px solid #e2e8f0';
+      msgDiv.style.marginRight = 'auto';
+      msgDiv.style.borderBottomLeftRadius = '4px';
+    }
+
+    // Role label
+    const roleLabel = document.createElement('div');
+    roleLabel.textContent = msg.role === 'user' 
+      ? (language === 'en' ? 'You' : 'أنت')
+      : (language === 'en' ? 'Assistant' : 'المساعد');
+    roleLabel.style.fontWeight = '600';
+    roleLabel.style.fontSize = '12px';
+    roleLabel.style.marginBottom = '6px';
+    roleLabel.style.opacity = '0.8';
+    msgDiv.appendChild(roleLabel);
+
+    // Text content
+    const textDiv = document.createElement('div');
+    textDiv.style.whiteSpace = 'pre-wrap';
+    textDiv.style.fontSize = '13px';
+    textDiv.style.lineHeight = '1.6';
+    // Simple markdown bold
+    textDiv.innerHTML = msg.text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    msgDiv.appendChild(textDiv);
+
+    // Timestamp
+    const timeDiv = document.createElement('div');
+    timeDiv.textContent = msg.timestamp.toLocaleTimeString(language === 'ar' ? 'ar-EG' : 'en-US', { hour: '2-digit', minute: '2-digit' });
+    timeDiv.style.fontSize = '10px';
+    timeDiv.style.opacity = '0.6';
+    timeDiv.style.marginTop = '6px';
+    msgDiv.appendChild(timeDiv);
+
+    container.appendChild(msgDiv);
+  }
+
+  document.body.appendChild(container);
+  
+  try {
+    const canvas = await html2canvas(container, { 
+      scale: 2,
+      useCORS: true,
+      backgroundColor: darkMode ? '#0f172a' : '#ffffff'
+    });
+    
+    const pdf = new jsPDF({ orientation: 'portrait', unit: 'px', format: 'a4' });
+    const imgWidth = 595; // A4 width in px at 72dpi
+    const pageHeight = 842;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    let heightLeft = imgHeight;
+    let position = 0;
+
+    const imgData = canvas.toDataURL('image/png');
+    
+    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+    heightLeft -= pageHeight;
+
+    while (heightLeft >= 0) {
+      position = heightLeft - imgHeight;
+      pdf.addPage();
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+    }
+
+    pdf.save(`apex-chat-${new Date().toISOString().split('T')[0]}.pdf`);
+  } finally {
+    document.body.removeChild(container);
+  }
+}
+
+function exportChatToCSV(messages: ChatMessage[], language: 'en' | 'ar') {
+  const headers = language === 'en' 
+    ? ['Role', 'Timestamp', 'Message', 'Has Chart']
+    : ['الدور', 'الوقت', 'الرسالة', 'يحتوي رسم'];
+  
+  const rows = messages.map(msg => [
+    msg.role === 'user' ? (language === 'en' ? 'User' : 'مستخدم') : (language === 'en' ? 'Assistant' : 'مساعد'),
+    msg.timestamp.toLocaleString(language === 'ar' ? 'ar-EG' : 'en-US'),
+    msg.text.replace(/\n/g, ' ').replace(/\*\*/g, ''),
+    msg.chart ? 'Yes' : 'No'
+  ]);
+
+  const csvContent = [headers, ...rows]
+    .map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(','))
+    .join('\n');
+
+  const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8' });
+  saveAs(blob, `apex-chat-${new Date().toISOString().split('T')[0]}.csv`);
+}
+
+async function exportChartAsPNG(chartConfig: ChartConfig, language: 'en' | 'ar') {
+  const container = document.createElement('div');
+  container.style.padding = '20px';
+  container.style.fontFamily = 'system-ui, sans-serif';
+  container.style.background = '#ffffff';
+  container.style.width = '600px';
+
+  const title = document.createElement('h2');
+  title.textContent = chartConfig.valueFormatter === 'revenue' 
+    ? (language === 'en' ? 'Revenue Chart' : 'رسم بياني للإيرادات')
+    : (language === 'en' ? 'Volume Chart' : 'رسم بياني للكميات');
+  title.style.color = '#128d46';
+  title.style.marginBottom = '16px';
+  container.appendChild(title);
+
+  const maxVal = Math.max(...chartConfig.data.map(d => d.value), 1);
+  
+  chartConfig.data.forEach((item, i) => {
+    const pct = Math.max((item.value / maxVal) * 100, 2);
+    const formattedVal = chartConfig.valueFormatter === 'revenue'
+      ? item.value.toLocaleString(language === 'ar' ? 'ar-EG' : 'en-US', { maximumFractionDigits: 0 })
+      : item.value.toLocaleString(language === 'ar' ? 'ar-EG' : 'en-US', { maximumFractionDigits: 0 });
+
+    const row = document.createElement('div');
+    row.style.marginBottom = '12px';
+    
+    const labelRow = document.createElement('div');
+    labelRow.style.display = 'flex';
+    labelRow.style.justifyContent = 'space-between';
+    labelRow.style.marginBottom = '4px';
+    labelRow.innerHTML = `<span style="font-weight: 600;">${item.label}</span><span style="color: #128d46; font-family: monospace;">${formattedVal}</span>`;
+    row.appendChild(labelRow);
+
+    const barBg = document.createElement('div');
+    barBg.style.height = '20px';
+    barBg.style.background = '#e2e8f0';
+    barBg.style.borderRadius = '10px';
+    barBg.style.overflow = 'hidden';
+    
+    const barFill = document.createElement('div');
+    barFill.style.height = '100%';
+    barFill.style.width = `${pct}%`;
+    barFill.style.background = 'linear-gradient(90deg, #128d46, #16a854)';
+    barFill.style.borderRadius = '10px';
+    barBg.appendChild(barFill);
+    row.appendChild(barBg);
+    
+    container.appendChild(row);
+  });
+
+  document.body.appendChild(container);
+
+  try {
+    const canvas = await html2canvas(container, { scale: 2, backgroundColor: '#ffffff' });
+    canvas.toBlob((blob) => {
+      if (blob) saveAs(blob, `apex-chart-${new Date().toISOString().split('T')[0]}.png`);
+    }, 'image/png');
+  } finally {
+    document.body.removeChild(container);
+  }
+}
+
+// ─── Proactive Suggestion Types ────────────────────────────────────────────────
+
+interface ProactiveInsight {
+  id: string;
+  type: 'decline' | 'growth' | 'anomaly' | 'opportunity';
+  title: string;
+  description: string;
+  actionLabel: string;
+  actionQuery: string;
+  severity: 'high' | 'medium' | 'low';
+  dataRef?: any;
 }
 
 // ─── Formatting Utilities ────────────────────────────────────────────────────
@@ -176,6 +390,148 @@ function monthLabel(key: string, lang: 'en' | 'ar'): string {
 // Helper: total net revenue (sales - returns)
 function totalNetRevenue(data: ProcessedRow[]): number {
   return data.reduce((acc, row) => acc + (row.IsReturn ? -row.Revenue : row.Revenue), 0);
+}
+
+// ─── Proactive Insights Engine ─────────────────────────────────────────────────
+
+function generateProactiveInsights(data: ProcessedRow[], language: 'en' | 'ar'): ProactiveInsight[] {
+  const insights: ProactiveInsight[] = [];
+  const monthly = getMonthlyRevenue(data);
+  const sortedMonths = Object.entries(monthly).sort((a, b) => a[0].localeCompare(b[0]));
+  
+  if (sortedMonths.length < 2) return insights;
+
+  // 1. Check for declining top product
+  const topProducts = groupByRevenue(data, 'ItemName');
+  if (topProducts.length > 0) {
+    const topProduct = topProducts[0][0];
+    const productData = data.filter(r => r.ItemName === topProduct && !r.IsReturn);
+    const productMonthly: Record<string, number> = {};
+    for (const row of productData) {
+      const key = `${row.DateObj.getFullYear()}-${String(row.DateObj.getMonth() + 1).padStart(2, '0')}`;
+      productMonthly[key] = (productMonthly[key] || 0) + row.Revenue;
+    }
+    const productSorted = Object.entries(productMonthly).sort((a, b) => a[0].localeCompare(b[0]));
+    if (productSorted.length >= 3) {
+      const last3 = productSorted.slice(-3);
+      const trend = last3[2][1] - last3[0][1];
+      const pctChange = last3[0][1] > 0 ? (trend / last3[0][1]) * 100 : 0;
+      
+      if (pctChange < -15) {
+        insights.push({
+          id: `decline-${topProduct}`,
+          type: 'decline',
+          title: language === 'en' ? `⚠️ ${topProduct} declining` : `⚠️ ${topProduct} في تراجع`,
+          description: language === 'en'
+            ? `Your top product dropped ${Math.abs(pctChange).toFixed(0)}% over last 3 months (${fmtRevenue(last3[0][1], language)} → ${fmtRevenue(last3[2][1], language)})`
+            : `منتجك الأول انخفض ${Math.abs(pctChange).toFixed(0)}% خلال 3 أشهر (${fmtRevenue(last3[0][1], language)} → ${fmtRevenue(last3[2][1], language)})`,
+          actionLabel: language === 'en' ? 'Analyze product' : 'تحليل المنتج',
+          actionQuery: language === 'en' ? `trend for ${topProduct}` : `اتجاه ${topProduct}`,
+          severity: pctChange < -30 ? 'high' : 'medium',
+          dataRef: { product: topProduct, change: pctChange }
+        });
+      }
+    }
+  }
+
+  // 2. Check for overall revenue decline
+  const lastTwo = sortedMonths.slice(-2);
+  if (lastTwo.length === 2 && lastTwo[0][1] > 0) {
+    const momChange = ((lastTwo[1][1] - lastTwo[0][1]) / lastTwo[0][1]) * 100;
+    if (momChange < -10) {
+      insights.push({
+        id: 'overall-decline',
+        type: 'decline',
+        title: language === 'en' ? '📉 Revenue dropping' : '📉 الإيرادات تنخفض',
+        description: language === 'en'
+          ? `Month-over-month revenue fell ${Math.abs(momChange).toFixed(1)}% (${fmtRevenue(lastTwo[0][1], language)} → ${fmtRevenue(lastTwo[1][1], language)})`
+          : `الإيرادات انخفضت ${Math.abs(momChange).toFixed(1)}% شهرياً (${fmtRevenue(lastTwo[0][1], language)} → ${fmtRevenue(lastTwo[1][1], language)})`,
+        actionLabel: language === 'en' ? 'View monthly breakdown' : 'عرض التفصيل الشهري',
+        actionQuery: language === 'en' ? 'monthly breakdown' : 'تفصيل شهري',
+        severity: momChange < -20 ? 'high' : 'medium',
+        dataRef: { change: momChange }
+      });
+    } else if (momChange > 15) {
+      insights.push({
+        id: 'overall-growth',
+        type: 'growth',
+        title: language === 'en' ? '📈 Strong growth!' : '📈 نمو قوي!',
+        description: language === 'en'
+          ? `Revenue jumped ${momChange.toFixed(1)}% MoM (${fmtRevenue(lastTwo[0][1], language)} → ${fmtRevenue(lastTwo[1][1], language)})`
+          : `الإيرادات قفزت ${momChange.toFixed(1)}% شهرياً (${fmtRevenue(lastTwo[0][1], language)} → ${fmtRevenue(lastTwo[1][1], language)})`,
+        actionLabel: language === 'en' ? 'See what drove it' : 'رؤية المحرك',
+        actionQuery: language === 'en' ? 'top products this month' : 'أفضل منتجات هذا الشهر',
+        severity: 'medium',
+        dataRef: { change: momChange }
+      });
+    }
+  }
+
+  // 3. Check for high return rate
+  const returns = data.filter(r => r.IsReturn);
+  const sales = data.filter(r => !r.IsReturn);
+  if (sales.length > 0) {
+    const returnRate = (returns.length / sales.length) * 100;
+    if (returnRate > 5) {
+      insights.push({
+        id: 'high-returns',
+        type: 'anomaly',
+        title: language === 'en' ? `↩️ High return rate: ${returnRate.toFixed(1)}%` : `↩️ معدل مرتجعات عالي: ${returnRate.toFixed(1)}%`,
+        description: language === 'en'
+          ? `${returns.length} return transactions out of ${sales.length} sales. Revenue impact: ${fmtRevenue(totalReturnRevenue(data), language)}`
+          : `${returns.length} معاملة مرتجع من ${sales.length} مبيعات. أثر على الإيرادات: ${fmtRevenue(totalReturnRevenue(data), language)}`,
+        actionLabel: language === 'en' ? 'Analyze returns' : 'تحليل المرتجعات',
+        actionQuery: language === 'en' ? 'return rate' : 'معدل المرتجعات',
+        severity: returnRate > 10 ? 'high' : 'medium',
+        dataRef: { rate: returnRate }
+      });
+    }
+  }
+
+  // 4. Check for top salesman opportunity
+  const topSalesmen = groupByRevenue(data, 'SalesmanName');
+  if (topSalesmen.length >= 2) {
+    const [top1, top2] = topSalesmen;
+    const gap = top1[1] > 0 ? ((top1[1] - top2[1]) / top1[1]) * 100 : 0;
+    if (gap > 50) {
+      insights.push({
+        id: 'salesman-gap',
+        type: 'opportunity',
+        title: language === 'en' ? `🥇 ${top1[0]} leads by ${gap.toFixed(0)}%` : `🥇 ${top1[0]} متقدم بـ ${gap.toFixed(0)}%`,
+        description: language === 'en'
+          ? `Top rep ${top1[0]} (${fmtRevenue(top1[1], language)}) far ahead of #2 ${top2[0]} (${fmtRevenue(top2[1], language)}). Coaching opportunity?`
+          : `أفضل مندوب ${top1[0]} (${fmtRevenue(top1[1], language)}) متقدم كثيراً على #2 ${top2[0]} (${fmtRevenue(top2[1], language)}). فرصة تدريب؟`,
+        actionLabel: language === 'en' ? 'Compare reps' : 'مقارنة المندوبين',
+        actionQuery: language === 'en' ? 'top salesmen' : 'أفضل المندوبين',
+        severity: 'low',
+        dataRef: { top1, top2, gap }
+      });
+    }
+  }
+
+  // 5. New customer opportunity (customers with only 1 purchase)
+  const customerFreq: Record<string, number> = {};
+  for (const row of sales) {
+    customerFreq[row.CustomerName] = (customerFreq[row.CustomerName] || 0) + 1;
+  }
+  const oneTimeCustomers = Object.entries(customerFreq).filter(([, count]) => count === 1).length;
+  const totalCustomers = Object.keys(customerFreq).length;
+  if (totalCustomers > 0 && oneTimeCustomers / totalCustomers > 0.3) {
+    insights.push({
+      id: 'one-time-customers',
+      type: 'opportunity',
+      title: language === 'en' ? `🔄 ${Math.round(oneTimeCustomers / totalCustomers * 100)}% one-time buyers` : `🔄 ${Math.round(oneTimeCustomers / totalCustomers * 100)}% مشترين مرة واحدة`,
+      description: language === 'en'
+        ? `${oneTimeCustomers} of ${totalCustomers} customers bought only once. Retention campaign needed.`
+        : `${oneTimeCustomers} من ${totalCustomers} عملاء اشتروا مرة واحدة. حملة احتفاظ مطلوبة.`,
+      actionLabel: language === 'en' ? 'See customer list' : 'عرض قائمة العملاء',
+      actionQuery: language === 'en' ? 'top customers' : 'أفضل العملاء',
+      severity: 'medium',
+      dataRef: { oneTime: oneTimeCustomers, total: totalCustomers }
+    });
+  }
+
+  return insights.slice(0, 3); // Max 3 insights at a time
 }
 
 function totalGrossRevenue(data: ProcessedRow[]): number {
@@ -740,6 +1096,172 @@ const INTENTS: Intent[] = [
       return `😊 على الرحب والسعة! لا تتردد في طرح أي سؤال آخر.`;
     },
   },
+  // 31. Side-by-side compare
+  {
+    id: 'SIDE_BY_SIDE',
+    keywords_en: ['compare', 'vs', 'versus', 'side by side', 'compare products', 'compare salesmen', 'compare customers', 'compare regions'],
+    keywords_ar: ['مقارنة', 'مقابل', 'جنباً لجنب', 'قارن المنتجات', 'قارن المندوبين', 'قارن العملاء', 'قارن المناطق'],
+    handler: (data, lang, args) => {
+      // Extract two entities to compare from query
+      const query = args.toLowerCase();
+      const products = Array.from(new Set(data.map(r => r.ItemName).filter(Boolean)));
+      const salesmen = Array.from(new Set(data.map(r => r.SalesmanName).filter((v): v is string => Boolean(v))));
+      const customers = Array.from(new Set(data.map(r => r.CustomerName).filter(Boolean)));
+      const offices = Array.from(new Set(data.map(r => r.SalesOffice).filter((v): v is string => Boolean(v))));
+      
+      let entityType: keyof ProcessedRow = 'ItemName';
+      let entity1: string = '';
+      let entity2: string = '';
+      
+      // Check products
+      for (const p of products) {
+        if (query.includes(p.toLowerCase())) {
+          entityType = 'ItemName';
+          entity1 = p;
+          break;
+        }
+      }
+      // Check salesmen
+      if (!entity1) {
+        for (const s of salesmen) {
+          if (query.includes(s.toLowerCase())) {
+            entityType = 'SalesmanName';
+            entity1 = s;
+            break;
+          }
+        }
+      }
+      // Check customers
+      if (!entity1) {
+        for (const c of customers) {
+          if (query.includes(c.toLowerCase())) {
+            entityType = 'CustomerName';
+            entity1 = c;
+            break;
+          }
+        }
+      }
+      // Check offices
+      if (!entity1) {
+        for (const o of offices) {
+          if (query.includes(o.toLowerCase())) {
+            entityType = 'SalesOffice';
+            entity1 = o;
+            break;
+          }
+        }
+      }
+      
+      // Try to find second entity (after "vs", "versus", "compare", "and")
+      const vsMatch = query.match(/(?:vs|versus|compare|and|مقابل|وقارن)\s+(.+)$/i);
+      if (vsMatch) {
+        const rest = vsMatch[1].trim();
+        if (entityType === 'ItemName') {
+          for (const p of products) {
+            if (rest.includes(p.toLowerCase()) && p !== entity1) { entity2 = p; break; }
+          }
+        } else if (entityType === 'SalesmanName') {
+          for (const s of salesmen) {
+            if (rest.includes(s.toLowerCase()) && s !== entity1) { entity2 = s; break; }
+          }
+        } else if (entityType === 'CustomerName') {
+          for (const c of customers) {
+            if (rest.includes(c.toLowerCase()) && c !== entity1) { entity2 = c; break; }
+          }
+        } else if (entityType === 'SalesOffice') {
+          for (const o of offices) {
+            if (rest.includes(o.toLowerCase()) && o !== entity1) { entity2 = o; break; }
+          }
+        }
+      }
+      
+      if (!entity1) {
+        return lang === 'en' 
+          ? 'Please specify what to compare. Example: "compare Product A vs Product B" or "compare Ahmed vs Mohamed"'
+          : 'يرجى تحديد ما تريد مقارنته. مثال: "قارن منتج أ مقابل منتج ب" أو "قارن أحمد مقابل محمد"';
+      }
+      
+      if (!entity2) {
+        // Auto-pick top 2 if only one specified
+        const grouped = groupByRevenue(data, entityType as keyof ProcessedRow);
+        const other = grouped.find(([name]) => name !== entity1);
+        if (other) entity2 = other[0];
+      }
+      
+      if (!entity2) {
+        return lang === 'en' ? `Need a second ${entityType} to compare.` : `بحاجة إلى ${entityType} ثاني للمقارنة.`;
+      }
+      
+      const getData = (entity: string) => {
+        const filtered = data.filter(r => r[entityType as keyof ProcessedRow] === entity && !r.IsReturn);
+        const rev = filtered.reduce((s, r) => s + r.Revenue, 0);
+        const vol = filtered.reduce((s, r) => s + r.Volume, 0);
+        const custs = new Set(filtered.map(r => r.CustomerName)).size;
+        const avgOrder = filtered.length > 0 ? rev / filtered.length : 0;
+        const monthlyRev: Record<string, number> = {};
+        for (const row of filtered) {
+          const key = `${row.DateObj.getFullYear()}-${String(row.DateObj.getMonth() + 1).padStart(2, '0')}`;
+          monthlyRev[key] = (monthlyRev[key] || 0) + row.Revenue;
+        }
+        return { rev, vol, custs, avgOrder, monthlyRev, count: filtered.length };
+      };
+      
+      const d1 = getData(entity1);
+      const d2 = getData(entity2);
+      
+      const revDiff = d1.rev > 0 ? ((d1.rev - d2.rev) / d1.rev) * 100 : 0;
+      
+      const chartData = [
+        { label: entity1, value: d1.rev },
+        { label: entity2, value: d2.rev }
+      ];
+      
+      const labelMap: Record<string, string> = {
+        ItemName: lang === 'en' ? 'Product' : 'منتج',
+        SalesmanName: lang === 'en' ? 'Salesman' : 'مندوب',
+        CustomerName: lang === 'en' ? 'Customer' : 'عميل',
+        SalesOffice: lang === 'en' ? 'Office' : 'مكتب'
+      };
+      const typeLabel = labelMap[entityType] || entityType;
+      
+      if (lang === 'en') {
+        return {
+          text: `⚖️ **Compare ${typeLabel}s: ${entity1} vs ${entity2}**\n\n` +
+            `**${entity1}**\n` +
+            `• Revenue: **${fmtRevenue(d1.rev, lang)}**\n` +
+            `• Volume: ${fmtNum(d1.vol, lang)} units\n` +
+            `• Customers: ${fmtNum(d1.custs, lang)}\n` +
+            `• Avg Order: ${fmtRevenue(d1.avgOrder, lang)}\n` +
+            `• Transactions: ${fmtNum(d1.count, lang)}\n\n` +
+            `**${entity2}**\n` +
+            `• Revenue: **${fmtRevenue(d2.rev, lang)}**\n` +
+            `• Volume: ${fmtNum(d2.vol, lang)} units\n` +
+            `• Customers: ${fmtNum(d2.custs, lang)}\n` +
+            `• Avg Order: ${fmtRevenue(d2.avgOrder, lang)}\n` +
+            `• Transactions: ${fmtNum(d2.count, lang)}\n\n` +
+            `📊 **Revenue Difference: ${revDiff >= 0 ? '+' : ''}${fmtPct(revDiff, lang)}**`,
+          chart: { data: chartData, valueFormatter: 'revenue' }
+        };
+      }
+      return {
+        text: `⚖️ **مقارنة ${typeLabel}ين: ${entity1} مقابل ${entity2}**\n\n` +
+          `**${entity1}**\n` +
+          `• الإيرادات: **${fmtRevenue(d1.rev, lang)}**\n` +
+          `• الكمية: ${fmtNum(d1.vol, lang)} وحدة\n` +
+          `• العملاء: ${fmtNum(d1.custs, lang)}\n` +
+          `• متوسط الطلب: ${fmtRevenue(d1.avgOrder, lang)}\n` +
+          `• المعاملات: ${fmtNum(d1.count, lang)}\n\n` +
+          `**${entity2}**\n` +
+          `• الإيرادات: **${fmtRevenue(d2.rev, lang)}**\n` +
+          `• الكمية: ${fmtNum(d2.vol, lang)} وحدة\n` +
+          `• العملاء: ${fmtNum(d2.custs, lang)}\n` +
+          `• متوسط الطلب: ${fmtRevenue(d2.avgOrder, lang)}\n` +
+          `• المعاملات: ${fmtNum(d2.count, lang)}\n\n` +
+          `📊 **فرق الإيرادات: ${revDiff >= 0 ? '+' : ''}${fmtPct(revDiff, lang)}**`,
+        chart: { data: chartData, valueFormatter: 'revenue' }
+      };
+    }
+  }
 ];
 
 // ─── Filter Parser ────────────────────────────────────────────────────────────
@@ -931,6 +1453,35 @@ export default function ChatbotAssistant({ processedData, currentUser, language,
     }
   }, [filterOptions.products, selectedProduct]);
 
+  // ─── Proactive Insights ─────────────────────────────────────────────────────
+  const [proactiveInsights, setProactiveInsights] = useState<ProactiveInsight[]>([]);
+  const [dismissedInsights, setDismissedInsights] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    if (isOpen && messages.length > 0) {
+      const insights = generateProactiveInsights(processedData, language);
+      setProactiveInsights(insights.filter(i => !dismissedInsights.has(i.id)));
+    }
+  }, [processedData, language, isOpen, messages.length, dismissedInsights]);
+
+  const dismissInsight = useCallback((id: string) => {
+    setDismissedInsights(prev => new Set([...prev, id]));
+  }, []);
+
+  const handleExportPDF = useCallback(async () => {
+    if (messages.length === 0) return;
+    await exportChatToPDF(messages, language, darkMode);
+  }, [messages, language, darkMode]);
+
+  const handleExportCSV = useCallback(() => {
+    if (messages.length === 0) return;
+    exportChatToCSV(messages, language);
+  }, [messages, language]);
+
+  const handleCopyMessage = useCallback((text: string) => {
+    navigator.clipboard.writeText(text.replace(/\*\*/g, ''));
+  }, []);
+
   const isRTL = language === 'ar';
   const role = currentUser?.role || 'admin';
 
@@ -1051,6 +1602,10 @@ export default function ChatbotAssistant({ processedData, currentUser, language,
     }, 600 + Math.random() * 400);
   }, [isTyping, language, processedData, selectedYear, selectedMonth, selectedProduct, selectedOffice]);
 
+  const handleInsightAction = useCallback((query: string) => {
+    handleSend(query);
+  }, [handleSend]);
+
   const suggestedQuestions = useMemo(() => getSuggestedQuestions(language, role), [language, role]);
 
   // ── Theming helpers ────────────────────────────────────────────────────────
@@ -1113,6 +1668,31 @@ export default function ChatbotAssistant({ processedData, currentUser, language,
             </div>
           </div>
           <div className="flex items-center gap-1">
+            {messages.length > 0 && (
+              <>
+                <button
+                  onClick={handleCopyMessage.bind(null, messages.map(m => `${m.role === 'user' ? 'You' : 'Bot'}: ${m.text}`).join('\n\n'))}
+                  title={language === 'en' ? 'Copy chat' : 'نسخ المحادثة'}
+                  className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/15 transition-colors"
+                >
+                  <Copy className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={handleExportCSV}
+                  title={language === 'en' ? 'Export CSV' : 'تصدير CSV'}
+                  className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/15 transition-colors"
+                >
+                  <FileText className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={handleExportPDF}
+                  title={language === 'en' ? 'Export PDF' : 'تصدير PDF'}
+                  className="p-1.5 rounded-lg text-white/70 hover:text-white hover:bg-white/15 transition-colors"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                </button>
+              </>
+            )}
             <button
               onClick={handleClear}
               title={language === 'en' ? 'Clear chat' : 'مسح المحادثة'}
@@ -1132,6 +1712,51 @@ export default function ChatbotAssistant({ processedData, currentUser, language,
 
         {/* Messages */}
         <div className={`flex-1 overflow-y-auto p-3 space-y-3 ${msgArea} chatbot-messages`}>
+          {/* Proactive Insights Banner */}
+          {proactiveInsights.length > 0 && (
+            <div className="flex flex-col gap-2 mb-3 p-3 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20 rounded-xl animate-slide-in">
+              <div className="flex items-center gap-2 text-xs font-medium text-emerald-700 dark:text-emerald-300">
+                <Zap className="w-3.5 h-3.5 flex-shrink-0" />
+                <span>{language === 'en' ? 'Smart Insights' : 'رؤى ذكية'}</span>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                {proactiveInsights.map((insight) => (
+                  <div key={insight.id} className="flex items-start gap-2 p-2 bg-white/5 dark:bg-slate-900/30 rounded-lg border border-emerald-500/10">
+                    <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${
+                      insight.severity === 'high' ? 'bg-red-500/20 text-red-400' :
+                      insight.severity === 'medium' ? 'bg-amber-500/20 text-amber-400' :
+                      'bg-emerald-500/20 text-emerald-400'
+                    }`}>
+                      {insight.type === 'decline' && <AlertTriangle className="w-3 h-3" />}
+                      {insight.type === 'growth' && <BarChart2 className="w-3 h-3" />}
+                      {insight.type === 'anomaly' && <AlertTriangle className="w-3 h-3" />}
+                      {insight.type === 'opportunity' && <Zap className="w-3 h-3" />}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-[10px] font-medium text-slate-200 dark:text-slate-100">{insight.title}</div>
+                      <div className="text-[9px] text-slate-400 dark:text-slate-500 mt-0.5">{insight.description}</div>
+                    </div>
+                    <div className="flex items-center gap-1 flex-shrink-0">
+                      <button
+                        onClick={() => handleInsightAction(insight.actionQuery)}
+                        className="text-[9px] px-2 py-1 bg-emerald-500/20 text-emerald-300 rounded hover:bg-emerald-500/30 transition-colors whitespace-nowrap"
+                      >
+                        {insight.actionLabel}
+                      </button>
+                      <button
+                        onClick={() => dismissInsight(insight.id)}
+                        className="text-[9px] p-1 text-slate-400 hover:text-slate-200 transition-colors"
+                        title={language === 'en' ? 'Dismiss' : 'تجاهل'}
+                      >
+                        <X className="w-3 h-3" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {messages.length === 0 && (
             <div className="flex flex-col items-center justify-center h-full gap-3 py-6">
               <div className={`w-12 h-12 rounded-full flex items-center justify-center ${darkMode ? 'bg-slate-800' : 'bg-emerald-50'}`}>
@@ -1179,9 +1804,32 @@ export default function ChatbotAssistant({ processedData, currentUser, language,
                   }`}
               >
                 <MessageText text={msg.text} />
-                {msg.chart && <MiniBarChart config={msg.chart} lang={language} />}
-                <div className={`text-[9px] mt-1 ${msg.role === 'user' ? 'text-emerald-200' : darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {msg.timestamp.toLocaleTimeString(language === 'ar' ? 'ar-EG' : 'en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}
+                {msg.chart && (
+                  <>
+                    <MiniBarChart config={msg.chart} lang={language} />
+                    <button
+                      onClick={() => exportChartAsPNG(msg.chart!, language)}
+                      className="mt-2 text-[9px] px-2 py-1 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded hover:bg-emerald-500/20 transition-colors flex items-center gap-1"
+                      title={language === 'en' ? 'Export chart as PNG' : 'تصدير الرسم كصورة'}
+                    >
+                      <Download className="w-2.5 h-2.5" />
+                      <span>{language === 'en' ? 'Save Chart' : 'حفظ الرسم'}</span>
+                    </button>
+                  </>
+                )}
+                <div className={`flex items-center gap-1 mt-1 ${msg.role === 'user' ? 'text-emerald-200' : darkMode ? 'text-slate-500' : 'text-slate-400'}`}>
+                  <span className="text-[9px]">
+                    {msg.timestamp.toLocaleTimeString(language === 'ar' ? 'ar-EG' : 'en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}
+                  </span>
+                  {msg.role === 'bot' && (
+                    <button
+                      onClick={() => handleCopyMessage(msg.text)}
+                      className="p-0.5 rounded hover:bg-white/10 dark:hover:bg-slate-700 transition-colors"
+                      title={language === 'en' ? 'Copy message' : 'نسخ الرسالة'}
+                    >
+                      <Copy className="w-3 h-3" />
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
