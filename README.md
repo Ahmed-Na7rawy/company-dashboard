@@ -63,13 +63,8 @@ npm run dev
 ```
 Open [http://localhost:5173/](http://localhost:5173/) in your browser.
 
-### 3. Generate Anonymized Synthetic Dataset (Optional)
-To regenerate fresh synthetic transaction data via Faker:
-```bash
-npm run generate-fake-data
-```
 
-### 4. Build for Production
+### 3. Build for Production
 ```bash
 npm run build
 ```
