@@ -164,15 +164,20 @@ export default function App() {
   const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
-    try {
-      workerRef.current = new Worker(new URL('./workers/dataWorker.ts', import.meta.url), { type: 'module' });
-      workerRef.current.onmessage = (e: MessageEvent) => {
-        if (e.data.type === 'PROCESS_DATA_SUCCESS') {
-          setIsProcessing(false);
-        }
-      };
-    } catch (err) {
-      console.warn('Web Worker initialization skipped, using main thread fallback:', err);
+    const disableWorker = import.meta.env.VITE_DISABLE_WORKER === 'true';
+    if (!disableWorker) {
+      try {
+        workerRef.current = new Worker(new URL('./workers/dataWorker.ts', import.meta.url), { type: 'module' });
+        workerRef.current.onmessage = (e: MessageEvent) => {
+          if (e.data.type === 'PROCESS_DATA_SUCCESS') {
+            setIsProcessing(false);
+          }
+        };
+      } catch (err) {
+        console.warn('Web Worker initialization skipped, using main thread fallback:', err);
+      }
+    } else {
+      console.warn('VITE_DISABLE_WORKER is set to true. Web Worker disabled, running synchronously on main thread.');
     }
 
     return () => {
