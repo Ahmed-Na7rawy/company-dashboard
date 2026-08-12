@@ -1,5 +1,10 @@
 # Enterprise Executive BI Dashboard
 
+[![Build Status](https://github.com/Ahmed-Na7rawy/company-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/Ahmed-Na7rawy/company-dashboard/actions/workflows/ci.yml)
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://company-dashboard-three.vercel.app/)
+
+> **Live Portfolio Demo**: Experience the full interactive BI control center live on Vercel. Test role-based perspectives using the public evaluator credentials in the table below.
+
 A high-performance, responsive, bilingual (English & Arabic RTL) executive analytics and control center for modern B2B & B2C enterprise operations.
 
 Built with a **Multithreaded Web Worker Engine** that offloads heavy dataset filtering and metric aggregations to a background thread, maintaining a 60 FPS responsive UI during complex analytical operations.
@@ -8,7 +13,7 @@ Built with a **Multithreaded Web Worker Engine** that offloads heavy dataset fil
 
 ## ⚡ Key Highlights & Architecture
 
-- **Multithreaded Web Worker Engine**: Offloads transaction processing, search indexing, and multi-period calculations off the main thread.
+- **Multithreaded Web Worker Engine**: Offloads transaction processing, search indexing, and multi-period calculations off the main thread. See full system design in [docs/architecture.md](docs/architecture.md).
 - **Bilingual & RTL Native**: Instant full English and Arabic UI translation with right-to-left layout alignment.
 - **13 Specialized Executive Views**: CEO Strategic View, B2B Sales, B2C Sales, HORECA, Financial Planning, Supply Chain & Inventory, Marketing Ads, HR Operations, Product Intelligence, Customer Profiles, Seller Profiles, Brand Performance, and System Admin Control.
 - **Synthetic Data Generator**: Includes a built-in `@faker-js/faker` dataset generator for offline testing and demonstration.
@@ -16,9 +21,23 @@ Built with a **Multithreaded Web Worker Engine** that offloads heavy dataset fil
 
 ---
 
+## 🖼️ Screenshots
+
+| CEO Strategic Command | B2B Sales Director |
+| :---: | :---: |
+| ![CEO View](docs/screenshots/ceo-view.png) | ![Sales Director View](docs/screenshots/sales-director.png) |
+
+| Arabic RTL Native Layout | Brand Churn Risk Analytics |
+| :---: | :---: |
+| ![Arabic RTL Layout](docs/screenshots/arabic-rtl.png) | ![Brand Churn Risk View](docs/screenshots/brand-churn-risk.png) |
+
+---
+
 ## 🔑 Demonstration Login Credentials
 
-The application enforces strict **Role-Based Access Control (RBAC)**. Log in with any of the accounts below to test role-specific features:
+> **Notice for Evaluators**: The credentials listed below are intentionally public demo credentials created specifically for portfolio evaluators to test role-specific UI routes. They represent a front-end client-side demonstration model and are not a real authentication/security pattern.
+
+The application enforces **Role-Based Access Control (RBAC)**. Log in with any of the accounts below to test role-specific features:
 
 | Role / Department | Username | Password | Access Scope & Perspective |
 | :--- | :--- | :--- | :--- |
@@ -47,6 +66,7 @@ The application enforces strict **Role-Based Access Control (RBAC)**. Log in wit
 - **Threading Engine**: Native ES Web Workers (`src/workers/dataWorker.ts`)
 - **Visualizations**: Recharts + Plotly.js + Leaflet Maps
 - **Styling**: Vanilla CSS + Tailwind CSS v4 + Glassmorphism Design System
+- **Testing & E2E**: Vitest (Unit) + Playwright (E2E)
 - **Icons**: Lucide React
 - **Synthetic Data**: `@faker-js/faker`
 
@@ -55,7 +75,7 @@ The application enforces strict **Role-Based Access Control (RBAC)**. Log in wit
 ## 🚀 Quick Start Guide
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [Node.js](https://nodejs.org/) (v20 or higher recommended)
 
 ### 1. Install Dependencies
 ```bash
@@ -68,9 +88,34 @@ npm run dev
 ```
 Open [http://localhost:5173/](http://localhost:5173/) in your browser.
 
+### 3. Run Unit & E2E Test Suite
+```bash
+npm run test       # Run Vitest unit tests
+npm run test:e2e   # Run Playwright E2E tests
+```
 
-### 3. Build for Production
+### 4. Build for Production
 ```bash
 npm run build
 ```
 Generates an optimized static bundle in the `dist` directory.
+
+---
+
+## 📌 Known Limitations & Roadmap
+
+### Current Limitations
+1. **Synthetic Data Engine**: All financial records and transactions are generated via `@faker-js/faker` for offline demonstration.
+2. **Client-Side Storage**: User preferences and custom notes persist in browser `localStorage` without a centralized remote database.
+3. **Front-End Authorization**: RBAC routing is enforced client-side for presentation purposes rather than backend JWT/session verification.
+
+### Future Roadmap
+1. **Node.js/GraphQL Backend Integration**: Connect transaction processing to a distributed Postgres / TimescaleDB data warehouse.
+2. **Real-time WebSockets Engine**: Stream live transaction updates directly to executive command dashboards.
+3. **Advanced ML Predictive Pipeline**: Replace heuristic RFM scoring with server-side Python (scikit-learn) churn risk inference API.
+
+---
+
+## 📄 License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for details.
