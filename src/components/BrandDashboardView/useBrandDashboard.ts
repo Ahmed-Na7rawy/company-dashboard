@@ -242,12 +242,48 @@ export function useBrandDashboard({
     })).reverse();
   }, [zenithRepsData]);
 
+/**
+ * Normalized RFM Churn Risk Scoring Algorithm (Recency, Frequency, Monetary)
+ * 
+ * Computes a composite 0-100 risk probability for a customer account:
+ * - Recency (R, 45% weight): Days since last transaction normalized over a 180-day baseline.
+ * - Frequency (F, 35% weight): Account order frequency inverted score (lower frequency = higher risk).
+ * - Monetary (M, 20% weight): Lifetime transaction volume normalized against 500,000 EGP baseline.
+ * 
+ * Formula:
+ *   Composite Risk = (0.45 * R_norm + 0.35 * F_norm + 0.20 * M_norm) * 100
+ * 
+ * Buckets:
+ * - Score >= 65: High Risk
+ * - Score 35-64: Medium Risk
+ * - Score < 35: Low Risk
+ */
+export function calculateRFMChurnRisk(item: { recency: number; frequency?: number; revenue: number }, maxRecency = 180, maxRevenue = 500000) {
+  const rNorm = Math.min(1, Math.max(0, item.recency / maxRecency));
+  const fNorm = item.frequency ? Math.max(0, 1 - (item.frequency / 50)) : 0.5;
+  const mNorm = Math.min(1, Math.max(0, item.revenue / maxRevenue));
+  
+  const rawScore = (0.45 * rNorm) + (0.35 * fNorm) + (0.20 * mNorm);
+  const probability = Math.min(99, Math.max(10, Math.round(rawScore * 100)));
+  
+  let risk: 'High' | 'Medium' | 'Low' = 'Low';
+  if (probability >= 65) risk = 'High';
+  else if (probability >= 35) risk = 'Medium';
+
+  return { probability, risk };
+}
+
   const novaChurnDataSorted = useMemo(() => {
     if (!brandData) return [];
     const divData = brandData[novaChurnSelect]?.filters[filterKey];
     if (!divData?.churn?.at_risk) return [];
 
-    return [...divData.churn.at_risk].sort((a, b) => {
+    const enriched = divData.churn.at_risk.map((item: any) => {
+      const rfm = calculateRFMChurnRisk(item);
+      return { ...item, probability: item.probability || rfm.probability, risk: item.risk || rfm.risk };
+    });
+
+    return enriched.sort((a: any, b: any) => {
       let valA = a[novaSortField];
       let valB = b[novaSortField];
       if (typeof valA === 'string') {
@@ -262,7 +298,11 @@ export function useBrandDashboard({
 
   const zenithChurnDataSorted = useMemo(() => {
     const list = activeMetrics?.sq?.churn?.at_risk || [];
-    return [...list].sort((a, b) => {
+    const enriched = list.map((item: any) => {
+      const rfm = calculateRFMChurnRisk(item);
+      return { ...item, probability: item.probability || rfm.probability, risk: item.risk || rfm.risk };
+    });
+    return enriched.sort((a: any, b: any) => {
       let valA = a[zenithSortField];
       let valB = b[zenithSortField];
       if (typeof valA === 'string') {

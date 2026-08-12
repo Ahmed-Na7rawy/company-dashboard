@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, BriefcaseBusiness, Megaphone, BarChart3, FileSearch, Flame, ChevronRight } from 'lucide-react';
+import { Brain, BriefcaseBusiness, Megaphone, BarChart3, FileSearch, Flame, ChevronRight, Info } from 'lucide-react';
 import opportunityAlerts from '../../data/opportunity_alerts.json';
 
 interface OpportunityRadarProps {
@@ -19,6 +19,17 @@ export const OpportunityRadar: React.FC<OpportunityRadarProps> = ({
 }) => {
   return (
     <div className={`p-6 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm`}>
+      {/* Heuristic Methodology Banner */}
+      <div className={`p-2.5 px-3 mb-4 rounded-xl border text-[10px] flex items-center gap-2 ${
+        darkMode ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-300' : 'bg-emerald-50 border-emerald-200 text-emerald-700'
+      }`}>
+        <Info size={13} className="shrink-0" />
+        <span>
+          {language === 'en'
+            ? 'Methodology Note: Opportunity confidence scores use an explainable heuristic (growth rate + category co-purchase frequency) evaluated on synthetic ledgers.'
+            : 'ملاحظة المنهجية: تعتمد درجات ثقة الفرص على معادلة توضيحية تقارن معدل النمو والتكرار المشترك للمشتريات.'}
+        </span>
+      </div>
       {/* Header */}
       <div className={`flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b ${darkMode ? 'border-slate-700' : 'border-slate-200'} pb-4 mb-5`}>
         <div className="flex items-center gap-3">

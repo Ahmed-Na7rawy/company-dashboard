@@ -133,6 +133,30 @@ export const CeoCharts: React.FC<CeoChartsProps> = ({
     }
   }, [flowVisualizer, darkMode]);
 
+  const augmentedTimelineData = useMemo(() => {
+    if (!timelineData || timelineData.length === 0) return [];
+    const n = timelineData.length;
+    let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
+    timelineData.forEach((pt: any, i: number) => {
+      const y = chartMetric === 'volume' 
+        ? (pt.netVol !== undefined ? pt.netVol : (pt.grossVol || 0)) 
+        : (pt.netRev !== undefined ? pt.netRev : (pt.grossRev || 0));
+      sumX += i;
+      sumY += y;
+      sumXY += i * y;
+      sumXX += i * i;
+    });
+
+    const denominator = (n * sumXX - sumX * sumX);
+    const m = denominator !== 0 ? (n * sumXY - sumX * sumY) / denominator : 0;
+    const b = (sumY - m * sumX) / n;
+
+    return timelineData.map((pt: any, i: number) => ({
+      ...pt,
+      projectedTrend: Math.max(0, Math.round(m * i + b))
+    }));
+  }, [timelineData, chartMetric]);
+
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -280,7 +304,7 @@ export const CeoCharts: React.FC<CeoChartsProps> = ({
                   />
                 </BarChart>
               ) : (
-                <ComposedChart data={timelineData} margin={{ top: 10, right: 10, left: 10, bottom: 20 }}>
+                <ComposedChart data={augmentedTimelineData} margin={{ top: 10, right: 10, left: 10, bottom: 20 }}>
                   <defs>
                     <linearGradient id="colorGross" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor={darkMode ? '#334155' : '#cbd5e1'} stopOpacity={0.25} />
@@ -332,6 +356,15 @@ export const CeoCharts: React.FC<CeoChartsProps> = ({
                     name={language === 'en' ? (chartMetric === 'revenue' ? 'Net Revenue' : 'Net Volume') : (chartMetric === 'revenue' ? 'صافي الإيرادات' : 'صافي الحجم')}
                     stroke="#128d46"
                     strokeWidth={3}
+                  />
+                  <Line
+                    type="monotone"
+                    dataKey="projectedTrend"
+                    name={language === 'en' ? 'Projected Trend' : 'الاتجاه المتوقع'}
+                    stroke="#8b5cf6"
+                    strokeWidth={2}
+                    strokeDasharray="5 5"
+                    dot={false}
                   />
                 </ComposedChart>
               )}

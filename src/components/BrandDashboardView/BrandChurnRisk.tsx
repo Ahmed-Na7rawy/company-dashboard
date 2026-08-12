@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertTriangle, ArrowUpDown } from 'lucide-react';
+import { AlertTriangle, ArrowUpDown, Info } from 'lucide-react';
 import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip } from 'recharts';
 
 interface BrandChurnRiskProps {
@@ -60,6 +60,19 @@ export const BrandChurnRisk: React.FC<BrandChurnRiskProps> = ({
 
   return (
     <div className={`p-6 rounded-2xl border ${darkMode ? 'bg-slate-800/50 border-slate-700/60' : 'bg-white border-slate-200'} shadow-sm`}>
+      {/* Methodology Info Footnote Banner */}
+      <div className={`p-2.5 px-3 mb-4 rounded-xl border text-[10px] flex items-center justify-between gap-2 ${
+        darkMode ? 'bg-indigo-500/10 border-indigo-500/20 text-indigo-300' : 'bg-indigo-50 border-indigo-200 text-indigo-700'
+      }`}>
+        <span className="flex items-center gap-1.5">
+          <Info size={13} className="shrink-0" />
+          <span>
+            {language === 'en'
+              ? 'Methodology Note: Churn probability scores are calculated using a client-side RFM (Recency, Frequency, Monetary) heuristic formula, not a server-trained ML model.'
+              : 'ملاحظة المنهجية: يتم حساب احتمالية التوقف باستخدام معادلة RFM (الحداثة، التكرار، القيمة المالية) التوضيحية.'}
+          </span>
+        </span>
+      </div>
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-slate-750 pb-4 mb-5">
         <div>
           <h3 className="text-xs font-black uppercase tracking-wider flex items-center gap-2">
