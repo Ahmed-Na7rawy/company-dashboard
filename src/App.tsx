@@ -4,103 +4,27 @@ import {
   Sun, Moon, Printer, Search, Menu, X, ArrowLeftRight, LogOut, Lock, User, Boxes, Briefcase, Calendar, Clock
 } from 'lucide-react';
 import { useScaleMode, setGlobalScaleMode } from './hooks/useScaleMode';
+import { Skeleton } from './components/Skeleton';
+import { lazyWithRetry } from './utils/lazyWithRetry';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
-// Helper to handle stale dynamic chunk imports after new deployments
-function lazyWithRetry(componentImport: () => Promise<{ default: React.ComponentType<any> }>) {
-  return React.lazy(async () => {
-    const pageHasBeenRefreshed = window.sessionStorage.getItem('page-has-been-refreshed');
-    try {
-      const module = await componentImport();
-      window.sessionStorage.setItem('page-has-been-refreshed', 'false');
-      return module;
-    } catch (error) {
-      if (pageHasBeenRefreshed !== 'true') {
-        window.sessionStorage.setItem('page-has-been-refreshed', 'true');
-        window.location.reload();
-      }
-      throw error;
-    }
-  });
-}
-
-class ErrorBoundary extends React.Component<
-  { children: React.ReactNode; language: 'en' | 'ar' },
-  { hasError: boolean; error: Error | null }
-> {
-  constructor(props: { children: React.ReactNode; language: 'en' | 'ar' }) {
-    super(props);
-    this.state = { hasError: false, error: null };
-  }
-
-  static getDerivedStateFromError(error: Error) {
-    return { hasError: true, error };
-  }
-
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    console.error("ErrorBoundary caught an error:", error, errorInfo);
-    if (error?.message?.includes('Failed to fetch dynamically imported module') || error?.message?.includes('Importing a module script failed')) {
-      const pageHasBeenRefreshed = window.sessionStorage.getItem('page-has-been-refreshed');
-      if (pageHasBeenRefreshed !== 'true') {
-        window.sessionStorage.setItem('page-has-been-refreshed', 'true');
-        window.location.reload();
-      }
-    }
-  }
-
-  render() {
-    if (this.state.hasError) {
-      const isEn = this.props.language === 'en';
-      return (
-        <div className="flex flex-col items-center justify-center min-h-[400px] p-6 text-center">
-          <div className="bg-slate-800/80 p-8 rounded-2xl border border-slate-700/60 max-w-md shadow-xl">
-            <div className="w-12 h-12 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center mx-auto mb-4 font-bold text-xl">
-              !
-            </div>
-            <h3 className="text-lg font-bold text-white mb-2">
-              {isEn ? 'New Version Available' : 'تحديث جديد متاح'}
-            </h3>
-            <p className="text-xs text-slate-400 mb-4">
-              {isEn 
-                ? 'A new version of the dashboard has been deployed. Please refresh to load the latest update.' 
-                : 'تمت ترقية المنصة إلى إصدار جديد. يرجى إعادة التحميل لمتابعة العمل.'}
-            </p>
-            {this.state.error && (
-              <div className="mb-4 p-3 bg-slate-900/80 border border-slate-700 rounded-lg text-left overflow-x-auto max-h-32">
-                <p className="text-[10px] font-mono text-rose-400">{this.state.error.toString()}</p>
-              </div>
-            )}
-            <button
-              onClick={() => {
-                window.sessionStorage.removeItem('page-has-been-refreshed');
-                window.location.reload();
-              }}
-              className="px-5 py-2.5 bg-[#128d46] hover:bg-[#0e7037] text-white rounded-xl text-xs font-extrabold transition-all shadow-md"
-            >
-              {isEn ? 'Reload Application' : 'إعادة تحميل المنصة'}
-            </button>
-          </div>
-        </div>
-      );
-    }
-    return this.props.children;
-  }
-}
 
 // View components
-import CeoView from './components/CeoView';
-import SalesDirectorView from './components/SalesDirectorView';
-import FinancialPlanningView from './components/FinancialPlanningView';
-import SupplyChainView from './components/SupplyChainView';
-import SellerProfilesView from './components/SellerProfilesView';
-import CustomerProfilesView from './components/CustomerProfilesView';
-import AdminControlView from './components/AdminControlView';
-import ProductsView from './components/ProductsView';
-import MarketingView from './components/MarketingView';
-import HrView from './components/HrView';
-import CompetitorAnalysisView from './components/CompetitorAnalysisView';
-import BrandDashboardView from './components/BrandDashboardView';
-import VitalitySnacksDashboardView from './components/VitalitySnacksDashboardView';
-import ChatbotAssistant from './components/ChatbotAssistant';
+const CeoView = lazyWithRetry(() => import('./components/CeoView'));
+const SalesDirectorView = lazyWithRetry(() => import('./components/SalesDirectorView'));
+const FinancialPlanningView = lazyWithRetry(() => import('./components/FinancialPlanningView'));
+const SupplyChainView = lazyWithRetry(() => import('./components/SupplyChainView'));
+const SellerProfilesView = lazyWithRetry(() => import('./components/SellerProfilesView'));
+const CustomerProfilesView = lazyWithRetry(() => import('./components/CustomerProfilesView'));
+const AdminControlView = lazyWithRetry(() => import('./components/AdminControlView'));
+const ProductsView = lazyWithRetry(() => import('./components/ProductsView'));
+const MarketingView = lazyWithRetry(() => import('./components/MarketingView'));
+const HrView = lazyWithRetry(() => import('./components/HrView'));
+const CompetitorAnalysisView = lazyWithRetry(() => import('./components/CompetitorAnalysisView'));
+const BrandDashboardView = lazyWithRetry(() => import('./components/BrandDashboardView'));
+const VitalitySnacksDashboardView = lazyWithRetry(() => import('./components/VitalitySnacksDashboardView'));
+const ChatbotAssistant = lazyWithRetry(() => import('./components/ChatbotAssistant'));
+
 // Data is now loaded dynamically via fetch at runtime
 
 interface Transaction {
@@ -811,8 +735,8 @@ export default function App() {
         previewMock: "وضع المعاينة (تجريبي)",
         activeProd: "البيانات الحية نشطة",
         tabCeo: "منظور المدير التنفيذي",
-        tabBrandDashboard: "لوحة تحكم يالا وسكويزي",
-        tabVitalitySnacksDashboard: "لوحة تحكم سويت آند سليم",
+        tabBrandDashboard: "لوحة تحكم نوفا وزينيث",
+        tabVitalitySnacksDashboard: "لوحة تحكم فايتاليتي سناكس",
         tabCompetitorAnalysis: "تحليلات المنافسين للعلامات",
         tabSales: "منصة مبيعات B2B",
         tabSalesB2c: "منصة مبيعات B2C",
@@ -1554,239 +1478,241 @@ export default function App() {
           )}
 
           <ErrorBoundary key={activeTab} language={language}>
+            <Suspense fallback={<Skeleton />}>
 
-          {visitedTabs['ceo'] && (
-            <div style={{ display: activeTab === 'ceo' ? 'block' : 'none' }}>
-              <CeoView 
-                processedData={processedData} 
-                language={language} 
-                darkMode={darkMode} 
-                t={t}
-                adminSettings={adminSettings}
-                inflationRate={inflationRate}
-                customsDelay={customsDelay}
-                currentUser={currentUser}
-                chartDisplayMode={chartDisplayMode}
-                globalChartMetric={globalChartMetric}
-                globalCompareMode={globalCompareMode}
-              />
-            </div>
-          )}
+            {visitedTabs['ceo'] && (
+              <div style={{ display: activeTab === 'ceo' ? 'block' : 'none' }}>
+                <CeoView 
+                  processedData={processedData} 
+                  language={language} 
+                  darkMode={darkMode} 
+                  t={t}
+                  adminSettings={adminSettings}
+                  inflationRate={inflationRate}
+                  customsDelay={customsDelay}
+                  currentUser={currentUser}
+                  chartDisplayMode={chartDisplayMode}
+                  globalChartMetric={globalChartMetric}
+                  globalCompareMode={globalCompareMode}
+                />
+              </div>
+            )}
 
-          {visitedTabs['sales'] && (
-            <div style={{ display: activeTab === 'sales' ? 'block' : 'none' }}>
-              <SalesDirectorView 
-                processedData={currentUser?.role === 'sales_b2b' || currentUser?.role === 'salesperson' ? processedData : b2bData} 
-                roleProcessedData={currentUser?.role === 'sales_b2b' || currentUser?.role === 'salesperson' ? roleProcessedData : b2bDataNoDate} 
-                language={language} 
-                darkMode={darkMode} 
-                t={t}
-                adminSettings={adminSettings}
-                sellerTargets={sellerTargets}
-                currentUser={currentUser}
-                officeType={currentUser?.salesOffice && ['B2C', 'Modern Trade', 'Alex Office', 'Dist. Office', 'LG Office', 'E-Commerce'].includes(currentUser.salesOffice) ? 'B2C' : (currentUser?.salesOffice === 'Horeca Team' ? 'Horeca Team' : 'B2B')}
-                chartDisplayMode={chartDisplayMode}
-                globalChartMetric={globalChartMetric}
-                globalCompareMode={globalCompareMode}
-              />
-            </div>
-          )}
+            {visitedTabs['sales'] && (
+              <div style={{ display: activeTab === 'sales' ? 'block' : 'none' }}>
+                <SalesDirectorView 
+                  processedData={currentUser?.role === 'sales_b2b' || currentUser?.role === 'salesperson' ? processedData : b2bData} 
+                  roleProcessedData={currentUser?.role === 'sales_b2b' || currentUser?.role === 'salesperson' ? roleProcessedData : b2bDataNoDate} 
+                  language={language} 
+                  darkMode={darkMode} 
+                  t={t}
+                  adminSettings={adminSettings}
+                  sellerTargets={sellerTargets}
+                  currentUser={currentUser}
+                  officeType={currentUser?.salesOffice && ['B2C', 'Modern Trade', 'Alex Office', 'Dist. Office', 'LG Office', 'E-Commerce'].includes(currentUser.salesOffice) ? 'B2C' : (currentUser?.salesOffice === 'Horeca Team' ? 'Horeca Team' : 'B2B')}
+                  chartDisplayMode={chartDisplayMode}
+                  globalChartMetric={globalChartMetric}
+                  globalCompareMode={globalCompareMode}
+                />
+              </div>
+            )}
 
-          {visitedTabs['sales_b2c'] && (
-            <div style={{ display: activeTab === 'sales_b2c' ? 'block' : 'none' }}>
-              <SalesDirectorView 
-                processedData={currentUser?.username === 'rania' ? raniaB2cData : (currentUser?.role === 'sales_b2c' ? processedData : b2cData)} 
-                roleProcessedData={currentUser?.username === 'rania' ? raniaB2cDataNoDate : (currentUser?.role === 'sales_b2c' ? roleProcessedData : b2cDataNoDate)} 
-                language={language} 
-                darkMode={darkMode} 
-                t={t}
-                adminSettings={adminSettings}
-                sellerTargets={sellerTargets}
-                currentUser={currentUser}
-                officeType="B2C"
-                chartDisplayMode={chartDisplayMode}
-                globalChartMetric={globalChartMetric}
-                globalCompareMode={globalCompareMode}
-              />
-            </div>
-          )}
+            {visitedTabs['sales_b2c'] && (
+              <div style={{ display: activeTab === 'sales_b2c' ? 'block' : 'none' }}>
+                <SalesDirectorView 
+                  processedData={currentUser?.username === 'rania' ? raniaB2cData : (currentUser?.role === 'sales_b2c' ? processedData : b2cData)} 
+                  roleProcessedData={currentUser?.username === 'rania' ? raniaB2cDataNoDate : (currentUser?.role === 'sales_b2c' ? roleProcessedData : b2cDataNoDate)} 
+                  language={language} 
+                  darkMode={darkMode} 
+                  t={t}
+                  adminSettings={adminSettings}
+                  sellerTargets={sellerTargets}
+                  currentUser={currentUser}
+                  officeType="B2C"
+                  chartDisplayMode={chartDisplayMode}
+                  globalChartMetric={globalChartMetric}
+                  globalCompareMode={globalCompareMode}
+                />
+              </div>
+            )}
 
-          {visitedTabs['sales_horeca'] && (
-            <div style={{ display: activeTab === 'sales_horeca' ? 'block' : 'none' }}>
-              <SalesDirectorView 
-                processedData={currentUser?.role === 'sales_horeca' ? processedData : horecaData} 
-                roleProcessedData={currentUser?.role === 'sales_horeca' ? roleProcessedData : horecaDataNoDate} 
-                language={language} 
-                darkMode={darkMode} 
-                t={t}
-                adminSettings={adminSettings}
-                sellerTargets={sellerTargets}
-                currentUser={currentUser}
-                officeType="Horeca Team"
-                chartDisplayMode={chartDisplayMode}
-                globalChartMetric={globalChartMetric}
-                globalCompareMode={globalCompareMode}
-              />
-            </div>
-          )}
+            {visitedTabs['sales_horeca'] && (
+              <div style={{ display: activeTab === 'sales_horeca' ? 'block' : 'none' }}>
+                <SalesDirectorView 
+                  processedData={currentUser?.role === 'sales_horeca' ? processedData : horecaData} 
+                  roleProcessedData={currentUser?.role === 'sales_horeca' ? roleProcessedData : horecaDataNoDate} 
+                  language={language} 
+                  darkMode={darkMode} 
+                  t={t}
+                  adminSettings={adminSettings}
+                  sellerTargets={sellerTargets}
+                  currentUser={currentUser}
+                  officeType="Horeca Team"
+                  chartDisplayMode={chartDisplayMode}
+                  globalChartMetric={globalChartMetric}
+                  globalCompareMode={globalCompareMode}
+                />
+              </div>
+            )}
 
-          {visitedTabs['brand_dashboard'] && (
-            <div style={{ display: activeTab === 'brand_dashboard' ? 'block' : 'none' }}>
-              <BrandDashboardView 
-                language={language}
-                darkMode={darkMode}
-                timePeriod={timePeriod}
-                customStartDate={customStartDate}
-                customEndDate={customEndDate}
-                processedData={processedData}
-                currentUser={currentUser}
-                selectedYear={selectedYear}
-                setSelectedYear={setSelectedYear}
-                selectedQuarter={selectedQuarter}
-                setSelectedQuarter={setSelectedQuarter}
-                chartDisplayMode={chartDisplayMode}
-                globalChartMetric={globalChartMetric}
-                globalCompareMode={globalCompareMode}
-              />
-            </div>
-          )}
+            {visitedTabs['brand_dashboard'] && (
+              <div style={{ display: activeTab === 'brand_dashboard' ? 'block' : 'none' }}>
+                <BrandDashboardView 
+                  language={language}
+                  darkMode={darkMode}
+                  timePeriod={timePeriod}
+                  customStartDate={customStartDate}
+                  customEndDate={customEndDate}
+                  processedData={processedData}
+                  currentUser={currentUser}
+                  selectedYear={selectedYear}
+                  setSelectedYear={setSelectedYear}
+                  selectedQuarter={selectedQuarter}
+                  setSelectedQuarter={setSelectedQuarter}
+                  chartDisplayMode={chartDisplayMode}
+                  globalChartMetric={globalChartMetric}
+                  globalCompareMode={globalCompareMode}
+                />
+              </div>
+            )}
 
-          {visitedTabs['vitality_snacks_dashboard'] && (
-            <div style={{ display: activeTab === 'vitality_snacks_dashboard' ? 'block' : 'none' }}>
-              <VitalitySnacksDashboardView 
-                processedData={processedData}
-                language={language}
-                darkMode={darkMode}
-                timePeriod={timePeriod}
-                customStartDate={customStartDate}
-                customEndDate={customEndDate}
-                currentUser={currentUser}
-                selectedYear={selectedYear}
-                setSelectedYear={setSelectedYear}
-                selectedQuarter={selectedQuarter}
-                setSelectedQuarter={setSelectedQuarter}
-                chartDisplayMode={chartDisplayMode}
-                globalChartMetric={globalChartMetric}
-                globalCompareMode={globalCompareMode}
-              />
-            </div>
-          )}
+            {visitedTabs['vitality_snacks_dashboard'] && (
+              <div style={{ display: activeTab === 'vitality_snacks_dashboard' ? 'block' : 'none' }}>
+                <VitalitySnacksDashboardView 
+                  processedData={processedData}
+                  language={language}
+                  darkMode={darkMode}
+                  timePeriod={timePeriod}
+                  customStartDate={customStartDate}
+                  customEndDate={customEndDate}
+                  currentUser={currentUser}
+                  selectedYear={selectedYear}
+                  setSelectedYear={setSelectedYear}
+                  selectedQuarter={selectedQuarter}
+                  setSelectedQuarter={setSelectedQuarter}
+                  chartDisplayMode={chartDisplayMode}
+                  globalChartMetric={globalChartMetric}
+                  globalCompareMode={globalCompareMode}
+                />
+              </div>
+            )}
 
-          {visitedTabs['marketing'] && (
-            <div style={{ display: activeTab === 'marketing' ? 'block' : 'none' }}>
-              <MarketingView 
-                processedData={processedData} 
-                language={language} 
-                darkMode={darkMode} 
-                t={t}
-                currentUser={currentUser}
-              />
-            </div>
-          )}
+            {visitedTabs['marketing'] && (
+              <div style={{ display: activeTab === 'marketing' ? 'block' : 'none' }}>
+                <MarketingView 
+                  processedData={processedData} 
+                  language={language} 
+                  darkMode={darkMode} 
+                  t={t}
+                  currentUser={currentUser}
+                />
+              </div>
+            )}
 
-          {visitedTabs['finance'] && (
-            <div style={{ display: activeTab === 'finance' ? 'block' : 'none' }}>
-              <FinancialPlanningView 
-                processedData={processedData} 
-                language={language} 
-                darkMode={darkMode} 
-                t={t}
-                adminSettings={adminSettings}
-                inflationRate={inflationRate}
-                currentUser={currentUser}
-              />
-            </div>
-          )}
+            {visitedTabs['finance'] && (
+              <div style={{ display: activeTab === 'finance' ? 'block' : 'none' }}>
+                <FinancialPlanningView 
+                  processedData={processedData} 
+                  language={language} 
+                  darkMode={darkMode} 
+                  t={t}
+                  adminSettings={adminSettings}
+                  inflationRate={inflationRate}
+                  currentUser={currentUser}
+                />
+              </div>
+            )}
 
-          {visitedTabs['sc'] && (
-            <div style={{ display: activeTab === 'sc' ? 'block' : 'none' }}>
-              <SupplyChainView 
-                processedData={processedData} 
-                language={language} 
-                darkMode={darkMode} 
-                t={t}
-                adminSettings={adminSettings}
-                customsDelay={customsDelay}
-                currentUser={currentUser}
-              />
-            </div>
-          )}
+            {visitedTabs['sc'] && (
+              <div style={{ display: activeTab === 'sc' ? 'block' : 'none' }}>
+                <SupplyChainView 
+                  processedData={processedData} 
+                  language={language} 
+                  darkMode={darkMode} 
+                  t={t}
+                  adminSettings={adminSettings}
+                  customsDelay={customsDelay}
+                  currentUser={currentUser}
+                />
+              </div>
+            )}
 
-          {visitedTabs['products'] && (
-            <div style={{ display: activeTab === 'products' ? 'block' : 'none' }}>
-              <ProductsView
-                processedData={processedData}
-                language={language}
-                darkMode={darkMode}
-                t={t}
-                currentUser={currentUser}
-                globalChartMetric={globalChartMetric}
-              />
-            </div>
-          )}
+            {visitedTabs['products'] && (
+              <div style={{ display: activeTab === 'products' ? 'block' : 'none' }}>
+                <ProductsView
+                  processedData={processedData}
+                  language={language}
+                  darkMode={darkMode}
+                  t={t}
+                  currentUser={currentUser}
+                  globalChartMetric={globalChartMetric}
+                />
+              </div>
+            )}
 
-          {visitedTabs['seller'] && (
-            <div style={{ display: activeTab === 'seller' ? 'block' : 'none' }}>
-              <SellerProfilesView
-                processedData={processedData}
-                language={language}
-                darkMode={darkMode}
-                t={t}
-                sellerTargets={sellerTargets}
-                currentUser={currentUser}
-                globalChartMetric={globalChartMetric}
-              />
-            </div>
-          )}
+            {visitedTabs['seller'] && (
+              <div style={{ display: activeTab === 'seller' ? 'block' : 'none' }}>
+                <SellerProfilesView
+                  processedData={processedData}
+                  language={language}
+                  darkMode={darkMode}
+                  t={t}
+                  sellerTargets={sellerTargets}
+                  currentUser={currentUser}
+                  globalChartMetric={globalChartMetric}
+                />
+              </div>
+            )}
 
-          {visitedTabs['customer'] && (
-            <div style={{ display: activeTab === 'customer' ? 'block' : 'none' }}>
-              <CustomerProfilesView
-                processedData={processedData}
-                language={language}
-                darkMode={darkMode}
-                t={t}
-                customerNotes={customerNotes}
-                setCustomerNotes={setCustomerNotes}
-                customerRiskOverride={customerRiskOverride}
-                inflationRate={inflationRate}
-                currentUser={currentUser}
-                globalChartMetric={globalChartMetric}
-              />
-            </div>
-          )}
+            {visitedTabs['customer'] && (
+              <div style={{ display: activeTab === 'customer' ? 'block' : 'none' }}>
+                <CustomerProfilesView
+                  processedData={processedData}
+                  language={language}
+                  darkMode={darkMode}
+                  t={t}
+                  customerNotes={customerNotes}
+                  setCustomerNotes={setCustomerNotes}
+                  customerRiskOverride={customerRiskOverride}
+                  inflationRate={inflationRate}
+                  currentUser={currentUser}
+                  globalChartMetric={globalChartMetric}
+                />
+              </div>
+            )}
 
-          {visitedTabs['hr'] && (
-            <div style={{ display: activeTab === 'hr' ? 'block' : 'none' }}>
-              <HrView 
-                language={language} 
-                darkMode={darkMode} 
-                t={t}
-              />
-            </div>
-          )}
+            {visitedTabs['hr'] && (
+              <div style={{ display: activeTab === 'hr' ? 'block' : 'none' }}>
+                <HrView 
+                  language={language} 
+                  darkMode={darkMode} 
+                  t={t}
+                />
+              </div>
+            )}
 
-          {visitedTabs['admin'] && (
-            <div style={{ display: activeTab === 'admin' ? 'block' : 'none' }}>
-              <AdminControlView 
-                language={language} 
-                darkMode={darkMode} 
-                adminSettings={adminSettings}
-                setAdminSettings={setAdminSettings}
-                sellerTargets={sellerTargets}
-                setSellerTargets={setSellerTargets}
-                customerNotes={customerNotes}
-                setCustomerNotes={setCustomerNotes}
-                customerRiskOverride={customerRiskOverride}
-                setCustomerRiskOverride={setCustomerRiskOverride}
-                processedData={processedData}
-                usersList={usersList}
-                setUsersList={setUsersList}
-                currentUser={currentUser}
-              />
-            </div>
-          )}
+            {visitedTabs['admin'] && (
+              <div style={{ display: activeTab === 'admin' ? 'block' : 'none' }}>
+                <AdminControlView 
+                  language={language} 
+                  darkMode={darkMode} 
+                  adminSettings={adminSettings}
+                  setAdminSettings={setAdminSettings}
+                  sellerTargets={sellerTargets}
+                  setSellerTargets={setSellerTargets}
+                  customerNotes={customerNotes}
+                  setCustomerNotes={setCustomerNotes}
+                  customerRiskOverride={customerRiskOverride}
+                  setCustomerRiskOverride={setCustomerRiskOverride}
+                  processedData={processedData}
+                  usersList={usersList}
+                  setUsersList={setUsersList}
+                  currentUser={currentUser}
+                />
+              </div>
+            )}
 
+            </Suspense>
           </ErrorBoundary>
         </div>
       </div>
