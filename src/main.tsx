@@ -68,6 +68,10 @@ class ErrorBoundary extends Component<Props, State> {
 
     return this.props.children;
   }
+if (import.meta.env.DEV) {
+  import('@axe-core/react').then((axe) => {
+    axe.default(React, createRoot, 1000);
+  }).catch((err) => console.error('Axe core initialization error:', err));
 }
 
 createRoot(document.getElementById('root')!).render(
