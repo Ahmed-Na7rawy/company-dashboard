@@ -298,8 +298,8 @@ function MarketingView({ processedData: rawProcessedData, language, darkMode, t,
     return Object.entries(groups)
       .map(([name, custSet]) => ({
         name: isEn ? name : (
-          name === 'Vitality Snacks' ? 'سويت آند سليم' :
-          name === 'Nova Koffi' ? 'يلا كوفي' :
+          name === 'Vitality Snacks' ? 'فايتاليتي سناكس' :
+          name === 'Nova Koffi' ? 'نوفا كوفي' :
           name === 'Horeca Frappe' ? 'فرايب الهوريكا' :
           name === 'Phos Cheese' ? 'فوسفات الجبن' :
           name === 'Phos Meat' ? 'فوسفات اللحوم' :

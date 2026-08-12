@@ -27,10 +27,10 @@ function CompetitorAnalysisView({
 
   const allBrands = useMemo(() => {
     return [
-      { id: 'nova', label: isEn ? 'Nova Brand' : 'علامة يالا', key: 'nova', icon: '☕' },
-      { id: 'zenith', label: isEn ? 'Zenith Brand' : 'علامة سكويزي', key: 'zenith', icon: '🍯' },
-      { id: 'vitality_snacks_classic', label: isEn ? 'Vitality Snacks Classic' : 'سويت آند سليم كلاسيك', key: 'vitality_snacks_classic', icon: '🍬' },
-      { id: 'vitality_snacks_stevia', label: isEn ? 'Vitality Snacks Stevia' : 'سويت آند سليم ستيفيا', key: 'vitality_snacks_stevia', icon: '🌱' }
+      { id: 'nova', label: isEn ? 'Nova Brand' : 'علامة نوفا', key: 'nova', icon: '☕' },
+      { id: 'zenith', label: isEn ? 'Zenith Brand' : 'علامة زينيث', key: 'zenith', icon: '🍯' },
+      { id: 'vitality_snacks_classic', label: isEn ? 'Vitality Snacks Classic' : 'فايتاليتي سناكس كلاسيك', key: 'vitality_snacks_classic', icon: '🍬' },
+      { id: 'vitality_snacks_stevia', label: isEn ? 'Vitality Snacks Stevia' : 'فايتاليتي سناكس ستيفيا', key: 'vitality_snacks_stevia', icon: '🌱' }
     ];
   }, [isEn]);
 
@@ -90,11 +90,13 @@ function CompetitorAnalysisView({
         isMatch = group.includes('zenith') || product.includes('zenith');
       } else if (selectedBrand === 'vitality_snacks_classic') {
         const isVitalitySnacks = (group.includes('sweet') && group.includes('slim')) || 
-                            (product.includes('sweet') && product.includes('slim'));
+                            (product.includes('sweet') && product.includes('slim')) ||
+                            product.includes('zero-cal');
         isMatch = isVitalitySnacks && !product.includes('stevia') && !product.includes('mint');
       } else if (selectedBrand === 'vitality_snacks_stevia') {
         const isVitalitySnacks = (group.includes('sweet') && group.includes('slim')) || 
-                            (product.includes('sweet') && product.includes('slim'));
+                            (product.includes('sweet') && product.includes('slim')) ||
+                            product.includes('zero-cal');
         isMatch = isVitalitySnacks && product.includes('stevia');
       }
 
@@ -225,7 +227,7 @@ function CompetitorAnalysisView({
           : ['توسيع محفظة الأكياس الفردية لتشمل الفنادق والمكاتب (HORECA).', 'تقديم عبوات جاهزة للشرب (RTD) من القهوة الباردة والفرابيه.', 'حملات تسويقية مشتركة مع علامات تجارية محلية للحلويات.'],
         threats: isEn
           ? ['Nescafe aggressive pricing discounts and loyalty schemes.', 'Fluctuation in cocoa and coffee bean import tariffs.', 'Imitation brands copying flavour packaging layouts.']
-          : ['خصومات الأسعار الهجومية وبرامج الولاء من نيسكافيه.', 'تقلبات أسعار الصرف والتعريفات الجمركية على حبوب البن.', 'العلامات التجارية المقلدة التي تنسخ تصاميم نكهات يالا.']
+          : ['خصومات الأسعار الهجومية وبرامج الولاء من نيسكافيه.', 'تقلبات أسعار الصرف والتعريفات الجمركية على حبوب البن.', 'العلامات التجارية المقلدة التي تنسخ تصاميم نكهات نوفا.']
       };
     } else if (selectedBrand === 'zenith') {
       return {
@@ -279,14 +281,14 @@ function CompetitorAnalysisView({
   const reviews = useMemo(() => {
     if (selectedBrand === 'nova') {
       return [
-        { competitor: 'Nescafé 3-in-1', feedback: isEn ? 'Tastes diluted compared to Nova, but Nescafe is available in literally every kiosk.' : 'طعمه مخفف مقارنة بيالا، لكن نيسكافيه متوفر حرفياً في كل كشك بقالة.', source: 'B2C Retail Survey', sentiment: 'neutral', action: isEn ? 'Increase traditional trade kiosk POS visibility.' : 'زيادة التواجد والإعلانات عند نقاط البيع للأكشاك التقليدية.' },
-        { competitor: 'Starbucks Instant', feedback: isEn ? 'Premium taste but overpriced for daily consumption. Nova is the perfect alternative.' : 'طعم متميز ولكن سعره مبالغ فيه للاستهلاك اليومي. يالا هي البديل المثالي.', source: 'Social Media Review', sentiment: 'positive', action: isEn ? 'Target premium users with "Café Quality at 50% Cost" campaign.' : 'استهداف المستهلكين بحملة "جودة المقهى بنصف التكلفة".' },
-        { competitor: 'Bonjorno Coffee', feedback: isEn ? 'Cheap and sweet, but has chemical aftertaste. Nova is much smoother.' : 'رخيص وحلو، لكن له طعم صناعي بعد تذوقه. يالا أكثر سلاسة وجودة.', source: 'Focus Group Audit', sentiment: 'positive', action: isEn ? 'Highlight "Zero Artificial Flavours" on Nova packaging.' : 'إبراز عبارة "نكهات طبيعية بالكامل" على عبوات يالا.' }
+        { competitor: 'Nescafé 3-in-1', feedback: isEn ? 'Tastes diluted compared to Nova, but Nescafe is available in literally every kiosk.' : 'طعمه مخفف مقارنة بنوفا، لكن نيسكافيه متوفر حرفياً في كل كشك بقالة.', source: 'B2C Retail Survey', sentiment: 'neutral', action: isEn ? 'Increase traditional trade kiosk POS visibility.' : 'زيادة التواجد والإعلانات عند نقاط البيع للأكشاك التقليدية.' },
+        { competitor: 'Starbucks Instant', feedback: isEn ? 'Premium taste but overpriced for daily consumption. Nova is the perfect alternative.' : 'طعم متميز ولكن سعره مبالغ فيه للاستهلاك اليومي. نوفا هي البديل المثالي.', source: 'Social Media Review', sentiment: 'positive', action: isEn ? 'Target premium users with "Café Quality at 50% Cost" campaign.' : 'استهداف المستهلكين بحملة "جودة المقهى بنصف التكلفة".' },
+        { competitor: 'Bonjorno Coffee', feedback: isEn ? 'Cheap and sweet, but has chemical aftertaste. Nova is much smoother.' : 'رخيص وحلو، لكن له طعم صناعي بعد تذوقه. نوفا أكثر سلاسة وجودة.', source: 'Focus Group Audit', sentiment: 'positive', action: isEn ? 'Highlight "Zero Artificial Flavours" on Nova packaging.' : 'إبراز عبارة "نكهات طبيعية بالكامل" على عبوات نوفا.' }
       ];
     } else if (selectedBrand === 'zenith') {
       return [
-        { competitor: 'Heinz Chili Squeeze', feedback: isEn ? 'Heinz has good heat, but Zenith Garlic and Chili pastes taste much fresher like real minced garlic.' : 'هاينز يعطي حرارة جيدة، لكن معجون الثوم والفلفل من سكويزي طعمه طازج جداً كأنه ثوم مفروم حقيقي.', source: 'In-Store Intercept', sentiment: 'positive', action: isEn ? 'Run campaign focusing on "Real Fresh Garlic & Chili taste - No Powdered substitutes".' : 'إطلاق حملة تركز على "طعم الثوم والفلفل الطازج الحقيقي - بدون بدائل مجففة".' },
-        { competitor: 'Durra Culinary Pastes', feedback: isEn ? 'Durra jars are messy and need a spoon. Zenith bottles are much cleaner for cooking.' : 'برطمانات درة تسبب الفوضى وتحتاج إلى ملعقة للاستخدام. عبوة سكويزي أنظف بكثير عند الطهي.', source: 'Culinary Audit', sentiment: 'positive', action: isEn ? 'Highlight "Clean Culinary Squeeze" convenience in social media cooking reels.' : 'إبراز ميزة "ضغط نظيف للطهي السهل" في مقاطع الطبخ على منصات التواصل الاجتماعي.' }
+        { competitor: 'Heinz Chili Squeeze', feedback: isEn ? 'Heinz has good heat, but Zenith Garlic and Chili pastes taste much fresher like real minced garlic.' : 'هاينز يعطي حرارة جيدة، لكن معجون الثوم والفلفل من زينيث طعمه طازج جداً كأنه ثوم مفروم حقيقي.', source: 'In-Store Intercept', sentiment: 'positive', action: isEn ? 'Run campaign focusing on "Real Fresh Garlic & Chili taste - No Powdered substitutes".' : 'إطلاق حملة تركز على "طعم الثوم والفلفل الطازج الحقيقي - بدون بدائل مجففة".' },
+        { competitor: 'Durra Culinary Pastes', feedback: isEn ? 'Durra jars are messy and need a spoon. Zenith bottles are much cleaner for cooking.' : 'برطمانات درة تسبب الفوضى وتحتاج إلى ملعقة للاستخدام. عبوة زينيث أنظف بكثير عند الطهي.', source: 'Culinary Audit', sentiment: 'positive', action: isEn ? 'Highlight "Clean Culinary Squeeze" convenience in social media cooking reels.' : 'إبراز ميزة "ضغط نظيف للطهي السهل" في مقاطع الطبخ على منصات التواصل الاجتماعي.' }
       ];
     } else {
       return [
@@ -498,7 +500,7 @@ function CompetitorAnalysisView({
                 <Legend wrapperStyle={{ fontSize: 10 }} />
                 <Bar 
                   dataKey="ourBrand" 
-                  name={selectedBrand === 'nova' ? (isEn ? 'Nova (Our)' : 'يالا (منتجنا)') : (isEn ? 'Zenith (Our)' : 'سكويزي (منتجنا)')} 
+                  name={selectedBrand === 'nova' ? (isEn ? 'Nova (Our)' : 'نوفا (منتجنا)') : (isEn ? 'Zenith (Our)' : 'زينيث (منتجنا)')} 
                   fill="#128d46" 
                   radius={[3, 3, 0, 0]} 
                 />

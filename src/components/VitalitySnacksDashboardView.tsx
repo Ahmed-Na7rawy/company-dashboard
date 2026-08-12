@@ -342,7 +342,7 @@ function VitalitySnacksDashboardView({
   // Determine if a product belongs to Vitality Snacks and categorize it
   const getProductCategory = (itemName: string): string | null => {
     const name = itemName.toLowerCase();
-    if (!name.includes('sweet') || !name.includes('slim')) return null;
+    if ((!name.includes('sweet') || !name.includes('slim')) && !name.includes('zero-cal')) return null;
 
     if (name.includes('stevia')) return 'stevia';
     if (name.includes('mints')) return 'mints';
