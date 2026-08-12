@@ -10,6 +10,7 @@ import { KpiCards } from './KpiCards';
 import { SalesCharts } from './SalesCharts';
 import { LostDecliningTables } from './LostDecliningTables';
 import { SurplusFlightRiskTables } from './SurplusFlightRiskTables';
+import { EmptyState } from '../EmptyState';
 
 interface SalesDirectorViewProps {
   processedData: ProcessedRow[];
@@ -886,6 +887,29 @@ function SalesDirectorView(props: SalesDirectorViewProps) {
       skuTimeSeriesData: timeSeriesArr
     };
   }, [dataHook.filteredData, dataHook.prodPlotYearTab, dataHook.prodPlotMetric, dataHook.prodPlotSelectedProducts, dataHook.displayMode, language]);
+
+  if (dataHook.filteredData.length === 0) {
+    return (
+      <div className="p-8">
+        <EmptyState
+          illustration="filter"
+          title={language === 'en' ? 'No Matching Transaction Records' : 'لا توجد سجلات معاملات مطابقة'}
+          description={language === 'en' 
+            ? 'No sales records match your currently selected filters. Try broadening your date range or clearing category filters.' 
+            : 'لا توجد سجلات مبيعات تطابق الفلاتر المحددة حالياً. يرجى توسيع النطاق الزمني أو مسح الفلاتر.'}
+          action={{
+            label: language === 'en' ? 'Reset Filters' : 'إعادة ضبط الفلاتر',
+            onClick: () => {
+              dataHook.setSearchTerm('');
+              dataHook.setTimePeriod('All');
+              dataHook.setSelectedYear('All');
+              dataHook.setSelectedMonth('All');
+            }
+          }}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8 animate-fadeIn">
