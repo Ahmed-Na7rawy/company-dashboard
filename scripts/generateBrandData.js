@@ -70,7 +70,11 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-fs.writeFileSync(path.join(__dirname, '../public/brand_sales_data.json'), JSON.stringify(finalData, null, 2));
+const dataSourceDir = path.join(__dirname, '../data-source');
+if (!fs.existsSync(dataSourceDir)) {
+  fs.mkdirSync(dataSourceDir);
+}
+fs.writeFileSync(path.join(dataSourceDir, 'brand_sales_data.json'), JSON.stringify(finalData, null, 2));
 fs.writeFileSync(path.join(__dirname, '../src/data/nova_zenith_sales_data.json'), JSON.stringify(finalData, null, 2));
 
 console.log('✅ Generated brand data successfully!');

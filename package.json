@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "test": "npx vitest run",
     "generate-fake-data": "node scripts/generateFakeData.js"
   },
   "dependencies": {
@@ -45,6 +46,7 @@
     "typescript-eslint": "^8.59.2",
     "vite": "^8.0.12",
     "vite-plugin-pwa": "^1.3.0",
+    "vitest": "^4.1.10",
     "workbox-window": "^7.4.1"
   }
 }

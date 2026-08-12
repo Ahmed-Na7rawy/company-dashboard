@@ -25,3 +25,5 @@ dist-ssr
 .vercel
 lint-results.txt
 test-results/
+data-source/
+

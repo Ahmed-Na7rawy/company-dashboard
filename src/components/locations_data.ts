@@ -1,9 +1,9 @@
 export const locationsData = [
   {
-    "name": "FATHALLA GOMLA MARKET",
+    "name": "Aero Foods (Sweeteners #1)",
     "location": "Alexandria",
     "governorate": "Alexandria",
-    "address": "Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.14082028,
     "lng": 30.15877231,
     "is_sweetener": true,
@@ -12,10 +12,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "أسواق فتح الله للجملة فرع",
+    "name": "Apex Market (Sweeteners #2)",
     "location": "Alexandria",
     "governorate": "Alexandria",
-    "address": "Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.31954719,
     "lng": 29.9827444,
     "is_sweetener": true,
@@ -24,10 +24,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "شركه بارونز كورت سبورتس ا",
+    "name": "Summit Distribution (Sweeteners #3)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.88169015,
     "lng": 31.05179098,
     "is_sweetener": true,
@@ -36,10 +36,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "شركه بارونز كورت سبورتس ا",
+    "name": "Horizon Retail (Sweeteners #4)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.77850093,
     "lng": 31.3936037,
     "is_sweetener": true,
@@ -48,10 +48,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - بيراميدز فيو مشع",
+    "name": "Pinnacle Grocers (Sweeteners #5)",
     "location": "Pyramids View, October Gardens, Giza",
     "governorate": "Giza",
-    "address": "Pyramids View, October Gardens, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.00449588,
     "lng": 31.04191536,
     "is_sweetener": true,
@@ -60,10 +60,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -واتر واى ا",
+    "name": "Nexus Partners (Sweeteners #6)",
     "location": "Waterway, New Cairo",
     "governorate": "Cairo",
-    "address": "The Waterway, Fifth Settlement, New Cairo, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.77509565,
     "lng": 31.72143151,
     "is_sweetener": true,
@@ -72,10 +72,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -مول العرب",
+    "name": "Vortex Co (Sweeteners #7)",
     "location": "Mall of Arabia, 6th of October, Giza",
     "governorate": "Giza",
-    "address": "Mall of Arabia, 6th of October, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.12769712,
     "lng": 30.78066249,
     "is_sweetener": true,
@@ -84,10 +84,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "OSCAR GRAND STORES",
+    "name": "Beacon Stores (Sweeteners #8)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.89459332,
     "lng": 31.06549597,
     "is_sweetener": true,
@@ -96,10 +96,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -سيتى ستارز",
+    "name": "Nova Supply (Sweeteners #9)",
     "location": "City Stars, Heliopolis, Cairo",
     "governorate": "Cairo",
-    "address": "City Stars, Heliopolis, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.01703329,
     "lng": 31.36613579,
     "is_sweetener": true,
@@ -108,10 +108,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - افينو الرحاب",
+    "name": "Zenith Foods (Sweeteners #10)",
     "location": "Avenue Mall, Rehab City, New Cairo",
     "governorate": "Cairo",
-    "address": "Avenue Mall, Rehab City, New Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.98386973,
     "lng": 31.37980829,
     "is_sweetener": true,
@@ -120,10 +120,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - المقطم",
+    "name": "Omega Market (Sweeteners #11)",
     "location": "Mokattam, Cairo",
     "governorate": "Cairo",
-    "address": "Mokattam, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.10066672,
     "lng": 31.05004842,
     "is_sweetener": true,
@@ -132,10 +132,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - مدينتى اول سيزون",
+    "name": "Delta Logistics (Sweeteners #12)",
     "location": "Madinaty , Cairo",
     "governorate": "Cairo",
-    "address": "Madinaty , Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.94051781,
     "lng": 31.18074662,
     "is_sweetener": true,
@@ -144,10 +144,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - داندى مول",
+    "name": "Sierra Foods (Sweeteners #13)",
     "location": "Dandy Mall, 6th of October, Giza",
     "governorate": "Giza",
-    "address": "Dandy Mall, 6th of October, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.93582908,
     "lng": 31.07026994,
     "is_sweetener": true,
@@ -156,10 +156,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "بندة العالمية فرع مدينه ن",
+    "name": "Alpha Retail (Sweeteners #14)",
     "location": "Nasr City, Cairo",
     "governorate": "Cairo",
-    "address": "Nasr City, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.91538575,
     "lng": 31.34759327,
     "is_sweetener": true,
@@ -168,10 +168,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "بندة العالمية فرع الرحاب",
+    "name": "Echo Plaza (Sweeteners #15)",
     "location": "Rehab City, New Cairo",
     "governorate": "Cairo",
-    "address": "Rehab City, New Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.0562062,
     "lng": 31.23295034,
     "is_sweetener": true,
@@ -180,10 +180,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - سيتى سنتر اسكندر",
+    "name": "Meridian Stores (Sweeteners #16)",
     "location": "City Center, Alexandria",
     "governorate": "Alexandria",
-    "address": "City Center, Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.26857404,
     "lng": 29.75134059,
     "is_sweetener": true,
@@ -192,10 +192,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "فاطمة الزهراء منصور عبد ا",
+    "name": "Unity Grocers (Sweeteners #17)",
     "location": "Fayoum",
     "governorate": "Fayoum",
-    "address": "Fayoum Governorate, Egypt",
+    "address": "Fayoum, Egypt",
     "lat": 29.0944013,
     "lng": 31.08203171,
     "is_sweetener": true,
@@ -204,10 +204,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - 15 مايو",
+    "name": "Prime Market (Sweeteners #18)",
     "location": "15th of May City, Helwan, Cairo",
     "governorate": "Cairo",
-    "address": "15th of May City, Helwan, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.28327502,
     "lng": 31.40206013,
     "is_sweetener": true,
@@ -216,10 +216,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "بندة العالمية فرع العبور",
+    "name": "Quest Foods (Sweeteners #19)",
     "location": "Obour City, Qalyubia",
     "governorate": "Qalyubia",
-    "address": "Obour City, Qalyubia Governorate, Egypt",
+    "address": "Qalyubia, Egypt",
     "lat": 30.13645314,
     "lng": 31.28156387,
     "is_sweetener": true,
@@ -228,10 +228,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -ديستريكت ف",
+    "name": "Legacy Co (Sweeteners #20)",
     "location": "District 5, New Cairo",
     "governorate": "Cairo",
-    "address": "District 5 Compound, New Cairo, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.10649029,
     "lng": 31.43221485,
     "is_sweetener": true,
@@ -240,10 +240,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -المعادى 1",
+    "name": "Matrix Market (Sweeteners #21)",
     "location": "Maadi, Cairo",
     "governorate": "Cairo",
-    "address": "Maadi, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.78291928,
     "lng": 31.24906786,
     "is_sweetener": true,
@@ -252,10 +252,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -شيراتون",
+    "name": "Quantum Foods (Sweeteners #22)",
     "location": "Sheraton, Heliopolis, Cairo",
     "governorate": "Cairo",
-    "address": "Sheraton, Heliopolis, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.86623412,
     "lng": 31.57176206,
     "is_sweetener": true,
@@ -264,10 +264,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -مكرم عبيد",
+    "name": "Valor Retail (Sweeteners #23)",
     "location": "Makram Ebeid, Nasr City, Cairo",
     "governorate": "Cairo",
-    "address": "Makram Ebeid, Nasr City, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.93225748,
     "lng": 31.43857936,
     "is_sweetener": true,
@@ -276,10 +276,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - كايرو فيستفال",
+    "name": "Epic Plaza (Sweeteners #24)",
     "location": "Cairo Festival City, New Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate Festival City, New Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.899175,
     "lng": 31.48663715,
     "is_sweetener": true,
@@ -288,10 +288,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "LULU MARKET",
+    "name": "Titan Distributors (Sweeteners #25)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.07703597,
     "lng": 31.06622094,
     "is_sweetener": true,
@@ -300,10 +300,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "شركة الفار التجارية",
+    "name": "Stellar Foods (Sweeteners #26)",
     "location": "Nasr City, Cairo",
     "governorate": "Cairo",
-    "address": "Nasr City, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.95601611,
     "lng": 31.36182409,
     "is_sweetener": true,
@@ -312,10 +312,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - مول مصر",
+    "name": "Dynamic Retail (Sweeteners #27)",
     "location": "Mall of , 6th of October, Giza",
     "governorate": "Giza",
-    "address": "Mall of , 6th of October, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.78885681,
     "lng": 31.08077095,
     "is_sweetener": true,
@@ -324,10 +324,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - سيتى سنتر المعاد",
+    "name": "Alliance Grocers (Sweeteners #28)",
     "location": "City Center, Maadi, Cairo",
     "governorate": "Cairo",
-    "address": "City Center, Maadi, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.74982373,
     "lng": 31.50429858,
     "is_sweetener": true,
@@ -336,10 +336,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور -  ألماظة",
+    "name": "Galaxy Market (Sweeteners #29)",
     "location": "Almaza, Heliopolis, Cairo",
     "governorate": "Cairo",
-    "address": "Almaza, Heliopolis, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.22610065,
     "lng": 31.20141121,
     "is_sweetener": true,
@@ -348,10 +348,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "ديليفرى هيرو ديمارت أيجيب",
+    "name": "Infinity Supply (Sweeteners #30)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.80644189,
     "lng": 31.38152443,
     "is_sweetener": true,
@@ -360,10 +360,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - سوبيكو مدينة بدر",
+    "name": "Aero Foods (Sweeteners #31)",
     "location": "Badr City, Cairo",
     "governorate": "Cairo",
-    "address": "Badr City, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.05473436,
     "lng": 31.19326683,
     "is_sweetener": true,
@@ -372,10 +372,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - حلوان",
+    "name": "Apex Market (Sweeteners #32)",
     "location": "Helwan, Cairo",
     "governorate": "Cairo",
-    "address": "Helwan, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.8083889,
     "lng": 31.03450565,
     "is_sweetener": true,
@@ -384,10 +384,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -زايد",
+    "name": "Summit Distribution (Sweeteners #33)",
     "location": "Sheikh Zayed, 6th of October, Giza",
     "governorate": "Giza",
-    "address": "Sheikh Zayed, 6th of October, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.7914754,
     "lng": 31.04904144,
     "is_sweetener": true,
@@ -396,10 +396,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -دريم بارك",
+    "name": "Horizon Retail (Sweeteners #34)",
     "location": "Dream Park, 6th of October, Giza",
     "governorate": "Giza",
-    "address": "Dream Park, 6th of October, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.85476602,
     "lng": 30.93191209,
     "is_sweetener": true,
@@ -408,10 +408,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - فرع 15 مايو سيلو",
+    "name": "Pinnacle Grocers (Sweeteners #35)",
     "location": "15th of May City, Helwan, Cairo",
     "governorate": "Cairo",
-    "address": "15th of May City, Helwan, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.25424224,
     "lng": 31.12250757,
     "is_sweetener": true,
@@ -420,10 +420,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -مدينتى",
+    "name": "Nexus Partners (Sweeteners #36)",
     "location": "Madinaty, Cairo",
     "governorate": "Cairo",
-    "address": "Madinaty, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.9931877,
     "lng": 31.36865112,
     "is_sweetener": true,
@@ -432,10 +432,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - الهانوفيل (العجم",
+    "name": "Vortex Co (Sweeteners #37)",
     "location": "Hanoville, Agami, Alexandria",
     "governorate": "Alexandria",
-    "address": "Hanoville, Agami, Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.0537016,
     "lng": 29.7033505,
     "is_sweetener": true,
@@ -444,10 +444,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - محطه الرمل",
+    "name": "Beacon Stores (Sweeteners #38)",
     "location": "Mahatet El Raml, Alexandria",
     "governorate": "Alexandria",
-    "address": "Mahatet El Raml, Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.09552562,
     "lng": 29.75760303,
     "is_sweetener": true,
@@ -456,10 +456,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "الشركة العربيه لخدمات الم",
+    "name": "Nova Supply (Sweeteners #39)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.22091397,
     "lng": 31.12211709,
     "is_sweetener": true,
@@ -468,10 +468,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "يونيتد جروسرز -الطيران",
+    "name": "Zenith Foods (Sweeteners #40)",
     "location": "El Tayaran St, Nasr City, Cairo",
     "governorate": "Cairo",
-    "address": "El Tayaran St, Nasr City, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.12608985,
     "lng": 31.36925858,
     "is_sweetener": true,
@@ -480,10 +480,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -المعادى 2",
+    "name": "Omega Market (Sweeteners #41)",
     "location": "Maadi, Cairo",
     "governorate": "Cairo",
-    "address": "Maadi, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.76704505,
     "lng": 31.41913066,
     "is_sweetener": true,
@@ -492,10 +492,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -الشروق",
+    "name": "Delta Logistics (Sweeteners #42)",
     "location": "El Shorouk City, Cairo",
     "governorate": "Cairo",
-    "address": "El Shorouk City, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.01350504,
     "lng": 31.47510663,
     "is_sweetener": true,
@@ -504,10 +504,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -حسنين هيكل",
+    "name": "Sierra Foods (Sweeteners #43)",
     "location": "Hassanein Heikal St, Nasr City, Cairo",
     "governorate": "Cairo",
-    "address": "Hassanein Heikal St, Nasr City, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.81310802,
     "lng": 31.39793502,
     "is_sweetener": true,
@@ -516,10 +516,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -روكسى",
+    "name": "Alpha Retail (Sweeteners #44)",
     "location": "Roxy, Heliopolis, Cairo",
     "governorate": "Cairo",
-    "address": "Roxy, Heliopolis, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.2023602,
     "lng": 31.0996301,
     "is_sweetener": true,
@@ -528,10 +528,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "بندة العالمية فرع اكتوبر",
+    "name": "Echo Plaza (Sweeteners #45)",
     "location": "6th of October City, Giza",
     "governorate": "Giza",
-    "address": "6th of October City, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.95086359,
     "lng": 30.78957732,
     "is_sweetener": true,
@@ -540,10 +540,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "بندة العالمية فرع المعادى",
+    "name": "Meridian Stores (Sweeteners #46)",
     "location": "Maadi, Cairo",
     "governorate": "Cairo",
-    "address": "Maadi, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.04448656,
     "lng": 31.08866262,
     "is_sweetener": true,
@@ -552,10 +552,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "فنجاني",
+    "name": "Unity Grocers (Sweeteners #47)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.27204583,
     "lng": 31.04255419,
     "is_sweetener": true,
@@ -564,10 +564,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - داون تاون",
+    "name": "Prime Market (Sweeteners #48)",
     "location": "Downtown Katameya, New Cairo",
     "governorate": "Cairo",
-    "address": "Downtown Katameya, New Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.92183889,
     "lng": 31.28096937,
     "is_sweetener": true,
@@ -576,10 +576,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - اعمار",
+    "name": "Quest Foods (Sweeteners #49)",
     "location": "Uptown Cairo, Mokattam, Cairo",
     "governorate": "Cairo",
-    "address": "Uptown Cairo Governorate, Mokattam, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.24555862,
     "lng": 31.41109644,
     "is_sweetener": true,
@@ -588,10 +588,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "هايبر وان للتجارة - العاش",
+    "name": "Legacy Co (Sweeteners #50)",
     "location": "10th of Ramadan City, Sharqia",
     "governorate": "Cairo",
-    "address": "10th of Ramadan City, Sharqia, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.92403811,
     "lng": 31.31717789,
     "is_sweetener": true,
@@ -600,10 +600,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "هايبر وان للتجارة الشيخ ز",
+    "name": "Matrix Market (Sweeteners #51)",
     "location": "Sheikh Zayed, 6th of October, Giza",
     "governorate": "Giza",
-    "address": "Sheikh Zayed, 6th of October, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.18437191,
     "lng": 31.00843664,
     "is_sweetener": true,
@@ -612,10 +612,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "هايبر خوفو",
+    "name": "Quantum Foods (Sweeteners #52)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.19966815,
     "lng": 31.27706636,
     "is_sweetener": true,
@@ -624,10 +624,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "يونيتد جروسرز -سوديك التج",
+    "name": "Valor Retail (Sweeteners #53)",
     "location": "Sodic Compound, Sheikh Zayed, Giza",
     "governorate": "Giza",
-    "address": "Sodic Compound, Sheikh Zayed, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.94478747,
     "lng": 30.91883953,
     "is_sweetener": true,
@@ -636,10 +636,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "نون للتجارة الألكترونية",
+    "name": "Epic Plaza (Sweeteners #54)",
     "location": "Sheikh Zayed, Giza",
     "governorate": "Giza",
-    "address": "Sheikh Zayed, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.80753111,
     "lng": 31.05031428,
     "is_sweetener": true,
@@ -648,10 +648,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - العروبه",
+    "name": "Titan Distributors (Sweeteners #55)",
     "location": "El Orouba, Heliopolis, Cairo",
     "governorate": "Cairo",
-    "address": "El Orouba, Heliopolis, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.90883719,
     "lng": 31.28570382,
     "is_sweetener": true,
@@ -660,10 +660,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - دجله",
+    "name": "Stellar Foods (Sweeteners #56)",
     "location": "Degla, Maadi, Cairo",
     "governorate": "Cairo",
-    "address": "Degla, Maadi, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.99012657,
     "lng": 31.26478997,
     "is_sweetener": true,
@@ -672,10 +672,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - العاشر من رمضان",
+    "name": "Dynamic Retail (Sweeteners #57)",
     "location": "10th of Ramadan City, Sharqia",
     "governorate": "Cairo",
-    "address": "10th of Ramadan City, Sharqia, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.89268879,
     "lng": 31.34841192,
     "is_sweetener": true,
@@ -684,10 +684,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -المحكمة ال",
+    "name": "Alliance Grocers (Sweeteners #58)",
     "location": "El Mahkama, Nasr City, Cairo",
     "governorate": "Cairo",
-    "address": "El Mahkama, Nasr City, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.9506729,
     "lng": 31.10148543,
     "is_sweetener": true,
@@ -696,10 +696,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -الحجاز",
+    "name": "Galaxy Market (Sweeteners #59)",
     "location": "El Hegaz St, Heliopolis, Cairo",
     "governorate": "Cairo",
-    "address": "El Hegaz St, Heliopolis, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.16419657,
     "lng": 31.18066735,
     "is_sweetener": true,
@@ -708,10 +708,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "SAMY SALAMA MARKET",
+    "name": "Infinity Supply (Sweeteners #60)",
     "location": "Heliopolis , Cairo",
     "governorate": "Cairo",
-    "address": "Heliopolis , Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.84817876,
     "lng": 31.55704903,
     "is_sweetener": true,
@@ -720,10 +720,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "رويال هاوس للتجارة",
+    "name": "Aero Foods (Sweeteners #61)",
     "location": "Cairo New Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate New Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.97053271,
     "lng": 31.71557273,
     "is_sweetener": true,
@@ -732,10 +732,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "رويال هاوس للتجارة",
+    "name": "Apex Market (Sweeteners #62)",
     "location": "Shorouk",
     "governorate": "Cairo",
-    "address": "Shorouk, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.35022904,
     "lng": 31.80315127,
     "is_sweetener": true,
@@ -744,10 +744,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "هايبر المحلاوى للتجارة",
+    "name": "Summit Distribution (Sweeteners #63)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.95090528,
     "lng": 31.16634258,
     "is_sweetener": true,
@@ -756,10 +756,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "الحسينى نيو بينى السوق ال",
+    "name": "Horizon Retail (Sweeteners #64)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.22924917,
     "lng": 31.13225472,
     "is_sweetener": true,
@@ -768,10 +768,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "ZAHRAN MARKET",
+    "name": "Pinnacle Grocers (Sweeteners #65)",
     "location": "Alexandria",
     "governorate": "Alexandria",
-    "address": "Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.38708638,
     "lng": 30.14003543,
     "is_sweetener": true,
@@ -780,10 +780,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - المعادى الجديدة",
+    "name": "Nexus Partners (Sweeteners #66)",
     "location": "New Maadi, Cairo",
     "governorate": "Cairo",
-    "address": "New Maadi, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.11347049,
     "lng": 31.31991565,
     "is_sweetener": true,
@@ -792,10 +792,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - سرايا القبه الجد",
+    "name": "Vortex Co (Sweeteners #67)",
     "location": "Saray El Koba, Cairo",
     "governorate": "Cairo",
-    "address": "Saray El Koba, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.15216618,
     "lng": 31.37111954,
     "is_sweetener": true,
@@ -804,10 +804,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - الشروق سكاى بلاز",
+    "name": "Beacon Stores (Sweeteners #68)",
     "location": "El Shorouk City, Cairo",
     "governorate": "Cairo",
-    "address": "El Shorouk City, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.29811768,
     "lng": 31.55084495,
     "is_sweetener": true,
@@ -816,10 +816,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -الدقى",
+    "name": "Nova Supply (Sweeteners #69)",
     "location": "Dokki, Giza",
     "governorate": "Giza",
-    "address": "Dokki, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.95346474,
     "lng": 30.99931987,
     "is_sweetener": true,
@@ -828,10 +828,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -الحكمة الد",
+    "name": "Zenith Foods (Sweeteners #70)",
     "location": "El Hekma, Nasr City, Cairo",
     "governorate": "Cairo",
-    "address": "El Hekma, Nasr City, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.11001563,
     "lng": 31.11780021,
     "is_sweetener": true,
@@ -840,10 +840,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "مالتي ماركت للتجاره سعودي",
+    "name": "Omega Market (Sweeteners #71)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.18867761,
     "lng": 31.08170423,
     "is_sweetener": true,
@@ -852,10 +852,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "جى أم ماركت للتجارة و الت",
+    "name": "Delta Logistics (Sweeteners #72)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.11512607,
     "lng": 31.01646745,
     "is_sweetener": true,
@@ -864,10 +864,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "الحسينى ماركت حسنى على عم",
+    "name": "Sierra Foods (Sweeteners #73)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.1667265,
     "lng": 31.46171976,
     "is_sweetener": true,
@@ -876,10 +876,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "الحسينى ماركت حسنى على عم",
+    "name": "Alpha Retail (Sweeteners #74)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.00760929,
     "lng": 31.12199387,
     "is_sweetener": true,
@@ -888,10 +888,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "الحسينى الشركة العربية لت",
+    "name": "Echo Plaza (Sweeteners #75)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.20127393,
     "lng": 31.10920984,
     "is_sweetener": true,
@@ -900,10 +900,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "الحسينى الشركة العربية لت",
+    "name": "Meridian Stores (Sweeteners #76)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.96894483,
     "lng": 30.99974382,
     "is_sweetener": true,
@@ -912,10 +912,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - سوبيكو شينزو ابى",
+    "name": "Unity Grocers (Sweeteners #77)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.81635621,
     "lng": 31.45511792,
     "is_sweetener": true,
@@ -924,10 +924,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - سوبيكو شينزو ابى",
+    "name": "Prime Market (Sweeteners #78)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.16744918,
     "lng": 31.30850273,
     "is_sweetener": true,
@@ -936,10 +936,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "يونيتد جروسرز -سوديك",
+    "name": "Quest Foods (Sweeteners #79)",
     "location": "Sodic Compound, Sheikh Zayed, Giza",
     "governorate": "Giza",
-    "address": "Sodic Compound, Sheikh Zayed, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.97974905,
     "lng": 30.8308819,
     "is_sweetener": true,
@@ -948,10 +948,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "توفير للمواد الغذائية كاز",
+    "name": "Legacy Co (Sweeteners #80)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.82767764,
     "lng": 31.08563708,
     "is_sweetener": true,
@@ -960,10 +960,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "فلامنجو ماركت",
+    "name": "Matrix Market (Sweeteners #81)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.0029332,
     "lng": 31.28171877,
     "is_sweetener": true,
@@ -972,10 +972,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "EXCEPTION MARKET",
+    "name": "Quantum Foods (Sweeteners #82)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.85406984,
     "lng": 30.98290463,
     "is_sweetener": true,
@@ -984,10 +984,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "يونيتد جروسرز -ميدان سفنك",
+    "name": "Valor Retail (Sweeteners #83)",
     "location": "Sphinx Square, Mohandessin, Giza",
     "governorate": "Giza",
-    "address": "Sphinx Square, Mohandessin, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.81190123,
     "lng": 31.13190016,
     "is_sweetener": true,
@@ -996,10 +996,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - الحصرى",
+    "name": "Epic Plaza (Sweeteners #84)",
     "location": "El Hosary, 6th of October, Giza",
     "governorate": "Giza",
-    "address": "El Hosary, 6th of October, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.13240188,
     "lng": 30.69714388,
     "is_sweetener": true,
@@ -1008,10 +1008,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - مدينتى",
+    "name": "Titan Distributors (Sweeteners #85)",
     "location": "Madinaty, Cairo",
     "governorate": "Cairo",
-    "address": "Madinaty, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.19523048,
     "lng": 31.13180294,
     "is_sweetener": true,
@@ -1020,10 +1020,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "هايبر وان للتجارة السليما",
+    "name": "Stellar Foods (Sweeteners #86)",
     "location": "Salheya, Sharqia",
     "governorate": "Cairo",
-    "address": "Salheya, Sharqia, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.85397142,
     "lng": 31.32125147,
     "is_sweetener": true,
@@ -1032,10 +1032,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - زيتون",
+    "name": "Dynamic Retail (Sweeteners #87)",
     "location": "El Zeitoun, Cairo",
     "governorate": "Cairo",
-    "address": "El Zeitoun, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.10356012,
     "lng": 31.43409181,
     "is_sweetener": true,
@@ -1044,10 +1044,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "هايبر وان بدر",
+    "name": "Alliance Grocers (Sweeteners #88)",
     "location": "Badr City, Cairo",
     "governorate": "Cairo",
-    "address": "Badr City, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.16090346,
     "lng": 31.38123679,
     "is_sweetener": true,
@@ -1056,10 +1056,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "اليكس بارتنيرز  - زانيليز",
+    "name": "Galaxy Market (Sweeteners #89)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.89047641,
     "lng": 31.0492354,
     "is_sweetener": true,
@@ -1068,10 +1068,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - الواحات",
+    "name": "Infinity Supply (Sweeteners #90)",
     "location": "El Wahat Road, 6th of October, Giza",
     "governorate": "Giza",
-    "address": "El Wahat Road, 6th of October, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.07965247,
     "lng": 31.07588707,
     "is_sweetener": true,
@@ -1080,10 +1080,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "نجمة هليوبوليس ماركت شيرا",
+    "name": "Aero Foods (Sweeteners #91)",
     "location": "Heliopolis, Cairo",
     "governorate": "Cairo",
-    "address": "Heliopolis, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.35800816,
     "lng": 31.31609611,
     "is_sweetener": true,
@@ -1092,10 +1092,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - السيو ف سيتى لاي",
+    "name": "Apex Market (Sweeteners #92)",
     "location": "Alexandria",
     "governorate": "Alexandria",
-    "address": "Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.13955926,
     "lng": 30.07162163,
     "is_sweetener": true,
@@ -1104,10 +1104,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "جرين هايبر ماركت",
+    "name": "Summit Distribution (Sweeteners #93)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.9740826,
     "lng": 31.43917238,
     "is_sweetener": true,
@@ -1116,10 +1116,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "جرين هايبر ماركت",
+    "name": "Horizon Retail (Sweeteners #94)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.1786655,
     "lng": 31.17501264,
     "is_sweetener": true,
@@ -1128,10 +1128,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "المحلاوى ستورز للأستيراد",
+    "name": "Pinnacle Grocers (Sweeteners #95)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.85524277,
     "lng": 31.42507017,
     "is_sweetener": true,
@@ -1140,10 +1140,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "احمد محمد رياض حافظ  LG",
+    "name": "Nexus Partners (Sweeteners #96)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.05630702,
     "lng": 31.38702245,
     "is_sweetener": true,
@@ -1152,10 +1152,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - بيفرلى هلز",
+    "name": "Vortex Co (Sweeteners #97)",
     "location": "Beverly Hills, Sheikh Zayed, Giza",
     "governorate": "Giza",
-    "address": "Beverly Hills, Sheikh Zayed, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.93532345,
     "lng": 31.18356559,
     "is_sweetener": true,
@@ -1164,10 +1164,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - مركزى السلام",
+    "name": "Beacon Stores (Sweeteners #98)",
     "location": "El Salam City, Cairo",
     "governorate": "Cairo",
-    "address": "El Salam City, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.98212581,
     "lng": 30.97855929,
     "is_sweetener": true,
@@ -1176,10 +1176,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - العبور سيلو",
+    "name": "Nova Supply (Sweeteners #99)",
     "location": "Obour City, Qalyubia",
     "governorate": "Qalyubia",
-    "address": "Obour City, Qalyubia Governorate, Egypt",
+    "address": "Qalyubia, Egypt",
     "lat": 30.43683725,
     "lng": 31.27837115,
     "is_sweetener": true,
@@ -1188,10 +1188,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - السيدة زينب",
+    "name": "Zenith Foods (Sweeteners #100)",
     "location": "Sayeda Zeinab, Cairo",
     "governorate": "Cairo",
-    "address": "Sayeda Zeinab, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.95222596,
     "lng": 31.44827611,
     "is_sweetener": true,
@@ -1200,10 +1200,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - رويال بلازا",
+    "name": "Omega Market (Sweeteners #101)",
     "location": "Royal Plaza, 6th of October, Giza",
     "governorate": "Giza",
-    "address": "Royal Plaza, 6th of October, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.74850099,
     "lng": 31.017606,
     "is_sweetener": true,
@@ -1212,10 +1212,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "الحسينى نيو بينى التجمع ا",
+    "name": "Delta Logistics (Sweeteners #102)",
     "location": "New Cairo",
     "governorate": "Cairo",
-    "address": "New Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.78367938,
     "lng": 31.71394791,
     "is_sweetener": true,
@@ -1224,10 +1224,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "الحسينى نيو بينى مدينتى ا",
+    "name": "Sierra Foods (Sweeteners #103)",
     "location": "Madinaty, Cairo",
     "governorate": "Cairo",
-    "address": "Madinaty, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.97513164,
     "lng": 31.17619663,
     "is_sweetener": true,
@@ -1236,10 +1236,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "هايبر نجمة هليوبوليس ميدا",
+    "name": "Alpha Retail (Sweeteners #104)",
     "location": "Heliopolis, Cairo",
     "governorate": "Cairo",
-    "address": "Heliopolis, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.26915537,
     "lng": 31.58341156,
     "is_sweetener": true,
@@ -1248,10 +1248,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "ام ام بى للاستيراد و التص",
+    "name": "Echo Plaza (Sweeteners #105)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.83183247,
     "lng": 31.03320267,
     "is_sweetener": true,
@@ -1260,10 +1260,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "سراى ماركت 2",
+    "name": "Meridian Stores (Sweeteners #106)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.86244396,
     "lng": 31.29839887,
     "is_sweetener": true,
@@ -1272,10 +1272,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "أولاد علام ماركت",
+    "name": "Unity Grocers (Sweeteners #107)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.80975807,
     "lng": 31.45873313,
     "is_sweetener": true,
@@ -1284,10 +1284,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "سوبر ماركت الأسواق المصري",
+    "name": "Prime Market (Sweeteners #108)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.82526079,
     "lng": 31.41936527,
     "is_sweetener": true,
@@ -1296,10 +1296,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "مترو ماركت للتجاره والتوز",
+    "name": "Quest Foods (Sweeteners #109)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.06753139,
     "lng": 31.47027611,
     "is_sweetener": true,
@@ -1308,10 +1308,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "مترو ماركت للتجاره والتوز",
+    "name": "Legacy Co (Sweeteners #110)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.7863574,
     "lng": 31.23744277,
     "is_sweetener": true,
@@ -1320,10 +1320,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "الهوارى لتجارة بالجملة",
+    "name": "Matrix Market (Sweeteners #111)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.88814971,
     "lng": 31.05457621,
     "is_sweetener": true,
@@ -1332,10 +1332,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "سوبر ماركت بست واى",
+    "name": "Quantum Foods (Sweeteners #112)",
     "location": "Hurghada",
     "governorate": "Red Sea",
-    "address": "Hurghada, Red Sea Governorate, Egypt",
+    "address": "Red Sea, Egypt",
     "lat": 27.22829415,
     "lng": 33.74167857,
     "is_sweetener": true,
@@ -1344,10 +1344,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - فيتالى",
+    "name": "Valor Retail (Sweeteners #113)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.14604642,
     "lng": 31.05510219,
     "is_sweetener": true,
@@ -1356,10 +1356,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - فيتالى",
+    "name": "Epic Plaza (Sweeteners #114)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.20492271,
     "lng": 31.37178425,
     "is_sweetener": true,
@@ -1368,10 +1368,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - سموحه",
+    "name": "Titan Distributors (Sweeteners #115)",
     "location": "Smouha, Alexandria",
     "governorate": "Alexandria",
-    "address": "Smouha, Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.42778543,
     "lng": 30.09695605,
     "is_sweetener": true,
@@ -1380,10 +1380,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "الديوان للأغذية و المشروب",
+    "name": "Stellar Foods (Sweeteners #116)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.83186858,
     "lng": 31.4061549,
     "is_sweetener": true,
@@ -1392,10 +1392,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "الديوان للأغذية و المشروب",
+    "name": "Dynamic Retail (Sweeteners #117)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.15590962,
     "lng": 31.46037447,
     "is_sweetener": true,
@@ -1404,10 +1404,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "سمارت ماركت",
+    "name": "Alliance Grocers (Sweeteners #118)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.28070635,
     "lng": 31.27688103,
     "is_sweetener": true,
@@ -1416,10 +1416,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - مهدى عرفه",
+    "name": "Galaxy Market (Sweeteners #119)",
     "location": "Mahdy Arafa, Maadi, Cairo",
     "governorate": "Cairo",
-    "address": "Mahdy Arafa, Maadi, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.89937323,
     "lng": 31.29797811,
     "is_sweetener": true,
@@ -1428,10 +1428,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - جولف سيتى مول ال",
+    "name": "Infinity Supply (Sweeteners #120)",
     "location": "Golf City, Obour, Qalyubia",
     "governorate": "Qalyubia",
-    "address": "Golf City, Obour, Qalyubia Governorate, Egypt",
+    "address": "Qalyubia, Egypt",
     "lat": 30.15562018,
     "lng": 31.44881358,
     "is_sweetener": true,
@@ -1440,10 +1440,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - سيليو القاهرة ال",
+    "name": "Aero Foods (Sweeteners #121)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.25576018,
     "lng": 31.14792145,
     "is_sweetener": true,
@@ -1452,10 +1452,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "علوش التجاريه",
+    "name": "Apex Market (Sweeteners #122)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.00195223,
     "lng": 31.28483707,
     "is_sweetener": true,
@@ -1464,10 +1464,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "فتح الله بيت الجمله للتجا",
+    "name": "Summit Distribution (Sweeteners #123)",
     "location": "Alexandria",
     "governorate": "Alexandria",
-    "address": "Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.01757314,
     "lng": 29.7593665,
     "is_sweetener": true,
@@ -1476,10 +1476,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "عائلة فتح الله ماركت لتجا",
+    "name": "Horizon Retail (Sweeteners #124)",
     "location": "Alexandria",
     "governorate": "Alexandria",
-    "address": "Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.0229638,
     "lng": 30.00385253,
     "is_sweetener": true,
@@ -1488,10 +1488,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "زاد تريد لتوزيع و توريد ا",
+    "name": "Pinnacle Grocers (Sweeteners #125)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.89462088,
     "lng": 31.14662736,
     "is_sweetener": true,
@@ -1500,10 +1500,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "زاد تريد لتوزيع و توريد ا",
+    "name": "Nexus Partners (Sweeteners #126)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.19785333,
     "lng": 31.19749645,
     "is_sweetener": true,
@@ -1512,10 +1512,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - شبرا الخمية",
+    "name": "Vortex Co (Sweeteners #127)",
     "location": "Shubra El Kheima, Qalyubia",
     "governorate": "Cairo",
-    "address": "Shubra El Kheima, Qalyubia, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.13825827,
     "lng": 31.08124392,
     "is_sweetener": true,
@@ -1524,10 +1524,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - سيتى الشروق",
+    "name": "Beacon Stores (Sweeteners #128)",
     "location": "El Shorouk City, Cairo",
     "governorate": "Cairo",
-    "address": "El Shorouk City, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.94925952,
     "lng": 31.40228168,
     "is_sweetener": true,
@@ -1536,10 +1536,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "نجمة هليوبوليس التجمع",
+    "name": "Nova Supply (Sweeteners #129)",
     "location": "Heliopolis, Cairo",
     "governorate": "Cairo",
-    "address": "Heliopolis, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.12906422,
     "lng": 31.23102252,
     "is_sweetener": true,
@@ -1548,10 +1548,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "هيلتون جرين بلازا – مركز",
+    "name": "Zenith Foods (Sweeteners #130)",
     "location": "Alexandria",
     "governorate": "Alexandria",
-    "address": "Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.13159858,
     "lng": 30.17667278,
     "is_sweetener": true,
@@ -1560,10 +1560,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - طره المعادى",
+    "name": "Omega Market (Sweeteners #131)",
     "location": "Tora, Maadi, Cairo",
     "governorate": "Cairo",
-    "address": "Tora, Maadi, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.01896664,
     "lng": 31.13893085,
     "is_sweetener": true,
@@ -1572,10 +1572,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "SPINNEYS EGYPT",
+    "name": "Delta Logistics (Sweeteners #132)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.84379771,
     "lng": 31.23604941,
     "is_sweetener": true,
@@ -1584,10 +1584,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "لاكورفا للتوريدات العمومي",
+    "name": "Sierra Foods (Sweeteners #133)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.00887925,
     "lng": 31.46498302,
     "is_sweetener": true,
@@ -1596,10 +1596,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "لاكورفا للتوريدات العمومي",
+    "name": "Alpha Retail (Sweeteners #134)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.80547857,
     "lng": 31.15944343,
     "is_sweetener": true,
@@ -1608,10 +1608,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "بندة العالمية فرع قها",
+    "name": "Echo Plaza (Sweeteners #135)",
     "location": "Qaha, Qalyubia",
     "governorate": "Cairo",
-    "address": "Qaha, Qalyubia, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.17641505,
     "lng": 31.09380191,
     "is_sweetener": true,
@@ -1620,10 +1620,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "ماركت المحلاوى",
+    "name": "Meridian Stores (Sweeteners #136)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.86109925,
     "lng": 31.27910374,
     "is_sweetener": true,
@@ -1632,10 +1632,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "ماركت المحلاوى",
+    "name": "Unity Grocers (Sweeteners #137)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.8937744,
     "lng": 31.25113474,
     "is_sweetener": true,
@@ -1644,10 +1644,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - صلاح سالم",
+    "name": "Prime Market (Sweeteners #138)",
     "location": "Salah Salem, Cairo",
     "governorate": "Cairo",
-    "address": "Salah Salem, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.86178019,
     "lng": 31.2338714,
     "is_sweetener": true,
@@ -1656,10 +1656,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - المحافظه",
+    "name": "Quest Foods (Sweeteners #139)",
     "location": "Alexandria",
     "governorate": "Alexandria",
-    "address": "Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.21984493,
     "lng": 29.70932692,
     "is_sweetener": true,
@@ -1668,10 +1668,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "شركة دريمز لتجاره المواد",
+    "name": "Legacy Co (Sweeteners #140)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.97198297,
     "lng": 31.04100105,
     "is_sweetener": true,
@@ -1680,10 +1680,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "شركة دريمز لتجاره المواد",
+    "name": "Matrix Market (Sweeteners #141)",
     "location": "Alexandria",
     "governorate": "Alexandria",
-    "address": "Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 30.9852377,
     "lng": 30.17839527,
     "is_sweetener": true,
@@ -1692,10 +1692,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "شركة دريمز لتجاره المواد",
+    "name": "Quantum Foods (Sweeteners #142)",
     "location": "North Coast",
     "governorate": "Matrouh",
-    "address": "North Coast, Matrouh Governorate, Egypt",
+    "address": "Matrouh, Egypt",
     "lat": 31.25295776,
     "lng": 27.40682355,
     "is_sweetener": true,
@@ -1704,10 +1704,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كنجزرانش - الشركه المصريه",
+    "name": "Valor Retail (Sweeteners #143)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.93100116,
     "lng": 31.31454508,
     "is_sweetener": true,
@@ -1716,10 +1716,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كنجزرانش - الشركه المصريه",
+    "name": "Epic Plaza (Sweeteners #144)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.12957305,
     "lng": 31.258335,
     "is_sweetener": true,
@@ -1728,10 +1728,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - كفر عبده اسكندري",
+    "name": "Titan Distributors (Sweeteners #145)",
     "location": "Kafr Abdo, Alexandria",
     "governorate": "Alexandria",
-    "address": "Kafr Abdo, Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.42649329,
     "lng": 29.77223925,
     "is_sweetener": true,
@@ -1740,10 +1740,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - الشروق سيلو",
+    "name": "Stellar Foods (Sweeteners #146)",
     "location": "El Shorouk City, Cairo",
     "governorate": "Cairo",
-    "address": "El Shorouk City, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.88636314,
     "lng": 31.7524077,
     "is_sweetener": true,
@@ -1752,10 +1752,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "القواسمى ماركت",
+    "name": "Dynamic Retail (Sweeteners #147)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.03669568,
     "lng": 31.38143002,
     "is_sweetener": true,
@@ -1764,10 +1764,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "فندق شتايجنبرجر سيسل",
+    "name": "Alliance Grocers (Sweeteners #148)",
     "location": "Alexandria",
     "governorate": "Alexandria",
-    "address": "Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.26358659,
     "lng": 29.9501457,
     "is_sweetener": true,
@@ -1776,10 +1776,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "SEDRA COMPANY HOTEL MANAG",
+    "name": "Galaxy Market (Sweeteners #149)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.25062713,
     "lng": 31.36809232,
     "is_sweetener": true,
@@ -1788,10 +1788,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "SEDRA COMPANY HOTEL MANAG",
+    "name": "Infinity Supply (Sweeteners #150)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.82529656,
     "lng": 31.11637666,
     "is_sweetener": true,
@@ -1800,10 +1800,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "مؤسسة زين لتوريد المواد ا",
+    "name": "Aero Foods (Sweeteners #151)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.97472171,
     "lng": 31.38442237,
     "is_sweetener": true,
@@ -1812,10 +1812,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "مؤسسة زين لتوريد المواد ا",
+    "name": "Apex Market (Sweeteners #152)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.80477499,
     "lng": 31.38374177,
     "is_sweetener": true,
@@ -1824,10 +1824,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "شركه بريد فاست",
+    "name": "Summit Distribution (Sweeteners #153)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.15730015,
     "lng": 31.05006324,
     "is_sweetener": true,
@@ -1836,10 +1836,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - طيبه مول",
+    "name": "Horizon Retail (Sweeteners #154)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.27086434,
     "lng": 31.43657797,
     "is_sweetener": true,
@@ -1848,10 +1848,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "شركة جودز مارت",
+    "name": "Pinnacle Grocers (Sweeteners #155)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.97685383,
     "lng": 31.14727032,
     "is_sweetener": true,
@@ -1860,10 +1860,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - ميفيدا",
+    "name": "Nexus Partners (Sweeteners #156)",
     "location": "Mivida, New Cairo",
     "governorate": "Cairo",
-    "address": "Mivida Compound, Fifth Settlement, New Cairo, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.11394374,
     "lng": 31.44679676,
     "is_sweetener": true,
@@ -1872,10 +1872,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "الشركة المصرية اللاتينيه",
+    "name": "Vortex Co (Sweeteners #157)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.90863363,
     "lng": 31.42282086,
     "is_sweetener": true,
@@ -1884,10 +1884,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "الشركة المصرية اللاتينيه",
+    "name": "Beacon Stores (Sweeteners #158)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.85202894,
     "lng": 31.05585949,
     "is_sweetener": true,
@@ -1896,10 +1896,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - حدائق القبه السر",
+    "name": "Nova Supply (Sweeteners #159)",
     "location": "Hadayek El Koba, Cairo",
     "governorate": "Cairo",
-    "address": "Hadayek El Koba, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.80518212,
     "lng": 31.20923849,
     "is_sweetener": true,
@@ -1908,10 +1908,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - العاصمة الإدارية",
+    "name": "Zenith Foods (Sweeteners #160)",
     "location": "New Administrative Capital",
     "governorate": "Cairo",
-    "address": "New Administrative Capital, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.07829737,
     "lng": 31.02686873,
     "is_sweetener": true,
@@ -1920,10 +1920,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "حسام حسن عشري LG",
+    "name": "Omega Market (Sweeteners #161)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.00406237,
     "lng": 31.25361388,
     "is_sweetener": true,
@@ -1932,10 +1932,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "بنزينة موبيل",
+    "name": "Delta Logistics (Sweeteners #162)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.20363888,
     "lng": 31.06306605,
     "is_sweetener": true,
@@ -1944,10 +1944,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "بنزينة موبيل",
+    "name": "Sierra Foods (Sweeteners #163)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.07583217,
     "lng": 31.07960702,
     "is_sweetener": true,
@@ -1956,10 +1956,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - شيكولانى شبرا مص",
+    "name": "Alpha Retail (Sweeteners #164)",
     "location": "Shubra, Cairo",
     "governorate": "Cairo",
-    "address": "Shubra, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.21594781,
     "lng": 31.18604389,
     "is_sweetener": true,
@@ -1968,10 +1968,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "عمرو محمد محمد عوض الوحيش",
+    "name": "Echo Plaza (Sweeteners #165)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.8101818,
     "lng": 31.01654798,
     "is_sweetener": true,
@@ -1980,10 +1980,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "جهاز الخدمات العامه مجمع",
+    "name": "Meridian Stores (Sweeteners #166)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.90762396,
     "lng": 30.98705982,
     "is_sweetener": true,
@@ -1992,10 +1992,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "جهاز الخدمات العامه مجمع",
+    "name": "Unity Grocers (Sweeteners #167)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.84017684,
     "lng": 31.25203641,
     "is_sweetener": true,
@@ -2004,10 +2004,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "حلوانى ديليس",
+    "name": "Prime Market (Sweeteners #168)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.87335887,
     "lng": 31.39125883,
     "is_sweetener": true,
@@ -2016,10 +2016,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "حلوانى ديليس",
+    "name": "Quest Foods (Sweeteners #169)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.24166021,
     "lng": 31.22336072,
     "is_sweetener": true,
@@ -2028,10 +2028,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - الاسماعيليه",
+    "name": "Legacy Co (Sweeteners #170)",
     "location": "Ismailia",
     "governorate": "Ismailia",
-    "address": "Ismailia Governorate, Egypt",
+    "address": "Ismailia, Egypt",
     "lat": 30.67088393,
     "lng": 32.45140275,
     "is_sweetener": true,
@@ -2040,10 +2040,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "خان الحسين للاغذيه الخفيف",
+    "name": "Matrix Market (Sweeteners #171)",
     "location": "Alexandria",
     "governorate": "Alexandria",
-    "address": "Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.09789709,
     "lng": 29.86125151,
     "is_sweetener": true,
@@ -2052,10 +2052,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - الملتقى",
+    "name": "Quantum Foods (Sweeteners #172)",
     "location": "El Moltaqa, New Cairo",
     "governorate": "Cairo",
-    "address": "El Moltaqa, New Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.91985616,
     "lng": 31.6365844,
     "is_sweetener": true,
@@ -2064,10 +2064,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "جهاز الخدمات العامه فرع",
+    "name": "Valor Retail (Sweeteners #173)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.96305709,
     "lng": 31.2867394,
     "is_sweetener": true,
@@ -2076,10 +2076,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "جهاز الخدمات العامه مجم",
+    "name": "Epic Plaza (Sweeteners #174)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.24666971,
     "lng": 31.28172531,
     "is_sweetener": true,
@@ -2088,10 +2088,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "جهاز الخدمات العامه مجم",
+    "name": "Titan Distributors (Sweeteners #175)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.86593886,
     "lng": 30.97271602,
     "is_sweetener": true,
@@ -2100,10 +2100,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - الأسمرات",
+    "name": "Stellar Foods (Sweeteners #176)",
     "location": "Al Asmarat, Mokattam, Cairo",
     "governorate": "Cairo",
-    "address": "Al Asmarat, Mokattam, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.25733187,
     "lng": 31.39728225,
     "is_sweetener": true,
@@ -2112,10 +2112,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - البارون",
+    "name": "Dynamic Retail (Sweeteners #177)",
     "location": "El Baron, Heliopolis, Cairo",
     "governorate": "Cairo",
-    "address": "El Baron, Heliopolis, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.2511401,
     "lng": 31.29290138,
     "is_sweetener": true,
@@ -2124,10 +2124,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - الاهرام",
+    "name": "Alliance Grocers (Sweeteners #178)",
     "location": "Haram, Giza",
     "governorate": "Giza",
-    "address": "Haram, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.00440631,
     "lng": 31.26329637,
     "is_sweetener": true,
@@ -2136,10 +2136,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - بنها",
+    "name": "Galaxy Market (Sweeteners #179)",
     "location": "Banha, Qalyubia",
     "governorate": "Qalyubia",
-    "address": "Banha, Qalyubia Governorate, Egypt",
+    "address": "Qalyubia, Egypt",
     "lat": 30.65537261,
     "lng": 31.44113573,
     "is_sweetener": true,
@@ -2148,10 +2148,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - زيزينيا",
+    "name": "Infinity Supply (Sweeteners #180)",
     "location": "Zezenia, Alexandria",
     "governorate": "Alexandria",
-    "address": "Zezenia, Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.07539905,
     "lng": 29.73468944,
     "is_sweetener": true,
@@ -2160,10 +2160,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "الحسينى داى تو داى ماركت",
+    "name": "Aero Foods (Sweeteners #181)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.82472743,
     "lng": 30.98273068,
     "is_sweetener": true,
@@ -2172,10 +2172,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "الحسينى داى تو داى ماركت",
+    "name": "Apex Market (Sweeteners #182)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.24332032,
     "lng": 31.1744022,
     "is_sweetener": true,
@@ -2184,10 +2184,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -العلمين",
+    "name": "Summit Distribution (Sweeteners #183)",
     "location": "El Alamein, Matrouh",
     "governorate": "Matrouh",
-    "address": "El Alamein, Matrouh Governorate, Egypt",
+    "address": "Matrouh, Egypt",
     "lat": 30.88459174,
     "lng": 28.96648911,
     "is_sweetener": true,
@@ -2196,10 +2196,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -مراسى السا",
+    "name": "Horizon Retail (Sweeteners #184)",
     "location": "Marassi, North Coast",
     "governorate": "Matrouh",
-    "address": "Marassi, North Coast, Matrouh Governorate, Egypt",
+    "address": "Matrouh, Egypt",
     "lat": 31.20558156,
     "lng": 27.07664691,
     "is_sweetener": true,
@@ -2208,10 +2208,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "سوبر ماركت ضحى",
+    "name": "Pinnacle Grocers (Sweeteners #185)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.30113475,
     "lng": 31.06074134,
     "is_sweetener": true,
@@ -2220,10 +2220,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - طنطا",
+    "name": "Nexus Partners (Sweeteners #186)",
     "location": "Tanta, Gharbia",
     "governorate": "Gharbia",
-    "address": "Tanta, Gharbia Governorate, Egypt",
+    "address": "Gharbia, Egypt",
     "lat": 30.73867382,
     "lng": 31.11673313,
     "is_sweetener": true,
@@ -2232,10 +2232,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "SHERATON MONTAZA  HOTEL-",
+    "name": "Vortex Co (Sweeteners #187)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.24805487,
     "lng": 31.45161947,
     "is_sweetener": true,
@@ -2244,10 +2244,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "SHERATON MONTAZA  HOTEL-",
+    "name": "Beacon Stores (Sweeteners #188)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.18052293,
     "lng": 31.36527367,
     "is_sweetener": true,
@@ -2256,10 +2256,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - سوبيكو الياسمين",
+    "name": "Nova Supply (Sweeteners #189)",
     "location": "El Yasmine, New Cairo",
     "governorate": "Cairo",
-    "address": "El Yasmine, New Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.18824036,
     "lng": 31.47175202,
     "is_sweetener": true,
@@ -2268,10 +2268,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - الغردقة سيتى سنت",
+    "name": "Zenith Foods (Sweeteners #190)",
     "location": "City Center, Hurghada, Red Sea",
     "governorate": "Red Sea",
-    "address": "City Center, Hurghada, Red Sea Governorate, Egypt",
+    "address": "Red Sea, Egypt",
     "lat": 27.2540954,
     "lng": 33.85535118,
     "is_sweetener": true,
@@ -2280,10 +2280,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - المنصورة الأستاد",
+    "name": "Omega Market (Sweeteners #191)",
     "location": "El Estad, Mansoura, Dakahlia",
     "governorate": "Dakahlia",
-    "address": "El Estad, Mansoura, Dakahlia Governorate, Egypt",
+    "address": "Dakahlia, Egypt",
     "lat": 31.21539502,
     "lng": 31.57624347,
     "is_sweetener": true,
@@ -2292,10 +2292,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "شركة سوق دوت كوم للتجاره",
+    "name": "Delta Logistics (Sweeteners #192)",
     "location": "Cairo Souq.com",
     "governorate": "Cairo",
-    "address": "Cairo Governorate Souq.com, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.10449408,
     "lng": 31.4616337,
     "is_sweetener": true,
@@ -2304,10 +2304,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "شركة سوق دوت كوم للتجاره",
+    "name": "Sierra Foods (Sweeteners #193)",
     "location": "Amazon",
     "governorate": "Cairo",
-    "address": "Amazon, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.11365839,
     "lng": 31.11466161,
     "is_sweetener": true,
@@ -2316,10 +2316,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - صن تيرا شرم الشي",
+    "name": "Alpha Retail (Sweeteners #194)",
     "location": "Sun Terra, Sharm El Sheikh, South Sinai",
     "governorate": "South Sinai",
-    "address": "Sun Terra, Sharm El Sheikh, South Sinai Governorate, Egypt",
+    "address": "South Sinai, Egypt",
     "lat": 27.99032129,
     "lng": 34.36451097,
     "is_sweetener": true,
@@ -2328,10 +2328,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - بور فؤاد",
+    "name": "Echo Plaza (Sweeteners #195)",
     "location": "Port Fouad, Port Said",
     "governorate": "Port Said",
-    "address": "Port Fouad, Port Said Governorate, Egypt",
+    "address": "Port Said, Egypt",
     "lat": 31.1378826,
     "lng": 32.52254076,
     "is_sweetener": true,
@@ -2340,10 +2340,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - هامبرا الغردقة",
+    "name": "Meridian Stores (Sweeteners #196)",
     "location": "Hamra, Hurghada, Red Sea",
     "governorate": "Red Sea",
-    "address": "Hamra, Hurghada, Red Sea Governorate, Egypt",
+    "address": "Red Sea, Egypt",
     "lat": 27.39722921,
     "lng": 33.99697347,
     "is_sweetener": true,
@@ -2352,10 +2352,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يونيتد جروسرز -رأس الحكمة",
+    "name": "Unity Grocers (Sweeteners #197)",
     "location": "Ras El Hekma, Matrouh",
     "governorate": "Matrouh",
-    "address": "Ras El Hekma, Matrouh Governorate, Egypt",
+    "address": "Matrouh, Egypt",
     "lat": 31.47304528,
     "lng": 27.29469599,
     "is_sweetener": true,
@@ -2364,10 +2364,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - المنصورة الجديدة",
+    "name": "Prime Market (Sweeteners #198)",
     "location": "New Mansoura, Dakahlia",
     "governorate": "Dakahlia",
-    "address": "New Mansoura, Dakahlia Governorate, Egypt",
+    "address": "Dakahlia, Egypt",
     "lat": 30.84671849,
     "lng": 31.13105789,
     "is_sweetener": true,
@@ -2376,10 +2376,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - جرين بلازا",
+    "name": "Quest Foods (Sweeteners #199)",
     "location": "Green Plaza, Alexandria",
     "governorate": "Alexandria",
-    "address": "Green Plaza, Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.01482862,
     "lng": 29.72916272,
     "is_sweetener": true,
@@ -2388,10 +2388,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - البروج",
+    "name": "Legacy Co (Sweeteners #200)",
     "location": "El Boroug, New Cairo",
     "governorate": "Cairo",
-    "address": "El Boroug, New Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.94933478,
     "lng": 31.45105852,
     "is_sweetener": true,
@@ -2400,10 +2400,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - الخليفه المأمون",
+    "name": "Matrix Market (Sweeteners #201)",
     "location": "El Khalifa El Maamoun, Heliopolis, Cairo",
     "governorate": "Cairo",
-    "address": "El Khalifa El Maamoun, Heliopolis, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.1463422,
     "lng": 31.23799583,
     "is_sweetener": true,
@@ -2412,10 +2412,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "أجيل للأستثمار التجارى",
+    "name": "Quantum Foods (Sweeteners #202)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.19360633,
     "lng": 30.99360313,
     "is_sweetener": true,
@@ -2424,10 +2424,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "أجيل للأستثمار التجارى",
+    "name": "Valor Retail (Sweeteners #203)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.98971259,
     "lng": 31.01298072,
     "is_sweetener": true,
@@ -2436,10 +2436,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - سوبيكو المنصوره",
+    "name": "Epic Plaza (Sweeteners #204)",
     "location": "Mansoura, Dakahlia",
     "governorate": "Dakahlia",
-    "address": "Mansoura, Dakahlia Governorate, Egypt",
+    "address": "Dakahlia, Egypt",
     "lat": 31.09799342,
     "lng": 31.49146678,
     "is_sweetener": true,
@@ -2448,10 +2448,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "أسواق عبد الله العثيم",
+    "name": "Titan Distributors (Sweeteners #205)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.20397418,
     "lng": 31.07386884,
     "is_sweetener": true,
@@ -2460,10 +2460,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "المنصورة لتجارة المواد ال",
+    "name": "Stellar Foods (Sweeteners #206)",
     "location": "Mansoura",
     "governorate": "Dakahlia",
-    "address": "Mansoura, Dakahlia Governorate, Egypt",
+    "address": "Dakahlia, Egypt",
     "lat": 30.87159643,
     "lng": 31.18161495,
     "is_sweetener": true,
@@ -2472,10 +2472,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - سوبيكو شبرا",
+    "name": "Dynamic Retail (Sweeteners #207)",
     "location": "Shubra, Cairo",
     "governorate": "Cairo",
-    "address": "Shubra, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.119053,
     "lng": 31.34068999,
     "is_sweetener": true,
@@ -2484,10 +2484,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - سوبيكو النعام",
+    "name": "Alliance Grocers (Sweeteners #208)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.81947391,
     "lng": 31.44189984,
     "is_sweetener": true,
@@ -2496,10 +2496,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - سوبيكو النعام",
+    "name": "Galaxy Market (Sweeteners #209)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.77544476,
     "lng": 31.2311638,
     "is_sweetener": true,
@@ -2508,10 +2508,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - الوايلى ش بورسعي",
+    "name": "Infinity Supply (Sweeteners #210)",
     "location": "El Waili, Cairo",
     "governorate": "Cairo",
-    "address": "El Waili, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.14460944,
     "lng": 31.40971035,
     "is_sweetener": true,
@@ -2520,10 +2520,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "جهاز الخدمات العامة فرع م",
+    "name": "Aero Foods (Sweeteners #211)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.84373826,
     "lng": 31.42120204,
     "is_sweetener": true,
@@ -2532,10 +2532,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "جهاز الخدمات العامة فرع م",
+    "name": "Apex Market (Sweeteners #212)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.02325531,
     "lng": 31.36916451,
     "is_sweetener": true,
@@ -2544,10 +2544,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - سوبيكو شبين الكو",
+    "name": "Summit Distribution (Sweeteners #213)",
     "location": "Shibin El Kom, Monufia",
     "governorate": "Cairo",
-    "address": "Shibin El Kom, Monufia, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.02829453,
     "lng": 31.31196516,
     "is_sweetener": true,
@@ -2556,10 +2556,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - دمنهور",
+    "name": "Horizon Retail (Sweeteners #214)",
     "location": "Damanhour, Beheira",
     "governorate": "Cairo",
-    "address": "Damanhour, Beheira, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.87089076,
     "lng": 31.3879306,
     "is_sweetener": true,
@@ -2568,10 +2568,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "جهاز الخدمات العامة فرع ا",
+    "name": "Pinnacle Grocers (Sweeteners #215)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.13303472,
     "lng": 31.22289157,
     "is_sweetener": true,
@@ -2580,10 +2580,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "جهاز الخدمات العامة فرع ا",
+    "name": "Nexus Partners (Sweeteners #216)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.0271409,
     "lng": 31.32011652,
     "is_sweetener": true,
@@ -2592,10 +2592,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "جوجو للمواد الغذائية",
+    "name": "Vortex Co (Sweeteners #217)",
     "location": "Alexandria",
     "governorate": "Alexandria",
-    "address": "Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.32490348,
     "lng": 29.89616182,
     "is_sweetener": true,
@@ -2604,10 +2604,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - الازهر",
+    "name": "Beacon Stores (Sweeteners #218)",
     "location": "Al Azhar, Cairo",
     "governorate": "Cairo",
-    "address": "Al Azhar, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.21639793,
     "lng": 31.27753877,
     "is_sweetener": true,
@@ -2616,10 +2616,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "يونيتد جروسرز -هايد بارك",
+    "name": "Nova Supply (Sweeteners #219)",
     "location": "Hyde Park, New Cairo",
     "governorate": "Cairo",
-    "address": "Hyde Park Compound, Fifth Settlement, New Cairo, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.96118779,
     "lng": 31.60089401,
     "is_sweetener": true,
@@ -2628,10 +2628,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - السويس (صلاح نسي",
+    "name": "Zenith Foods (Sweeteners #220)",
     "location": "Suez",
     "governorate": "Suez",
-    "address": "Suez Governorate, Egypt",
+    "address": "Suez, Egypt",
     "lat": 29.96933951,
     "lng": 32.72602413,
     "is_sweetener": true,
@@ -2640,10 +2640,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - الزقازيق",
+    "name": "Omega Market (Sweeteners #221)",
     "location": "Zagazig, Sharqia",
     "governorate": "Sharqia",
-    "address": "Zagazig, Sharqia Governorate, Egypt",
+    "address": "Sharqia, Egypt",
     "lat": 30.79510306,
     "lng": 31.44941702,
     "is_sweetener": true,
@@ -2652,10 +2652,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - سوبيكو بشتيل",
+    "name": "Delta Logistics (Sweeteners #222)",
     "location": "Boshtil, Giza",
     "governorate": "Giza",
-    "address": "Boshtil, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.91475784,
     "lng": 31.25398612,
     "is_sweetener": true,
@@ -2664,10 +2664,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - النزهة",
+    "name": "Sierra Foods (Sweeteners #223)",
     "location": "El Nozha, Cairo",
     "governorate": "Cairo",
-    "address": "El Nozha, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.23680354,
     "lng": 31.08727721,
     "is_sweetener": true,
@@ -2676,10 +2676,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - ميجا مول",
+    "name": "Alpha Retail (Sweeteners #224)",
     "location": "Mega Mall, Maadi, Cairo",
     "governorate": "Cairo",
-    "address": "Mega Mall, Maadi, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.03234711,
     "lng": 31.31625147,
     "is_sweetener": true,
@@ -2688,10 +2688,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - سوبيكو العباسيه",
+    "name": "Echo Plaza (Sweeteners #225)",
     "location": "Abbasiya, Cairo",
     "governorate": "Cairo",
-    "address": "Abbasiya, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.16706625,
     "lng": 31.06254182,
     "is_sweetener": true,
@@ -2700,10 +2700,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - سوبيكو دمنهور",
+    "name": "Meridian Stores (Sweeteners #226)",
     "location": "Damanhour, Beheira",
     "governorate": "Cairo",
-    "address": "Damanhour, Beheira, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.86967336,
     "lng": 31.11185301,
     "is_sweetener": true,
@@ -2712,10 +2712,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "العمدة لتوزيع المواد الغذ",
+    "name": "Unity Grocers (Sweeteners #227)",
     "location": "Aswan",
     "governorate": "Aswan",
-    "address": "Aswan Governorate, Egypt",
+    "address": "Aswan, Egypt",
     "lat": 24.3184053,
     "lng": 32.74792476,
     "is_sweetener": true,
@@ -2724,10 +2724,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "وائل محمد عبد العاطى المح",
+    "name": "Prime Market (Sweeteners #228)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.98329752,
     "lng": 31.27026914,
     "is_sweetener": true,
@@ -2736,10 +2736,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "وائل محمد عبد العاطى المح",
+    "name": "Quest Foods (Sweeteners #229)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.83122106,
     "lng": 31.1560564,
     "is_sweetener": true,
@@ -2748,10 +2748,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كاجو للتجارة و التوزيع",
+    "name": "Legacy Co (Sweeteners #230)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.288387,
     "lng": 31.10286043,
     "is_sweetener": true,
@@ -2760,10 +2760,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كاجو للتجارة و التوزيع",
+    "name": "Matrix Market (Sweeteners #231)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.07782745,
     "lng": 31.12311066,
     "is_sweetener": true,
@@ -2772,10 +2772,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "شركة مصر للأغذية",
+    "name": "Quantum Foods (Sweeteners #232)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.1904174,
     "lng": 31.03923055,
     "is_sweetener": true,
@@ -2784,10 +2784,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "شركة مصر للأغذية",
+    "name": "Valor Retail (Sweeteners #233)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.23436964,
     "lng": 31.1874104,
     "is_sweetener": true,
@@ -2796,10 +2796,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "طيبة فوود",
+    "name": "Epic Plaza (Sweeteners #234)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.90660144,
     "lng": 31.02975353,
     "is_sweetener": true,
@@ -2808,10 +2808,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "EL MASRYA MARKET",
+    "name": "Titan Distributors (Sweeteners #235)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.8233526,
     "lng": 31.03484867,
     "is_sweetener": true,
@@ -2820,10 +2820,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "EL MASRYA MARKET",
+    "name": "Stellar Foods (Sweeteners #236)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.97555863,
     "lng": 31.42745314,
     "is_sweetener": true,
@@ -2832,10 +2832,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "البن البرازيلى",
+    "name": "Dynamic Retail (Sweeteners #237)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.96175889,
     "lng": 31.22741112,
     "is_sweetener": true,
@@ -2844,10 +2844,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "البن البرازيلى",
+    "name": "Alliance Grocers (Sweeteners #238)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.77024555,
     "lng": 31.03468723,
     "is_sweetener": true,
@@ -2856,10 +2856,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - االبنيان",
+    "name": "Galaxy Market (Sweeteners #239)",
     "location": "El Bonyan Compound, Sheikh Zayed, Giza",
     "governorate": "Giza",
-    "address": "El Bonyan Compound, Sheikh Zayed, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.23989019,
     "lng": 31.06942458,
     "is_sweetener": true,
@@ -2868,10 +2868,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "محمد حسام محمد منير هابين",
+    "name": "Infinity Supply (Sweeteners #240)",
     "location": "North Coast",
     "governorate": "Matrouh",
-    "address": "North Coast, Matrouh Governorate, Egypt",
+    "address": "Matrouh, Egypt",
     "lat": 31.28871304,
     "lng": 27.32750281,
     "is_sweetener": true,
@@ -2880,10 +2880,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "فندق رويل جويل للقوات الم",
+    "name": "Aero Foods (Sweeteners #241)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.96719742,
     "lng": 31.30759041,
     "is_sweetener": true,
@@ -2892,10 +2892,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "فندق رويل جويل للقوات الم",
+    "name": "Apex Market (Sweeteners #242)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.15338209,
     "lng": 31.3416582,
     "is_sweetener": true,
@@ -2904,10 +2904,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كاندى داندى للتعبئة و الت",
+    "name": "Summit Distribution (Sweeteners #243)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.86823119,
     "lng": 31.14714152,
     "is_sweetener": true,
@@ -2916,10 +2916,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - سوبيكو الفيوم",
+    "name": "Horizon Retail (Sweeteners #244)",
     "location": "Fayoum",
     "governorate": "Fayoum",
-    "address": "Fayoum Governorate, Egypt",
+    "address": "Fayoum, Egypt",
     "lat": 29.53963735,
     "lng": 30.61670524,
     "is_sweetener": true,
@@ -2928,10 +2928,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "الحسينى لبيع منتجات الألب",
+    "name": "Pinnacle Grocers (Sweeteners #245)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.94611729,
     "lng": 31.1274387,
     "is_sweetener": true,
@@ -2940,10 +2940,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "الحسينى لبيع منتجات الألب",
+    "name": "Nexus Partners (Sweeteners #246)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.15097207,
     "lng": 31.23009627,
     "is_sweetener": true,
@@ -2952,10 +2952,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "مؤسسة الحاج أحمد عطا",
+    "name": "Vortex Co (Sweeteners #247)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.01045539,
     "lng": 31.03473676,
     "is_sweetener": true,
@@ -2964,10 +2964,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "مؤسسة الحاج أحمد عطا",
+    "name": "Beacon Stores (Sweeteners #248)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.8400338,
     "lng": 31.30107456,
     "is_sweetener": true,
@@ -2976,10 +2976,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "بروفيدكس للتوريدات",
+    "name": "Nova Supply (Sweeteners #249)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.28514427,
     "lng": 31.21556654,
     "is_sweetener": true,
@@ -2988,10 +2988,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "بروفيدكس للتوريدات",
+    "name": "Zenith Foods (Sweeteners #250)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.1524554,
     "lng": 31.2356289,
     "is_sweetener": true,
@@ -3000,10 +3000,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - البروج الجديد بي",
+    "name": "Omega Market (Sweeteners #251)",
     "location": "El Boroug, New Cairo",
     "governorate": "Cairo",
-    "address": "El Boroug, New Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.06501766,
     "lng": 31.43697294,
     "is_sweetener": true,
@@ -3012,10 +3012,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - ديستريك9 حدائق ا",
+    "name": "Delta Logistics (Sweeteners #252)",
     "location": "District 9, Hadayek October, Giza",
     "governorate": "Giza",
-    "address": "District 9, Hadayek October, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.06775379,
     "lng": 31.17193768,
     "is_sweetener": true,
@@ -3024,10 +3024,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - كليوباترا",
+    "name": "Sierra Foods (Sweeteners #253)",
     "location": "Cleopatra, Alexandria",
     "governorate": "Alexandria",
-    "address": "Cleopatra, Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.08296507,
     "lng": 29.71593582,
     "is_sweetener": true,
@@ -3036,10 +3036,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - نيو كايرو",
+    "name": "Alpha Retail (Sweeteners #254)",
     "location": "New Cairo",
     "governorate": "Cairo",
-    "address": "New Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.85458872,
     "lng": 31.39812628,
     "is_sweetener": true,
@@ -3048,10 +3048,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - أن سكوير النرجس",
+    "name": "Echo Plaza (Sweeteners #255)",
     "location": "El Narges, New Cairo",
     "governorate": "Cairo",
-    "address": "El Narges, New Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.78943714,
     "lng": 31.47563777,
     "is_sweetener": true,
@@ -3060,10 +3060,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - سيليا",
+    "name": "Meridian Stores (Sweeteners #256)",
     "location": "Celia Compound, New Cairo",
     "governorate": "Cairo",
-    "address": "Celia Compound, New Administrative Capital, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.77724131,
     "lng": 31.63847493,
     "is_sweetener": true,
@@ -3072,10 +3072,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "لمة العيلة للتوريدات و ال",
+    "name": "Unity Grocers (Foods #257)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.07015973,
     "lng": 31.13596059,
     "is_sweetener": false,
@@ -3084,10 +3084,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "لمة العيلة للتوريدات و ال",
+    "name": "Prime Market (Foods #258)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.91596008,
     "lng": 31.29525911,
     "is_sweetener": false,
@@ -3096,10 +3096,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "جرين جو",
+    "name": "Quest Foods (Sweeteners #259)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.0736594,
     "lng": 31.39481036,
     "is_sweetener": true,
@@ -3108,10 +3108,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "أبراهيم يوسف بطل محمد شمي",
+    "name": "Legacy Co (Sweeteners #260)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.06415982,
     "lng": 31.28558656,
     "is_sweetener": true,
@@ -3120,10 +3120,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "سمر سعد محمد حسيب(دايتى أ",
+    "name": "Matrix Market (Sweeteners #261)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.93523712,
     "lng": 31.15386192,
     "is_sweetener": true,
@@ -3132,10 +3132,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كيه أتش جملة ماركت",
+    "name": "Quantum Foods (Sweeteners #262)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.00217159,
     "lng": 31.19739499,
     "is_sweetener": true,
@@ -3144,10 +3144,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "هيلثى سايد للأغذية",
+    "name": "Valor Retail (Sweeteners #263)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.103978,
     "lng": 31.23163343,
     "is_sweetener": true,
@@ -3156,10 +3156,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "هيلثى سايد للأغذية",
+    "name": "Epic Plaza (Sweeteners #264)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.20915511,
     "lng": 31.20899737,
     "is_sweetener": true,
@@ -3168,10 +3168,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "يونيتد جروسرز - ميفيدا ال",
+    "name": "Titan Distributors (Sweeteners #265)",
     "location": "Mivida, New Cairo",
     "governorate": "Cairo",
-    "address": "Mivida Compound, Fifth Settlement, New Cairo, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.24127212,
     "lng": 31.64640027,
     "is_sweetener": true,
@@ -3180,10 +3180,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - سوبيكو الملتقى",
+    "name": "Stellar Foods (Sweeteners #266)",
     "location": "El Moltaqa, New Cairo",
     "governorate": "Cairo",
-    "address": "El Moltaqa, New Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.95061757,
     "lng": 31.66111382,
     "is_sweetener": true,
@@ -3192,10 +3192,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - سوبيكو الاسمارات",
+    "name": "Dynamic Retail (Sweeteners #267)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.23770918,
     "lng": 31.37675642,
     "is_sweetener": true,
@@ -3204,10 +3204,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - سوبيكو الاسمارات",
+    "name": "Alliance Grocers (Sweeteners #268)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.14447434,
     "lng": 31.1128552,
     "is_sweetener": true,
@@ -3216,10 +3216,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - تاج",
+    "name": "Galaxy Market (Sweeteners #269)",
     "location": "Taj City, New Cairo",
     "governorate": "Cairo",
-    "address": "Taj City Compound, New Cairo, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.79570812,
     "lng": 31.41125472,
     "is_sweetener": true,
@@ -3228,10 +3228,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "مريم مصطفى كامل هيلثى ستو",
+    "name": "Infinity Supply (Sweeteners #270)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.89044309,
     "lng": 31.32126926,
     "is_sweetener": true,
@@ -3240,10 +3240,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "مريم مصطفى كامل هيلثى ستو",
+    "name": "Aero Foods (Sweeteners #271)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.92250898,
     "lng": 31.44832073,
     "is_sweetener": true,
@@ -3252,10 +3252,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "فودة لتجارة المواد الغذائ",
+    "name": "Apex Market (Sweeteners #272)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.26505943,
     "lng": 31.21732468,
     "is_sweetener": true,
@@ -3264,10 +3264,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور 6 بوينت أسكندرية",
+    "name": "Summit Distribution (Sweeteners #273)",
     "location": "6 October Point, Alexandria",
     "governorate": "Giza",
-    "address": "6 October Point, Alexandria, Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.02298699,
     "lng": 31.04353694,
     "is_sweetener": true,
@@ -3276,10 +3276,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "صيدلية الزغبى",
+    "name": "Horizon Retail (Sweeteners #274)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.89110015,
     "lng": 31.22507675,
     "is_sweetener": true,
@@ -3288,10 +3288,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "صيدلية الزغبى",
+    "name": "Pinnacle Grocers (Sweeteners #275)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.94879063,
     "lng": 31.03370262,
     "is_sweetener": true,
@@ -3300,10 +3300,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "عصام حسين شوقى صيدليات أح",
+    "name": "Nexus Partners (Sweeteners #276)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.28523839,
     "lng": 31.24855848,
     "is_sweetener": true,
@@ -3312,10 +3312,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "عصام حسين شوقى صيدليات أح",
+    "name": "Vortex Co (Sweeteners #277)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.2323702,
     "lng": 31.17676457,
     "is_sweetener": true,
@@ -3324,10 +3324,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "عبد الفتاح شامل(صيدلية مب",
+    "name": "Beacon Stores (Sweeteners #278)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.12409399,
     "lng": 31.08181281,
     "is_sweetener": true,
@@ -3336,10 +3336,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "عبد الفتاح شامل(صيدلية مب",
+    "name": "Nova Supply (Sweeteners #279)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.0592531,
     "lng": 31.28561617,
     "is_sweetener": true,
@@ -3348,10 +3348,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "محمد عادل محمد السعيد(أسر",
+    "name": "Zenith Foods (Sweeteners #280)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.87969326,
     "lng": 31.00446853,
     "is_sweetener": true,
@@ -3360,10 +3360,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "محمد عادل محمد السعيد(أسر",
+    "name": "Omega Market (Sweeteners #281)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.13983991,
     "lng": 31.19041584,
     "is_sweetener": true,
@@ -3372,10 +3372,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "مصطفى محمد عبد السيد LG",
+    "name": "Delta Logistics (Sweeteners #282)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.83257112,
     "lng": 31.32131133,
     "is_sweetener": true,
@@ -3384,10 +3384,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - المنيا",
+    "name": "Sierra Foods (Sweeteners #283)",
     "location": "Minya",
     "governorate": "Minya",
-    "address": "Minya Governorate, Egypt",
+    "address": "Minya, Egypt",
     "lat": 27.97587323,
     "lng": 30.56786484,
     "is_sweetener": true,
@@ -3396,10 +3396,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "شركة جورمية أيجيبت دوت كو",
+    "name": "Alpha Retail (Sweeteners #284)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.21066597,
     "lng": 31.28140344,
     "is_sweetener": true,
@@ -3408,10 +3408,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "شركة جورمية أيجيبت دوت كو",
+    "name": "Echo Plaza (Sweeteners #285)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.90258593,
     "lng": 31.27246355,
     "is_sweetener": true,
@@ -3420,10 +3420,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "شركة الأشراقى فارما لأدار",
+    "name": "Meridian Stores (Sweeteners #286)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.02857316,
     "lng": 31.07110497,
     "is_sweetener": true,
@@ -3432,10 +3432,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "شركة الأشراقى فارما لأدار",
+    "name": "Unity Grocers (Sweeteners #287)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.9333388,
     "lng": 31.1675805,
     "is_sweetener": true,
@@ -3444,10 +3444,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "أشرف طه محمد رسلان صيدلية",
+    "name": "Prime Market (Sweeteners #288)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.80974122,
     "lng": 31.09439444,
     "is_sweetener": true,
@@ -3456,10 +3456,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "أشرف طه محمد رسلان صيدلية",
+    "name": "Quest Foods (Sweeteners #289)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.237396,
     "lng": 31.36128418,
     "is_sweetener": true,
@@ -3468,10 +3468,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "مارك مرقص فكرى(مصراوى مار",
+    "name": "Legacy Co (Sweeteners #290)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.28346916,
     "lng": 31.21772074,
     "is_sweetener": true,
@@ -3480,10 +3480,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "مارك مرقص فكرى(مصراوى مار",
+    "name": "Matrix Market (Sweeteners #291)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.80432722,
     "lng": 31.23449537,
     "is_sweetener": true,
@@ -3492,10 +3492,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - شبين",
+    "name": "Quantum Foods (Sweeteners #292)",
     "location": "Shibin El Kom, Monufia",
     "governorate": "Cairo",
-    "address": "Shibin El Kom, Monufia, Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.02932405,
     "lng": 31.41235485,
     "is_sweetener": true,
@@ -3504,10 +3504,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "المودة الهندسية للمقاولات",
+    "name": "Valor Retail (Coffee #293)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.85272213,
     "lng": 31.21791428,
     "is_sweetener": false,
@@ -3516,10 +3516,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "المودة الهندسية للمقاولات",
+    "name": "Epic Plaza (Coffee #294)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.82448345,
     "lng": 31.12285359,
     "is_sweetener": false,
@@ -3528,10 +3528,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "بيشوى سمير - الصخرة ماركت",
+    "name": "Titan Distributors (Sweeteners #295)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.17235937,
     "lng": 31.21180278,
     "is_sweetener": true,
@@ -3540,10 +3540,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "بيشوى سمير - الصخرة ماركت",
+    "name": "Stellar Foods (Sweeteners #296)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.93740326,
     "lng": 31.15775377,
     "is_sweetener": true,
@@ -3552,10 +3552,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "يوسف فريد طه - كاندى جيت",
+    "name": "Dynamic Retail (Coffee #297)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.19713253,
     "lng": 31.13149716,
     "is_sweetener": false,
@@ -3564,10 +3564,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "يوسف فريد طه - كاندى جيت",
+    "name": "Alliance Grocers (Coffee #298)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.09352647,
     "lng": 31.17931719,
     "is_sweetener": false,
@@ -3576,10 +3576,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "داليا محمد بهاء الدين(لاي",
+    "name": "Galaxy Market (Sweeteners #299)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.03441957,
     "lng": 31.29239445,
     "is_sweetener": true,
@@ -3588,10 +3588,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "داليا محمد بهاء الدين(لاي",
+    "name": "Infinity Supply (Sweeteners #300)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.07913608,
     "lng": 31.4080745,
     "is_sweetener": true,
@@ -3600,10 +3600,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "على سعودى يوسف(سويت باك)",
+    "name": "Aero Foods (Sweeteners #301)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.13436614,
     "lng": 31.0663915,
     "is_sweetener": true,
@@ -3612,10 +3612,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "على سعودى يوسف(سويت باك)",
+    "name": "Apex Market (Sweeteners #302)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.83651379,
     "lng": 31.00971345,
     "is_sweetener": true,
@@ -3624,10 +3624,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "فور أيه سكوير للتجارة",
+    "name": "Summit Distribution (Sweeteners #303)",
     "location": "Alexandria",
     "governorate": "Alexandria",
-    "address": "Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.28370158,
     "lng": 30.06560149,
     "is_sweetener": true,
@@ -3636,10 +3636,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "أيليت لتجارة المواد الغذا",
+    "name": "Horizon Retail (Sweeteners #304)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.95140322,
     "lng": 31.35840529,
     "is_sweetener": true,
@@ -3648,10 +3648,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "أيليت لتجارة المواد الغذا",
+    "name": "Pinnacle Grocers (Sweeteners #305)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.0617909,
     "lng": 31.15148545,
     "is_sweetener": true,
@@ -3660,10 +3660,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "أشرف ثروت على العليمى - ل",
+    "name": "Nexus Partners (Sweeteners #306)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.12563296,
     "lng": 31.23894478,
     "is_sweetener": true,
@@ -3672,10 +3672,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "أشرف ثروت على العليمى - ل",
+    "name": "Vortex Co (Sweeteners #307)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.77043473,
     "lng": 31.44476002,
     "is_sweetener": true,
@@ -3684,10 +3684,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "مانجو ماركت",
+    "name": "Beacon Stores (Sweeteners #308)",
     "location": "Alexandria",
     "governorate": "Alexandria",
-    "address": "Alexandria Governorate, Egypt",
+    "address": "Alexandria, Egypt",
     "lat": 31.35290731,
     "lng": 29.82982617,
     "is_sweetener": true,
@@ -3696,10 +3696,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "كارفور - بورتو جولف الساح",
+    "name": "Nova Supply (Sweeteners #309)",
     "location": "Porto Golf, North Coast",
     "governorate": "Matrouh",
-    "address": "Porto Golf, North Coast, Matrouh Governorate, Egypt",
+    "address": "Matrouh, Egypt",
     "lat": 31.5160751,
     "lng": 27.32495315,
     "is_sweetener": true,
@@ -3708,10 +3708,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "مصطفى محمد يسرى(خليل الحل",
+    "name": "Zenith Foods (Sweeteners #310)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.86772871,
     "lng": 31.14292747,
     "is_sweetener": true,
@@ -3720,10 +3720,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "مصطفى محمد يسرى(خليل الحل",
+    "name": "Omega Market (Sweeteners #311)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.21350094,
     "lng": 31.07282343,
     "is_sweetener": true,
@@ -3732,10 +3732,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "صيدلية عمرو عبد الله عبد",
+    "name": "Delta Logistics (Sweeteners #312)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.27521875,
     "lng": 31.09414007,
     "is_sweetener": true,
@@ -3744,10 +3744,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "صيدلية عمرو عبد الله عبد",
+    "name": "Sierra Foods (Sweeteners #313)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.81020981,
     "lng": 31.05925087,
     "is_sweetener": true,
@@ -3756,10 +3756,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "كارفور - الزقازيق الجديد",
+    "name": "Alpha Retail (Coffee #314)",
     "location": "New Zagazig, Sharqia",
     "governorate": "Sharqia",
-    "address": "New Zagazig, Sharqia Governorate, Egypt",
+    "address": "Sharqia, Egypt",
     "lat": 30.79026688,
     "lng": 31.56089642,
     "is_sweetener": false,
@@ -3768,10 +3768,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "تيستى فوود",
+    "name": "Echo Plaza (Sweeteners #315)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.94663423,
     "lng": 31.38176719,
     "is_sweetener": true,
@@ -3780,10 +3780,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "تيستى فوود",
+    "name": "Meridian Stores (Sweeteners #316)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.18014412,
     "lng": 31.3837728,
     "is_sweetener": true,
@@ -3792,10 +3792,10 @@ export const locationsData = [
     "is_mints": false
   },
   {
-    "name": "سى ستورز",
+    "name": "Unity Grocers (Sweeteners #317)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.2631441,
     "lng": 31.09991423,
     "is_sweetener": true,
@@ -3804,10 +3804,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "سى ستورز",
+    "name": "Prime Market (Sweeteners #318)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 30.12698008,
     "lng": 31.19078538,
     "is_sweetener": true,
@@ -3816,10 +3816,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "أولاد أدم و رضوان",
+    "name": "Quest Foods (Sweeteners #319)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 29.8252677,
     "lng": 31.05620112,
     "is_sweetener": true,
@@ -3828,10 +3828,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "أولاد أدم و رضوان",
+    "name": "Legacy Co (Sweeteners #320)",
     "location": "Giza",
     "governorate": "Giza",
-    "address": "Giza Governorate, Egypt",
+    "address": "Giza, Egypt",
     "lat": 29.81532351,
     "lng": 31.32350558,
     "is_sweetener": true,
@@ -3840,10 +3840,10 @@ export const locationsData = [
     "is_mints": true
   },
   {
-    "name": "أزورا لتجارة و توريد المو",
+    "name": "Matrix Market (Sweeteners #321)",
     "location": "Cairo",
     "governorate": "Cairo",
-    "address": "Cairo Governorate, Egypt",
+    "address": "Cairo, Egypt",
     "lat": 30.2125735,
     "lng": 31.0805494,
     "is_sweetener": true,
@@ -3852,3 +3852,4 @@ export const locationsData = [
     "is_mints": true
   }
 ];
+

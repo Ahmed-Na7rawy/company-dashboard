@@ -25,9 +25,9 @@
     "filters": {
       "All_All": {
         "metrics": {
-          "revenue": 2850204,
-          "qty": 50348,
-          "return_rate": "1.3"
+          "revenue": 2415062,
+          "qty": 34341,
+          "return_rate": "3.8"
         },
         "product_share": [
           {
@@ -142,9 +142,9 @@
       },
       "2026_Q1": {
         "metrics": {
-          "revenue": 5101967,
-          "qty": 49886,
-          "return_rate": "4.6"
+          "revenue": 5399289,
+          "qty": 12054,
+          "return_rate": "2.8"
         },
         "product_share": [
           {
@@ -259,9 +259,9 @@
       },
       "2026_Q2": {
         "metrics": {
-          "revenue": 2841500,
-          "qty": 45889,
-          "return_rate": "1.4"
+          "revenue": 4713326,
+          "qty": 16481,
+          "return_rate": "2.7"
         },
         "product_share": [
           {
@@ -376,9 +376,9 @@
       },
       "2026_Q3": {
         "metrics": {
-          "revenue": 3621214,
-          "qty": 54505,
-          "return_rate": "1.6"
+          "revenue": 2745663,
+          "qty": 24382,
+          "return_rate": "3.2"
         },
         "product_share": [
           {
@@ -493,9 +493,9 @@
       },
       "2026_Q4": {
         "metrics": {
-          "revenue": 3094399,
-          "qty": 51751,
-          "return_rate": "3.7"
+          "revenue": 1708158,
+          "qty": 26755,
+          "return_rate": "1.3"
         },
         "product_share": [
           {
@@ -610,9 +610,9 @@
       },
       "2025_Q1": {
         "metrics": {
-          "revenue": 2430778,
-          "qty": 50464,
-          "return_rate": "0.9"
+          "revenue": 4539380,
+          "qty": 30113,
+          "return_rate": "1.1"
         },
         "product_share": [
           {
@@ -727,9 +727,9 @@
       },
       "2025_Q2": {
         "metrics": {
-          "revenue": 3604202,
-          "qty": 51512,
-          "return_rate": "3.1"
+          "revenue": 5707643,
+          "qty": 40905,
+          "return_rate": "3.6"
         },
         "product_share": [
           {
@@ -844,9 +844,9 @@
       },
       "2025_Q3": {
         "metrics": {
-          "revenue": 3780849,
-          "qty": 17728,
-          "return_rate": "4.7"
+          "revenue": 3406771,
+          "qty": 45159,
+          "return_rate": "0.4"
         },
         "product_share": [
           {
@@ -961,9 +961,9 @@
       },
       "2025_Q4": {
         "metrics": {
-          "revenue": 4668264,
-          "qty": 19309,
-          "return_rate": "1.1"
+          "revenue": 3962751,
+          "qty": 37116,
+          "return_rate": "2.9"
         },
         "product_share": [
           {
@@ -1104,9 +1104,9 @@
     "filters": {
       "All_All": {
         "metrics": {
-          "revenue": 3820957,
-          "qty": 35915,
-          "return_rate": "1.9"
+          "revenue": 5726895,
+          "qty": 28981,
+          "return_rate": "3.6"
         },
         "product_share": [
           {
@@ -1221,9 +1221,9 @@
       },
       "2026_Q1": {
         "metrics": {
-          "revenue": 4740282,
-          "qty": 8773,
-          "return_rate": "2.8"
+          "revenue": 1857877,
+          "qty": 47703,
+          "return_rate": "4.6"
         },
         "product_share": [
           {
@@ -1338,9 +1338,9 @@
       },
       "2026_Q2": {
         "metrics": {
-          "revenue": 4956628,
-          "qty": 39424,
-          "return_rate": "2.9"
+          "revenue": 2429951,
+          "qty": 29175,
+          "return_rate": "1.3"
         },
         "product_share": [
           {
@@ -1455,9 +1455,9 @@
       },
       "2026_Q3": {
         "metrics": {
-          "revenue": 2032137,
-          "qty": 26245,
-          "return_rate": "4.0"
+          "revenue": 5313227,
+          "qty": 20149,
+          "return_rate": "4.8"
         },
         "product_share": [
           {
@@ -1572,9 +1572,9 @@
       },
       "2026_Q4": {
         "metrics": {
-          "revenue": 2799197,
-          "qty": 31089,
-          "return_rate": "2.8"
+          "revenue": 1929368,
+          "qty": 19388,
+          "return_rate": "4.6"
         },
         "product_share": [
           {
@@ -1689,9 +1689,9 @@
       },
       "2025_Q1": {
         "metrics": {
-          "revenue": 4974289,
-          "qty": 50924,
-          "return_rate": "4.7"
+          "revenue": 1658709,
+          "qty": 12337,
+          "return_rate": "2.3"
         },
         "product_share": [
           {
@@ -1806,9 +1806,9 @@
       },
       "2025_Q2": {
         "metrics": {
-          "revenue": 4416929,
-          "qty": 6654,
-          "return_rate": "4.6"
+          "revenue": 1438739,
+          "qty": 30130,
+          "return_rate": "3.9"
         },
         "product_share": [
           {
@@ -1923,9 +1923,9 @@
       },
       "2025_Q3": {
         "metrics": {
-          "revenue": 4925923,
-          "qty": 53777,
-          "return_rate": "3.5"
+          "revenue": 1084834,
+          "qty": 40899,
+          "return_rate": "2.7"
         },
         "product_share": [
           {
@@ -2040,9 +2040,9 @@
       },
       "2025_Q4": {
         "metrics": {
-          "revenue": 2878057,
-          "qty": 41857,
-          "return_rate": "4.3"
+          "revenue": 4223182,
+          "qty": 29137,
+          "return_rate": "1.1"
         },
         "product_share": [
           {
@@ -2183,9 +2183,9 @@
     "filters": {
       "All_All": {
         "metrics": {
-          "revenue": 3869008,
-          "qty": 7019,
-          "return_rate": "4.9"
+          "revenue": 5795887,
+          "qty": 36574,
+          "return_rate": "2.6"
         },
         "product_share": [
           {
@@ -2300,9 +2300,9 @@
       },
       "2026_Q1": {
         "metrics": {
-          "revenue": 2881748,
-          "qty": 21344,
-          "return_rate": "2.7"
+          "revenue": 3118833,
+          "qty": 14662,
+          "return_rate": "0.3"
         },
         "product_share": [
           {
@@ -2417,9 +2417,9 @@
       },
       "2026_Q2": {
         "metrics": {
-          "revenue": 3155260,
-          "qty": 10180,
-          "return_rate": "2.9"
+          "revenue": 2858179,
+          "qty": 43657,
+          "return_rate": "0.5"
         },
         "product_share": [
           {
@@ -2534,9 +2534,9 @@
       },
       "2026_Q3": {
         "metrics": {
-          "revenue": 2790254,
-          "qty": 6348,
-          "return_rate": "2.3"
+          "revenue": 3540037,
+          "qty": 45765,
+          "return_rate": "0.4"
         },
         "product_share": [
           {
@@ -2651,9 +2651,9 @@
       },
       "2026_Q4": {
         "metrics": {
-          "revenue": 5158988,
-          "qty": 36226,
-          "return_rate": "4.4"
+          "revenue": 3305333,
+          "qty": 7653,
+          "return_rate": "1.4"
         },
         "product_share": [
           {
@@ -2768,9 +2768,9 @@
       },
       "2025_Q1": {
         "metrics": {
-          "revenue": 5138755,
-          "qty": 48031,
-          "return_rate": "2.2"
+          "revenue": 5381097,
+          "qty": 24018,
+          "return_rate": "4.9"
         },
         "product_share": [
           {
@@ -2885,9 +2885,9 @@
       },
       "2025_Q2": {
         "metrics": {
-          "revenue": 1135714,
-          "qty": 14663,
-          "return_rate": "3.5"
+          "revenue": 5223485,
+          "qty": 50891,
+          "return_rate": "1.5"
         },
         "product_share": [
           {
@@ -3002,9 +3002,9 @@
       },
       "2025_Q3": {
         "metrics": {
-          "revenue": 5664069,
-          "qty": 32942,
-          "return_rate": "3.7"
+          "revenue": 1185794,
+          "qty": 6205,
+          "return_rate": "1.6"
         },
         "product_share": [
           {
@@ -3119,9 +3119,9 @@
       },
       "2025_Q4": {
         "metrics": {
-          "revenue": 5830838,
-          "qty": 52193,
-          "return_rate": "4.6"
+          "revenue": 5235913,
+          "qty": 42299,
+          "return_rate": "2.6"
         },
         "product_share": [
           {
@@ -3262,9 +3262,9 @@
     "filters": {
       "All_All": {
         "metrics": {
-          "revenue": 1249609,
-          "qty": 53017,
-          "return_rate": "4.7"
+          "revenue": 2506089,
+          "qty": 49019,
+          "return_rate": "1.6"
         },
         "product_share": [
           {
@@ -3379,9 +3379,9 @@
       },
       "2026_Q1": {
         "metrics": {
-          "revenue": 2963060,
-          "qty": 43774,
-          "return_rate": "2.5"
+          "revenue": 4264645,
+          "qty": 35903,
+          "return_rate": "1.0"
         },
         "product_share": [
           {
@@ -3496,9 +3496,9 @@
       },
       "2026_Q2": {
         "metrics": {
-          "revenue": 1843047,
-          "qty": 44217,
-          "return_rate": "2.9"
+          "revenue": 1858114,
+          "qty": 10520,
+          "return_rate": "3.6"
         },
         "product_share": [
           {
@@ -3613,9 +3613,9 @@
       },
       "2026_Q3": {
         "metrics": {
-          "revenue": 3135585,
-          "qty": 50729,
-          "return_rate": "2.0"
+          "revenue": 5156392,
+          "qty": 53076,
+          "return_rate": "1.6"
         },
         "product_share": [
           {
@@ -3730,9 +3730,9 @@
       },
       "2026_Q4": {
         "metrics": {
-          "revenue": 5083625,
-          "qty": 36793,
-          "return_rate": "3.1"
+          "revenue": 1572939,
+          "qty": 24577,
+          "return_rate": "0.7"
         },
         "product_share": [
           {
@@ -3847,9 +3847,9 @@
       },
       "2025_Q1": {
         "metrics": {
-          "revenue": 5864108,
-          "qty": 53978,
-          "return_rate": "2.0"
+          "revenue": 5977131,
+          "qty": 23935,
+          "return_rate": "1.2"
         },
         "product_share": [
           {
@@ -3964,9 +3964,9 @@
       },
       "2025_Q2": {
         "metrics": {
-          "revenue": 2242408,
-          "qty": 39818,
-          "return_rate": "2.7"
+          "revenue": 2782764,
+          "qty": 37697,
+          "return_rate": "4.3"
         },
         "product_share": [
           {
@@ -4081,9 +4081,9 @@
       },
       "2025_Q3": {
         "metrics": {
-          "revenue": 3001268,
-          "qty": 34343,
-          "return_rate": "1.1"
+          "revenue": 4822232,
+          "qty": 19885,
+          "return_rate": "3.1"
         },
         "product_share": [
           {
@@ -4198,9 +4198,9 @@
       },
       "2025_Q4": {
         "metrics": {
-          "revenue": 1013448,
-          "qty": 39761,
-          "return_rate": "0.8"
+          "revenue": 3010525,
+          "qty": 22609,
+          "return_rate": "4.1"
         },
         "product_share": [
           {
@@ -4341,9 +4341,9 @@
     "filters": {
       "All_All": {
         "metrics": {
-          "revenue": 3013193,
-          "qty": 35026,
-          "return_rate": "0.5"
+          "revenue": 4508933,
+          "qty": 13517,
+          "return_rate": "1.2"
         },
         "product_share": [
           {
@@ -4458,9 +4458,9 @@
       },
       "2026_Q1": {
         "metrics": {
-          "revenue": 3307862,
-          "qty": 23880,
-          "return_rate": "1.0"
+          "revenue": 4328655,
+          "qty": 7981,
+          "return_rate": "2.7"
         },
         "product_share": [
           {
@@ -4575,9 +4575,9 @@
       },
       "2026_Q2": {
         "metrics": {
-          "revenue": 3320618,
-          "qty": 13428,
-          "return_rate": "2.9"
+          "revenue": 5789343,
+          "qty": 17746,
+          "return_rate": "1.0"
         },
         "product_share": [
           {
@@ -4692,9 +4692,9 @@
       },
       "2026_Q3": {
         "metrics": {
-          "revenue": 2266557,
-          "qty": 6551,
-          "return_rate": "1.7"
+          "revenue": 1550045,
+          "qty": 18948,
+          "return_rate": "1.4"
         },
         "product_share": [
           {
@@ -4809,9 +4809,9 @@
       },
       "2026_Q4": {
         "metrics": {
-          "revenue": 3388612,
-          "qty": 50754,
-          "return_rate": "4.7"
+          "revenue": 5211951,
+          "qty": 38475,
+          "return_rate": "3.7"
         },
         "product_share": [
           {
@@ -4926,9 +4926,9 @@
       },
       "2025_Q1": {
         "metrics": {
-          "revenue": 5316940,
-          "qty": 53014,
-          "return_rate": "0.4"
+          "revenue": 1903796,
+          "qty": 26057,
+          "return_rate": "2.4"
         },
         "product_share": [
           {
@@ -5043,9 +5043,9 @@
       },
       "2025_Q2": {
         "metrics": {
-          "revenue": 1919448,
-          "qty": 45174,
-          "return_rate": "0.3"
+          "revenue": 4368126,
+          "qty": 38037,
+          "return_rate": "1.4"
         },
         "product_share": [
           {
@@ -5160,9 +5160,9 @@
       },
       "2025_Q3": {
         "metrics": {
-          "revenue": 2472323,
-          "qty": 50853,
-          "return_rate": "3.7"
+          "revenue": 1322758,
+          "qty": 26476,
+          "return_rate": "2.6"
         },
         "product_share": [
           {
@@ -5277,9 +5277,9 @@
       },
       "2025_Q4": {
         "metrics": {
-          "revenue": 3533224,
-          "qty": 27844,
-          "return_rate": "0.4"
+          "revenue": 4220217,
+          "qty": 11709,
+          "return_rate": "1.6"
         },
         "product_share": [
           {

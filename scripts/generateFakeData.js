@@ -63,7 +63,7 @@ const productCatalog = Array.from({ length: 46 }, () => {
 productCatalog.push(
   { name: 'Sweet & Slim Stevia', code: 'VS-001', group: 'Pantry Essentials', basePrice: 150 },
   { name: 'Sweet & Slim Mints', code: 'VS-002', group: 'Confectionery & Sweets', basePrice: 45 },
-  { name: 'Sweet & Slim Syrup', code: 'VS-003', group: 'Beverages & Juices', basePrice: 120 },
+  { name: 'Zero-Cal Flavored Syrup', code: 'VS-003', group: 'Beverages & Juices', basePrice: 120 },
   { name: 'Sweet & Slim Tabletop', code: 'VS-004', group: 'Pantry Essentials', basePrice: 90 }
 );
 
@@ -177,12 +177,16 @@ function compressDataset(records) {
 const fakeDataset = generateSyntheticTransactions(6500);
 const compressedData = compressDataset(fakeDataset);
 
-// Save to public/data.json
-const publicDataPath = path.join(process.cwd(), 'public', 'data.json');
+// Save to data-source/data.json
+const dataSourceDir = path.join(process.cwd(), 'data-source');
+if (!fs.existsSync(dataSourceDir)) {
+  fs.mkdirSync(dataSourceDir);
+}
+const publicDataPath = path.join(dataSourceDir, 'data.json');
 fs.writeFileSync(publicDataPath, JSON.stringify(fakeDataset, null, 2));
 
-// Save to src/data/sales_data.json
-const srcSalesDataPath = path.join(process.cwd(), 'src', 'data', 'sales_data.json');
+// Save to data-source/sales_data.json
+const srcSalesDataPath = path.join(dataSourceDir, 'sales_data.json');
 fs.writeFileSync(srcSalesDataPath, JSON.stringify(fakeDataset));
 
 // Save to public/sales_data_v2.json
