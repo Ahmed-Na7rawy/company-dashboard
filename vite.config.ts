@@ -30,9 +30,8 @@ export default defineConfig({
       },
     }),
   ],
-  esbuild: {
-    // @ts-ignore
-    drop: ['console', 'debugger'],
+  test: {
+    include: ['src/**/*.test.ts', 'src/**/*.test.tsx'],
   },
   build: {
     chunkSizeWarningLimit: 1500,
