@@ -32,7 +32,12 @@ The application enforces strict **Role-Based Access Control (RBAC)**. Log in wit
 | **Marketing & Advertising** | `marketing` | `mkt123` | Campaign ROAS, channel conversion, and customer acquisition metrics. |
 | **HR & Operations** | `hr_director` | `hr123` | Department headcount, sales rep performance leaderboard, and operational alerts. |
 | **Brand Manager** | `brand_manager` | `brand123` | Product brand dashboards and regional distribution mapping. |
-| **Field Sales Representative** | `sales_rep` | `rep123` | Personalized sales rep view scoped strictly to assigned customer accounts. |
+| **Field Sales Representative** | `sales_rep` | `rep123` | Scoped view for assigned salesperson. |
+
+> **Note:** This is a front-end-only demo. Authentication and role checks run entirely
+> in the browser (credentials are defined in `App.tsx` and roles gate which components
+> render) — there is no backend or server-enforced authorization. This is a deliberate
+> simplification for a portfolio/demo deployment, not a production auth pattern.
 
 ---
 
