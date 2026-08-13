@@ -265,8 +265,8 @@ function VitalitySnacksDashboardView({
     hot_chocolate: true,
     mints: true
   });
-  const [locations, setLocations] = useState<LocationData[]>([]);
-  const [selectedMapOutlet, setSelectedMapOutlet] = useState<LocationData | null>(null);
+  const [locations, setLocations] = useState<LocationData[]>(locationsData);
+  const [selectedMapOutlet, setSelectedMapOutlet] = useState<LocationData | null>(locationsData[0] || null);
 
   // Auto-resize trigger to fix incomplete tile layouts
   useEffect(() => {
@@ -276,13 +276,6 @@ function VitalitySnacksDashboardView({
       }, 200);
     }
   }, [activeTab]);
-
-  useEffect(() => {
-    setLocations(locationsData);
-    if (locationsData.length > 0) {
-      setSelectedMapOutlet(locationsData[0]);
-    }
-  }, []);
 
   // Compute unique governorates in locations
   const governoratesList = useMemo(() => {
