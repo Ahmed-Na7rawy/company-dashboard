@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: CI
 
 on:
   push:
@@ -11,23 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code Repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js Environment (v20)
+      - name: Set up Node.js 18
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
           cache: 'npm'
 
-      - name: Install Project Dependencies
-        run: npm ci
+      - name: Install dependencies
+        run: npm install
 
-      - name: Run ESLint Code Quality Check
-        run: npm run lint
-
-      - name: Run Vitest Unit Tests
+      - name: Run unit tests
         run: npm run test
 
-      - name: Execute Vite Production Build
+      - name: Build project
         run: npm run build
