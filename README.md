@@ -13,13 +13,21 @@ Built with a **Multithreaded Web Worker Engine** that offloads heavy dataset fil
 
 ## 🖼️ Screenshots
 
-| CEO Strategic View | Sankey Flow Chart |
+| CEO Strategic View | B2B Sales Director |
 | :---: | :---: |
-| ![CEO Strategic View](docs/screenshots/ceo-view.png) | ![Sankey Flow Chart](docs/screenshots/sankey-chart.png) |
+| ![CEO Strategic View](docs/screenshots/ceo-view.png) | ![Sales Director View](docs/screenshots/sales-director.png) |
 
-| Mobile Drawer Navigation | Arabic RTL Toggle |
+| Brand Churn Risk Analytics | Financial Planning & Margins |
 | :---: | :---: |
-| ![Mobile Drawer Navigation](docs/screenshots/mobile-drawer.png) | ![Arabic RTL Toggle](docs/screenshots/arabic-rtl.png) |
+| ![Brand Churn Risk Analytics](docs/screenshots/brand-churn-risk.png) | ![Financial Planning](docs/screenshots/financial-planning.png) |
+
+| Supply Chain & Inventory | Sankey Flow Diagram |
+| :---: | :---: |
+| ![Supply Chain & Inventory](docs/screenshots/supply-chain.png) | ![Sankey Flow Chart](docs/screenshots/sankey-chart.png) |
+
+| Arabic RTL Native Alignment | Responsive Mobile View |
+| :---: | :---: |
+| ![Arabic RTL Toggle](docs/screenshots/arabic-rtl.png) | ![Mobile Drawer Navigation](docs/screenshots/mobile-drawer.png) |
 
 ---
 
