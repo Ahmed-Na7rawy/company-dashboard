@@ -35,7 +35,7 @@ Built with a **Multithreaded Web Worker Engine** that offloads heavy dataset fil
 
 ## 🔑 Demonstration Login Credentials
 
-> **Notice for Evaluators**: The credentials listed below are intentionally public demo credentials created specifically for portfolio evaluators to test role-specific UI routes. They represent a front-end client-side demonstration model and are not a real authentication/security pattern.
+> Demo-only client-side auth for portfolio purposes — not representative of production authentication/security practices.
 
 The application enforces **Role-Based Access Control (RBAC)**. Log in with any of the accounts below to test role-specific features:
 
