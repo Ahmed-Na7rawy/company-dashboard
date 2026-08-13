@@ -11,6 +11,18 @@ Built with a **Multithreaded Web Worker Engine** that offloads heavy dataset fil
 
 ---
 
+## 🖼️ Screenshots
+
+| CEO Strategic View | Sankey Flow Chart |
+| :---: | :---: |
+| ![CEO Strategic View](docs/screenshots/ceo-view.png) | ![Sankey Flow Chart](docs/screenshots/sankey-chart.png) |
+
+| Mobile Drawer Navigation | Arabic RTL Toggle |
+| :---: | :---: |
+| ![Mobile Drawer Navigation](docs/screenshots/mobile-drawer.png) | ![Arabic RTL Toggle](docs/screenshots/arabic-rtl.png) |
+
+---
+
 ## ⚡ Key Highlights & Architecture
 
 - **Multithreaded Web Worker Engine**: Offloads transaction processing, search indexing, and multi-period calculations off the main thread. See full system design in [docs/architecture.md](docs/architecture.md).
@@ -18,18 +30,6 @@ Built with a **Multithreaded Web Worker Engine** that offloads heavy dataset fil
 - **13 Specialized Executive Views**: CEO Strategic View, B2B Sales, B2C Sales, HORECA, Financial Planning, Supply Chain & Inventory, Marketing Ads, HR Operations, Product Intelligence, Customer Profiles, Seller Profiles, Brand Performance, and System Admin Control.
 - **Synthetic Data**: Runs on synthetic data generated via @faker-js/faker, modeled on transaction patterns from real B2B/B2C retail operations.
 - **Executive Dark/Light Mode**: Sleek glassmorphic theme system with responsive mobile drawer navigation.
-
----
-
-## 🖼️ Screenshots
-
-| CEO Strategic Command | B2B Sales Director |
-| :---: | :---: |
-| ![CEO View](docs/screenshots/ceo-view.png) | ![Sales Director View](docs/screenshots/sales-director.png) |
-
-| Arabic RTL Native Layout | Brand Churn Risk Analytics |
-| :---: | :---: |
-| ![Arabic RTL Layout](docs/screenshots/arabic-rtl.png) | ![Brand Churn Risk View](docs/screenshots/brand-churn-risk.png) |
 
 ---
 
