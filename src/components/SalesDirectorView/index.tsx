@@ -901,9 +901,11 @@ function SalesDirectorView(props: SalesDirectorViewProps) {
             label: language === 'en' ? 'Reset Filters' : 'إعادة ضبط الفلاتر',
             onClick: () => {
               dataHook.setSearchTerm('');
-              dataHook.setTimePeriod('All');
-              dataHook.setSelectedYear('All');
-              dataHook.setSelectedMonth('All');
+              dataHook.setSelectedSegments([]);
+              dataHook.setSelectedItemGroups([]);
+              dataHook.setSelectedCustomers([]);
+              dataHook.setSelectedSalesmen([]);
+              dataHook.setSelectedOffices([]);
             }
           }}
         />
