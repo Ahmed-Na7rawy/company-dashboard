@@ -16,7 +16,7 @@ Built with a **Multithreaded Web Worker Engine** that offloads heavy dataset fil
 - **Multithreaded Web Worker Engine**: Offloads transaction processing, search indexing, and multi-period calculations off the main thread. See full system design in [docs/architecture.md](docs/architecture.md).
 - **Bilingual & RTL Native**: Instant full English and Arabic UI translation with right-to-left layout alignment.
 - **13 Specialized Executive Views**: CEO Strategic View, B2B Sales, B2C Sales, HORECA, Financial Planning, Supply Chain & Inventory, Marketing Ads, HR Operations, Product Intelligence, Customer Profiles, Seller Profiles, Brand Performance, and System Admin Control.
-- **Synthetic Data Generator**: Includes a built-in `@faker-js/faker` dataset generator for offline testing and demonstration.
+- **Synthetic Data**: Runs on synthetic data generated via @faker-js/faker, modeled on transaction patterns from real B2B/B2C retail operations.
 - **Executive Dark/Light Mode**: Sleek glassmorphic theme system with responsive mobile drawer navigation.
 
 ---

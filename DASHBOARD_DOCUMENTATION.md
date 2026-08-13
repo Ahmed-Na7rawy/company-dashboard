@@ -55,11 +55,9 @@ The codebase has been refactored from monolithic components into clean, maintain
 
 ---
 
-## 4. Security & Data Protection (Obfuscation)
+## 4. Dataset Architecture & Synthetic Data
 
-To protect original corporate records while presenting a realistic demonstration, the location datasets ([src/data/locations_data.ts](src/data/locations_data.ts)) have been obfuscated:
-- All real B2B corporate customer names are replaced with synthetic names (e.g. `Aero Foods`, `Apex Market`).
-- Physical addresses are stripped to basic regional governorates (e.g., `Giza, Egypt`).
+Runs on synthetic data generated via @faker-js/faker, modeled on transaction patterns from real B2B/B2C retail operations. Location datasets ([src/data/locations_data.ts](src/data/locations_data.ts)) use synthetic corporate account names and regional governorate coordinates for demonstration.
 
 ---
 
