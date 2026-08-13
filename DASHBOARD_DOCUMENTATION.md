@@ -17,7 +17,7 @@ The dashboard is structured into **13 specialized command views** (CEO, B2B Sale
 To guarantee responsiveness and maintain portfolio-readiness for employers, the dashboard relies on several core engineering patterns:
 
 ### ⚡ Multithreaded Web Worker Data Pipeline
-- All raw data processing, transaction filtering, search indexing, and aggregation metrics are offloaded to a background thread using native ES Web Workers ([src/workers/dataWorker.ts](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/workers/dataWorker.ts)).
+- All raw data processing, transaction filtering, search indexing, and aggregation metrics are offloaded to a background thread using native ES Web Workers ([src/workers/dataWorker.ts](src/workers/dataWorker.ts)).
 - The main React thread only dispatches parameters and renders ready-to-display aggregations. This keeps the application running at 60 FPS even when handling complex, multi-period datasets.
 - Handled with a robust worker wrapper that uses the Cache API and compressed JSON payloads.
 
@@ -32,32 +32,32 @@ To guarantee responsiveness and maintain portfolio-readiness for employers, the 
 The codebase has been refactored from monolithic components into clean, maintainable, single-responsibility modules:
 
 ### 🔹 CEO Command View (`src/components/CeoView/`)
-- [useCeoData.ts](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/CeoView/useCeoData.ts): Custom React hook that aggregates metrics, manages filtering states, and compiles sparkline historical ranges.
-- [CeoKpiCards.tsx](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/CeoView/CeoKpiCards.tsx): Visualizes net revenue, margins, accounts, and return rates.
-- [CeoCharts.tsx](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/CeoView/CeoCharts.tsx): Renders the timelinecomposed chart, segment share pie chart, and Plotly-based Sankey flow diagram.
-- [OpportunityRadar.tsx](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/CeoView/OpportunityRadar.tsx): Visualizes AI Growth and cross-selling intelligence cards with confidence indicators.
+- [useCeoData.ts](src/components/CeoView/useCeoData.ts): Custom React hook that aggregates metrics, manages filtering states, and compiles sparkline historical ranges.
+- [CeoKpiCards.tsx](src/components/CeoView/CeoKpiCards.tsx): Visualizes net revenue, margins, accounts, and return rates.
+- [CeoCharts.tsx](src/components/CeoView/CeoCharts.tsx): Renders the timelinecomposed chart, segment share pie chart, and Plotly-based Sankey flow diagram.
+- [OpportunityRadar.tsx](src/components/CeoView/OpportunityRadar.tsx): Visualizes AI Growth and cross-selling intelligence cards with confidence indicators.
 
 ### 🔹 Sales Director View (`src/components/SalesDirectorView/`)
-- [useSalesDirectorData.ts](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/SalesDirectorView/useSalesDirectorData.ts): Contains state aggregation, filtering, and YoY comparison calculations.
-- [SalesCharts.tsx](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/SalesDirectorView/SalesCharts.tsx): Timeline composed charts, segment share comparisons.
-- [KpiCards.tsx](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/SalesDirectorView/KpiCards.tsx) & [MultiSelect.tsx](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/SalesDirectorView/MultiSelect.tsx): Reusable components for metrics and command filter options.
+- [useSalesDirectorData.ts](src/components/SalesDirectorView/useSalesDirectorData.ts): Contains state aggregation, filtering, and YoY comparison calculations.
+- [SalesCharts.tsx](src/components/SalesDirectorView/SalesCharts.tsx): Timeline composed charts, segment share comparisons.
+- [KpiCards.tsx](src/components/SalesDirectorView/KpiCards.tsx) & [MultiSelect.tsx](src/components/SalesDirectorView/MultiSelect.tsx): Reusable components for metrics and command filter options.
 
 ### 🔹 Brand Intelligence View (`src/components/BrandDashboardView/`)
-- [useBrandDashboard.ts](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/BrandDashboardView/useBrandDashboard.ts): Manages active sales data calculations, sorting, and toggle states for brand sales.
-- [BrandKpis.tsx](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/BrandDashboardView/BrandKpis.tsx) & [BrandCharts.tsx](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/BrandDashboardView/BrandCharts.tsx): Metric and timeline cards for Nova Koffee, Frappitt, Smoozy, and Zenith.
-- [BrandChurnRisk.tsx](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/BrandDashboardView/BrandChurnRisk.tsx): Handles predictive churn risk algorithms, displaying at-risk customer lists with sorting and pagination.
-- [BrandMarketing.tsx](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/BrandDashboardView/BrandMarketing.tsx): Outlines omnichannel pricing matrix tables and competitive brand directives.
+- [useBrandDashboard.ts](src/components/BrandDashboardView/useBrandDashboard.ts): Manages active sales data calculations, sorting, and toggle states for brand sales.
+- [BrandKpis.tsx](src/components/BrandDashboardView/BrandKpis.tsx) & [BrandCharts.tsx](src/components/BrandDashboardView/BrandCharts.tsx): Metric and timeline cards for Nova Koffee, Frappitt, Smoozy, and Zenith.
+- [BrandChurnRisk.tsx](src/components/BrandDashboardView/BrandChurnRisk.tsx): Handles predictive churn risk algorithms, displaying at-risk customer lists with sorting and pagination.
+- [BrandMarketing.tsx](src/components/BrandDashboardView/BrandMarketing.tsx): Outlines omnichannel pricing matrix tables and competitive brand directives.
 
 ### 🔹 Chatbot Assistant (`src/components/ChatbotAssistant/`)
-- [intents.ts](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/ChatbotAssistant/intents.ts): Defines the offline intent-matching engine, NLP keywords, and local data aggregations.
-- [useChatbot.ts](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/ChatbotAssistant/useChatbot.ts): Hook managing chat state, history lists, and typing delays.
-- [ChatWindow.tsx](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/ChatbotAssistant/ChatWindow.tsx) & [exportUtils.ts](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/components/ChatbotAssistant/exportUtils.ts): Floating chat panels, messages, and PDF/CSV export utility handlers.
+- [intents.ts](src/components/ChatbotAssistant/intents.ts): Defines the offline intent-matching engine, NLP keywords, and local data aggregations.
+- [useChatbot.ts](src/components/ChatbotAssistant/useChatbot.ts): Hook managing chat state, history lists, and typing delays.
+- [ChatWindow.tsx](src/components/ChatbotAssistant/ChatWindow.tsx) & [exportUtils.ts](src/components/ChatbotAssistant/exportUtils.ts): Floating chat panels, messages, and PDF/CSV export utility handlers.
 
 ---
 
 ## 4. Security & Data Protection (Obfuscation)
 
-To protect original corporate records while presenting a realistic demonstration, the location datasets ([src/data/locations_data.ts](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/data/locations_data.ts)) have been obfuscated:
+To protect original corporate records while presenting a realistic demonstration, the location datasets ([src/data/locations_data.ts](src/data/locations_data.ts)) have been obfuscated:
 - All real B2B corporate customer names are replaced with synthetic names (e.g. `Aero Foods`, `Apex Market`).
 - Physical addresses are stripped to basic regional governorates (e.g., `Giza, Egypt`).
 
@@ -66,5 +66,5 @@ To protect original corporate records while presenting a realistic demonstration
 ## 5. Test Coverage & Verification
 
 Unit test suites are configured under **Vitest**:
-- [src/workers/dataWorker.test.ts](file:///c:/Users/medoc/OneDrive/Desktop/work/Central%20Dashboard/src/workers/dataWorker.test.ts): Tests the Web Worker pipeline. Includes check guards for Node environment context where browser worker globals like `self` are stubbed.
+- [src/workers/dataWorker.test.ts](src/workers/dataWorker.test.ts): Tests the Web Worker pipeline. Includes check guards for Node environment context where browser worker globals like `self` are stubbed.
 - Run tests locally using: `npm run test`
