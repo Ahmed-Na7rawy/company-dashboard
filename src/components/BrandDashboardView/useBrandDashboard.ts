@@ -1,3 +1,8 @@
+import { useState, useMemo } from 'react';
+import novaZenithSalesDataRaw from '../../data/nova_zenith_sales_data.json';
+
+const brandData = novaZenithSalesDataRaw as Record<string, any>;
+
 /**
  * Normalized RFM Churn Risk Scoring Algorithm (Recency, Frequency, Monetary)
  * 

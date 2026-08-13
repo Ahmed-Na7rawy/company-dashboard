@@ -1,3 +1,7 @@
+import { useState, useMemo } from 'react';
+import opportunityAlerts from '../../data/opportunity_alerts.json';
+import type { ProcessedRow } from '../CustomerMaterialTable';
+
 /**
  * AI Growth & Cross-Selling Opportunity Confidence Heuristic
  * 
