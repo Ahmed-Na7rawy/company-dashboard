@@ -1,7 +1,7 @@
 # Enterprise Executive BI Dashboard
 
 [![Build Status](https://github.com/Ahmed-Na7rawy/company-dashboard/actions/workflows/ci.yml/badge.svg)](https://github.com/Ahmed-Na7rawy/company-dashboard/actions/workflows/ci.yml)
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://company-dashboard-three.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=flat-square&logo=vercel)](https://company-dashboard-rose.vercel.app)
 
 > **Live Portfolio Demo**: Experience the full interactive BI control center live on Vercel. Test role-based perspectives using the public evaluator credentials in the table below.
 
