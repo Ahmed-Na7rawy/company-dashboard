@@ -21,6 +21,13 @@ To guarantee responsiveness and maintain portfolio-readiness for employers, the 
 - The main React thread only dispatches parameters and renders ready-to-display aggregations. This keeps the application running at 60 FPS even when handling complex, multi-period datasets.
 - Handled with a robust worker wrapper that uses the Cache API and compressed JSON payloads.
 
+```mermaid
+flowchart LR
+    A[React Main Thread] -->|postMessage| B[dataWorker.ts]
+    B -->|aggregation| B
+    B -->|postMessage back| C[Render UI]
+```
+
 ### 📦 Dynamic Lazy Loading & Code Splitting
 - To optimize initial bundle size, all 13 specialized dashboard views are code-split and lazy-loaded dynamically using a wrapper `lazyWithRetry()` helper.
 - Prevents loading massive libraries like Recharts, Plotly, or Leaflet until they are needed by the active role perspective.
